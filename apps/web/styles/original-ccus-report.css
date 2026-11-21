@@ -1,0 +1,10 @@
+/* Presentation additions only. Original CCUS models and chart styling are retained. */
+#sim input[type=number]{width:100%;background:#091727;border:1px solid #36546a;border-radius:6px;color:var(--tx);padding:9px 10px;font:inherit;min-width:0}
+#sim input[type=number]:invalid{border-color:#f3a077}
+#sim .ccus-inputs{margin-bottom:12px}#sim .ccus-inputs>.sg3{margin-top:0}
+.ccus-actions{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:14px 0}
+.ccus-table{overflow:auto;max-height:560px}.ccus-table table{white-space:nowrap}.ccus-table th{position:sticky;top:0;background:#101b2e}.ccus-table td,.ccus-table th{padding:9px}
+.ccus-extra{margin:12px 0}.ccus-extra h3{font-size:13px}.ccus-extra svg{width:100%;display:block}
+.ccus-input-warning{color:#ffb794;font-size:13px;min-height:20px}.ccus-percentages{display:flex;gap:24px;flex-wrap:wrap;padding:10px 0}.ccus-percentages strong{font-size:20px}
+.ccus-extra .tea-subtle{font-size:13px}.ccus-extra button{font-size:14px}
+@media(max-width:750px){#sim{min-width:0}.tea-grid>div,.ccus-extra{min-width:0}.tea-flow-steps{overflow:auto}.ccus-extra h3{line-height:1.6}.tea-sens{grid-template-columns:110px minmax(0,1fr) 60px}}

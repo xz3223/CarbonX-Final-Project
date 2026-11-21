@@ -1,0 +1,15 @@
+node_modules/
+.env*
+.runtime/
+data/flashpoint/
+data/research/*
+!data/research/fafab667-80e8-4f1d-8a48-5715a1103485.json
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+!.env.example
+.payments/
+.tools/
+.jobs/

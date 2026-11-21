@@ -1,0 +1,13 @@
+{
+  "name": "carbon-twin-flashpoint",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Industrial Carbon Twin with saved Flashpoint research integration",
+  "scripts": {
+    "start": "node apps/api/server.cjs",
+    "dev": "node apps/api/server.cjs"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}

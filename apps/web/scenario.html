@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Industrial Carbon Twin · Living Riverside Edition</title>
+<style>
+:root{color-scheme:light;--bg:#eef3f7;--pn:#fff;--ln:#d9e2ea;--tx:#15222e;--mu:#62778a;--cy:#0e8f93;--or:#e8742a;--gr:#2a9d62;--rd:#d64545;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--tx);font:13px/1.45 -apple-system,"Segoe UI","PingFang SC",sans-serif}
+header{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;padding:10px 16px;background:var(--pn);border-bottom:1px solid var(--ln)}
+header h1{margin:0;font-size:17px}header h1 span{color:var(--cy)}.tag{background:#fff1e6;color:#b4560f;border:1px solid #f3c9a4;border-radius:4px;padding:1px 7px;font-size:11px}
+#steps{display:flex;gap:5px;flex-wrap:wrap;margin-left:auto}#steps button{background:#f3f7fa;color:var(--mu);border:1px solid var(--ln);border-radius:14px;padding:3px 10px;cursor:pointer;font-size:12px}
+#steps button.on{color:#fff;background:var(--cy);border-color:var(--cy);font-weight:600}
+#guide{padding:8px 16px;background:#e3f3f3;border-bottom:1px solid #bfe0e0;display:flex;gap:12px;align-items:center;justify-content:space-between}
+button{font:inherit}#nx{background:var(--cy);color:#fff;border:0;border-radius:5px;padding:5px 12px;cursor:pointer;font-weight:600;white-space:nowrap}
+main{display:grid;grid-template-columns:240px minmax(0,1fr) 390px;gap:10px;padding:10px}@media(max-width:1100px){main{grid-template-columns:1fr}}
+aside,#stage{background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:10px}
+h3{margin:0 0 6px;font-size:11px;letter-spacing:.08em;color:var(--mu);text-transform:uppercase}h4{margin:10px 0 2px;font-size:12px}
+label{display:flex;justify-content:space-between;margin-top:9px;font-size:12px}label output{color:var(--cy);font-weight:600}
+input[type=range]{width:100%;accent-color:var(--cy)}.flash{outline:2px solid var(--or);border-radius:4px;animation:f 1s 3}@keyframes f{50%{outline-color:transparent}}
+.ck{display:flex;align-items:center;gap:8px;margin-top:10px;padding:8px;border:1px solid #bfe0cf;background:#f0faf4;border-radius:6px;color:#1d7a49;font-weight:600}
+.pb{background:#f3f7fa;border:1px solid var(--ln);border-radius:4px;color:var(--cy);cursor:pointer;font-size:11px;padding:2px 6px;margin:2px 2px 0 0}
+#kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px}@media(max-width:600px){#kpis{grid-template-columns:1fr 1fr}}
+.k{background:#f6f9fb;border:1px solid var(--ln);border-radius:8px;padding:6px 9px}.k small{color:var(--mu);display:block;font-size:11px}.k b{font-size:19px}
+#cvw{position:relative;height:min(60vh,560px);min-height:340px;border-radius:8px;overflow:hidden;border:1px solid var(--ln);background:linear-gradient(#fff,#e6edf3)}
+canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#modes{position:absolute;top:8px;left:8px;display:flex;gap:4px}#modes button{background:#fffd;border:1px solid var(--ln);border-radius:5px;padding:3px 9px;cursor:pointer;font-size:12px}#modes button.on{border-color:var(--cy);color:var(--cy);font-weight:600}
+.lb{position:absolute;transform:translate(-50%,-100%);background:#fffe;border:1px solid var(--ln);border-radius:10px;padding:0 7px;font-size:10.5px;white-space:nowrap;cursor:pointer;box-shadow:0 1px 4px #0002}.lb.on{background:var(--cy);color:#fff}
+#leg{position:absolute;bottom:6px;left:8px;right:8px;font-size:11px;color:var(--mu);pointer-events:none}
+#tabs{display:flex;gap:3px;margin-bottom:8px}#tabs button{flex:1;background:#f3f7fa;color:var(--mu);border:1px solid var(--ln);border-radius:5px;padding:5px 2px;cursor:pointer;font-size:12px}#tabs button.on{color:#fff;background:var(--cy);border-color:var(--cy)}
+.bar{display:grid;grid-template-columns:128px 1fr 54px;gap:6px;align-items:center;margin:3px 0;font-size:12px}.bar i{display:block;height:9px;border-radius:3px}.bw{background:#edf2f6;border-radius:3px}.bar span:last-child{text-align:right}
+.q{display:inline-block;font-size:11px;padding:0 6px;border-radius:3px;background:#fff1e6;color:#b4560f}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:4px 4px;border-bottom:1px solid var(--ln);text-align:right}td:first-child,th:first-child{text-align:left;color:var(--mu)}th{color:var(--cy)}
+ul{margin:4px 0 8px;padding-left:18px}.neg{color:var(--rd)}.pos{color:var(--gr)}.note{background:#f6f9fb;border-left:3px solid var(--cy);padding:6px 8px;margin:8px 0;font-size:12px}
+footer{padding:4px 16px 16px;color:var(--mu);font-size:11px}
+.sg{display:grid;grid-template-columns:1fr 1fr 230px;gap:10px;margin-bottom:10px}.sg3{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}.cd{background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:10px}
+@media(max-width:1000px){.sg,.sg3{grid-template-columns:1fr 1fr}}@media(max-width:640px){.sg,.sg3{grid-template-columns:1fr}}[hidden]{display:none!important}#sim{padding:10px}
+.big b{font-size:30px;display:block;line-height:1.1}.big small{color:var(--mu)}#aiout{white-space:pre-wrap;background:#f6f9fb;border:1px solid var(--ln);border-radius:8px;padding:10px;min-height:90px;margin-top:8px}
+#aq{width:100%;padding:7px 9px;border:1px solid var(--ln);border-radius:6px;font:inherit}.ai{background:var(--cy);color:#fff;border:0;border-radius:5px;padding:5px 12px;cursor:pointer;font-weight:600;margin:6px 6px 0 0}.lg{font-size:11px;color:var(--mu)}
+</style><style id="skin">
+:root{color-scheme:dark;--bg:#070d17;--pn:#0e1726;--ln:#1f2d44;--tx:#e6eefb;--mu:#8196b3;--cy:#2fd4d8;--or:#ff7a45;--gr:#2fd28a;--rd:#ff5a5a}
+html,body{background:radial-gradient(1200px 600px at 20% -10%,#12233d,#070d17) fixed}
+header{background:#0a1220ee;border-color:var(--ln);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}header h1{font-size:16px}
+.tag{background:#3a2412;color:#ffb27a;border-color:#6b4222}
+.srch{position:relative;flex:1;min-width:180px;max-width:360px}.srch input{width:100%;background:#0e1a2e;color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:6px 10px;font:inherit}
+#sres{position:absolute;left:0;right:0;top:100%;background:#0e1a2e;border:1px solid var(--ln);border-radius:8px;z-index:30;overflow:hidden}#sres button{display:flex;justify-content:space-between;width:100%;background:none;border:0;color:var(--tx);padding:6px 10px;cursor:pointer;text-align:left}#sres button:hover{background:#16263d}#sres small{color:var(--mu)}
+#steps button,.pb,#tabs button{background:#101d33;color:var(--mu);border-color:var(--ln)}.pb{color:var(--cy)}
+#steps button.on,#tabs button.on{background:var(--cy);color:#04141a;border-color:var(--cy)}
+#guide{background:#0b2531;border-color:#14485a}#nx,.ai{background:var(--cy);color:#04141a}
+aside,#stage,.cd{background:linear-gradient(#101b2e,#0c1524);border-color:var(--ln);box-shadow:0 8px 24px #0006}
+#cvw{background:radial-gradient(#17283f,#0a1220);border-color:var(--ln)}
+.k,.note,#aiout,#aq{background:#0f1b2f;border-color:var(--ln);color:var(--tx)}.note{border-left-color:var(--cy)}
+.bw{background:#16233a}.q{background:#3a2412;color:#ffb27a}.ck{background:#0c2a22;border-color:#17503f;color:#5fe0ab}
+#modes{left:auto;right:8px}#modes button{background:#0e1a2ecc;color:var(--mu);border-color:var(--ln)}#modes button.on{color:var(--cy);border-color:var(--cy)}
+.lb{background:#0e1a2ecc;color:var(--tx);border-color:#2a3d5c}.lb.on{background:var(--cy);color:#04141a}
+#leg{left:230px;right:200px;bottom:4px;font-size:10px}
+#crumb{position:absolute;top:8px;left:8px;background:#0e1a2ee6;border:1px solid var(--ln);border-radius:8px;padding:5px 10px;font-size:12px}#crumb i{color:var(--mu);margin:0 4px;font-style:normal}#crumb b{color:var(--cy)}
+#zoom{position:absolute;left:8px;top:48px;display:flex;flex-direction:column;gap:4px}#zoom button{width:30px;height:30px;background:#0e1a2ee6;color:var(--tx);border:1px solid var(--ln);border-radius:8px;cursor:pointer;font-size:16px}
+.ov{position:absolute;bottom:8px;background:#0b1424ee;border:1px solid var(--ln);border-radius:10px;padding:8px 10px;backdrop-filter:blur(6px)}
+#route{left:8px;width:215px}#route h4{margin:0 0 6px;color:var(--or);font-size:12px}
+.rt{display:flex;flex-wrap:wrap;gap:3px 2px;align-items:center;font-size:11px}.rt i{color:var(--or);font-style:normal}.rt button{background:#16233a;color:var(--tx);border:1px solid var(--ln);border-radius:5px;padding:1px 5px;cursor:pointer;font-size:10.5px}.rt button.on{background:var(--or);color:#1a0a02;border-color:var(--or)}
+.rs{display:flex;flex-wrap:wrap;gap:2px 8px;font-size:11px;color:var(--mu);margin:6px 0 2px}.rs b{color:var(--tx)}
+#mm{right:8px;width:186px}#mm circle{cursor:pointer}
+@media(max-width:700px){#route,#mm{display:none}#leg{left:8px;right:8px}}
+.ah{display:flex;align-items:center;gap:8px;font-size:15px;letter-spacing:0;text-transform:none;color:var(--tx)}
+.st{font-size:10.5px;padding:1px 8px;border-radius:10px;background:#0c2a22;color:#5fe0ab;border:1px solid #17503f;font-weight:600}.st.off{background:#2a2f3a;color:var(--mu);border-color:#3a4252}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}.tiles div{background:#0f1b2f;border:1px solid var(--ln);border-radius:8px;padding:6px 9px}.tiles small{display:block;color:var(--mu);font-size:10.5px}.tiles b{font-size:20px}.tiles b i{font-size:11px;color:var(--mu);font-style:normal;margin-left:3px}.tiles b.sm{font-size:13px}
+svg line[stroke="#e3eaf0"]{stroke:#1f2d44}#sk text{fill:#dbe6f5;stroke:#0b1424}
+
+#detailToggle{background:#153b43!important;color:#8ce8eb!important;border-color:#2b8791!important;white-space:nowrap}
+#detailToggle:not(.on){background:#19283a!important;color:#a5b7c9!important;border-color:#435568!important}
+
+/* Ecological surroundings are scenery only and excluded from emissions accounting. */
+#environmentToggle.on{background:#123c30!important;color:#7ef3c1!important;border-color:#26835a!important}
+#environmentToggle:not(.on){background:#19283a!important;color:#9fadc3!important;border-color:#435568!important}
+#wideView{background:#142a3d!important;color:#bddbe8!important;border-color:#35556e!important}
+#wideView.on{color:#80f0cc!important;border-color:#2a9374!important}
+#environmentTag{position:absolute;bottom:43px;right:9px;z-index:3;background:#091b2bce;border:1px solid #23635e;border-radius:8px;padding:4px 9px;color:#b6e6da;font-size:10px;pointer-events:none;max-width:50%;text-align:right}
+#modes{flex-wrap:wrap;justify-content:flex-end;max-width:min(92%,470px)}
+#modes button{font-size:11px!important}
+@media(max-width:660px){#environmentTag{display:none}#modes{max-width:90%}#modes button{font-size:10px!important;padding:3px 5px!important}}
+/* Clear parameter-to-output accountability, without confusing modeled and empirical quantities. */
+#navModePan.on,#navModeOrbit.on{background:#2fd4d8!important;color:#04141a!important;border-color:#2fd4d8!important}
+#cv{cursor:grab}#cv:active{cursor:grabbing}
+#impactBox,#simImpactBox,#yearPanel{margin-top:11px;border:1px solid #28445a;border-radius:9px;padding:10px;background:#101f2e;color:#d8e9f7;font-size:11px}
+#impactBox strong,#simImpactBox strong{color:#79e4e6}#impactBox .impactrow,#simImpactBox .impactrow{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:7px 0}
+#impactBox .impactrow span,#simImpactBox .impactrow span{padding:6px 7px;background:#0c1725;border:1px solid #243e51;border-radius:5px}
+#impactBox .subtle,#simImpactBox .subtle,#yearPanel .subtle{color:#9db2c5;font-size:10px}
+#impactBox .impactrow{grid-template-columns:1fr}#simImpactBox .impactrow{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){#simImpactBox .impactrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#yearPanel label{margin-top:2px;font-weight:650}
+#yearPanel output{color:#7be6e8;font-weight:700}
+#sl [data-k]:disabled,#ctl input:disabled{opacity:.35;cursor:not-allowed}
+#scenarioCaveat{font-size:11px;border-left:3px solid #dfaa54;background:#2b241d;color:#d8cbb5;padding:8px 10px;margin-top:8px;border-radius:5px}
+#modelBadge{font-size:11px;color:#aed0e1;margin:7px 0}
+
+/* ----- Techno-economic scenario studio ----- */
+#sim{max-width:1540px;margin:auto;padding:13px}
+#sim h3{letter-spacing:.08em}
+.tea-hero{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.tea-hero .tea-intro{color:#b9cedb;font-size:12px;max-width:810px}
+.tea-kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:9px 0 12px}
+.tea-kpi{border:1px solid #284459;border-radius:10px;background:linear-gradient(145deg,#13283b,#0d1b2c);padding:12px}
+.tea-kpi small{color:#91a9bd;display:block;font-size:10px;min-height:29px;line-height:1.3}
+.tea-kpi strong{display:block;font-size:18px;color:#ecf7ff;white-space:nowrap;margin-top:5px}
+.tea-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.tea-grid .cd{min-width:0}.tea-span{grid-column:1/-1}
+.tea-subtle{font-size:10.5px;color:#9cb1c3;margin:7px 0;line-height:1.5}
+.tea-legend{display:flex;gap:12px;flex-wrap:wrap;color:#b8d0db;font-size:11px;margin:4px 0 8px}
+.tea-legend i{display:inline-block;width:10px;height:10px;margin-right:5px;border-radius:2px}
+.tea-bar{display:grid;grid-template-columns:116px 1fr 81px;align-items:center;gap:8px;font-size:11px;margin:6px 0}
+.tea-track{height:9px;background:#172638;border-radius:4px;overflow:hidden}.tea-track div{height:100%;border-radius:4px}.tea-bar b{text-align:right;font-size:11px;color:#c9e8e5}
+.tea-sens{display:grid;grid-template-columns:110px 1fr 60px;gap:7px;align-items:center;margin:8px 0;font-size:11px}
+.tea-sens-track{height:13px;position:relative;border:1px solid #284257;border-radius:4px;background:#132333}
+.tea-sens-zero{position:absolute;left:50%;height:100%;width:1px;background:#a5b9c7}.tea-sens-band{position:absolute;top:2px;bottom:2px;background:linear-gradient(90deg,#f1a46d,#53d6c6);border-radius:2px}
+.tea-flow-steps{display:flex;gap:6px;align-items:stretch;justify-content:space-between;flex-wrap:wrap;padding:6px 0}
+.tea-flow-steps div{flex:1 1 135px;min-width:116px;border:1px solid #2b4a5e;background:#102738;padding:11px;border-radius:8px}
+.tea-flow-steps b{display:block;color:#b4f0ed;font-size:12px}.tea-flow-steps small{display:block;font-size:10px;color:#a2b6c6;margin-top:4px}
+.tea-flow-steps i,.tea-flow-branch{align-self:center;color:#4bd5d7;font-style:normal;font-size:20px}
+.tea-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.tea-config label{font-size:11px;gap:8px}.tea-config output{white-space:nowrap;color:#80e5df}
+.tea-config input{accent-color:#37d5cc}.tea-mc-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:9px 0}
+.tea-mc-actions select{background:#13283b;border:1px solid #345266;color:#c9e3ef;padding:5px 8px;border-radius:5px}
+.tea-mc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:9px 0}.tea-mc-stats span{background:#102236;border:1px solid #28415b;border-radius:6px;padding:7px}
+.tea-mc-stats small{display:block;color:#819db1;font-size:10px}.tea-mc-stats b{font-size:13px;color:#e3f6fa}
+.tea-warning{border-left:3px solid #d49b52;background:#28231d;color:#d9c1a0;padding:11px;border-radius:5px;font-size:11px;margin:10px 0}
+.tea-compact{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* vertical geologic section camera slider */
+#depthConsole{position:absolute;right:9px;top:104px;width:127px;min-height:232px;padding:10px 8px 8px;background:#091627e8;border:1px solid #2b6171;border-radius:10px;box-shadow:0 8px 24px #0007;z-index:9;color:#c9ebeb;text-align:center;backdrop-filter:blur(5px)}
+#depthConsole b{font-size:11px;display:block;color:#a5e9e2}#depthConsole .depth-number{font-size:18px;color:#47dccf;font-weight:750}
+#geoDepth{writing-mode:vertical-lr;direction:rtl;appearance:slider-vertical;-webkit-appearance:slider-vertical;width:23px;height:126px;display:block;margin:8px auto;accent-color:#45d9cc;cursor:pointer}
+#depthConsole .depth-label{font-size:9px;color:#96bac8;line-height:1.4}
+#depthConsole button{font-size:9px;background:#16384a;border:1px solid #347283;border-radius:4px;color:#e0f5f7;padding:3px 6px;cursor:pointer;margin-top:5px}
+#geoKeys{position:absolute;right:142px;top:107px;z-index:8;color:#c6dee8;font-size:10px;line-height:1.5;background:#0b1726d4;border:1px solid #263f51;border-radius:7px;padding:7px 9px;pointer-events:none}
+#geoKeys div{white-space:nowrap}#geoKeys i{display:inline-block;width:10px;height:8px;margin-right:5px;border-radius:1px}
+@media(max-width:1190px){.tea-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.tea-config{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:750px){.tea-grid,.tea-compact{grid-template-columns:1fr}.tea-config{grid-template-columns:1fr}.tea-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}#geoKeys{display:none}#depthConsole{top:144px;min-height:175px;width:88px;padding:6px}#geoDepth{height:83px;margin:3px auto}#depthConsole .depth-number{font-size:12px}}
+</style><link rel="stylesheet" href="/styles/original-ccus-report.css"></head><body>
+<header><h1>Follow the <span>Carbon</span> · Living Riverside Twin</h1><div class="srch"><input id="srch" placeholder="Search equipment…   ( / )" autocomplete="off"><div id="sres"></div></div><span class="tag">Illustrative model · not a verified emissions inventory or investment case</span><button class="pb" id="vw" style="font-size:12px;padding:3px 10px">Scenario Simulator ▶</button><a class="pb" href="/atlas.html">U.S. Map</a><div id="steps"></div></header>
+<div id="guide"><span id="gt"></span><button id="nx">Next ▶</button></div>
+<main>
+<aside><h3>Controls</h3><div id="pre"></div><div id="ctl"></div>
+<div class="ck"><input type="checkbox" id="ccs"><label for="ccs" style="margin:0;display:inline">Install CCS (capture + storage)</label></div>
+<div id="yearPanel"><label for="plantYear">3D / ledger display year <output id="plantYearValue">2050</output></label><input id="plantYear" type="range" min="2025" max="2050" value="2050" step="1"><div class="subtle">Deployment year affects the displayed 3D results. This is not a historical observation.</div></div>
+<div id="impactBox" aria-live="polite"><strong>Parameter impact</strong><div class="subtle">Change a slider to see which computed outputs move, and why.</div></div>
+</aside>
+<section id="stage"><div id="kpis"></div>
+<div id="cvw"><canvas id="cv"></canvas><div id="modes"><button id="navModePan" class="on" title="Left-drag to move freely across the site">✥ Pan</button><button id="navModeOrbit" title="Left-drag to rotate the camera; right-drag always rotates">⟳ Orbit</button><button data-m="n" class="on">Realistic</button><button data-m="c">Carbon heat</button><button id="detailToggle" class="on" title="Switch procedural industrial detail on or off">High detail: ON</button><button id="environmentToggle" class="on" title="Toggle the riverside environment, traffic, houses and trees">Landscape: ON</button><button id="wideView" class="on" title="Switch between wider environment framing and the original plant framing">Plant view</button></div>
+<div id="crumb"></div><div id="zoom"><button id="zi" title="Zoom in">+</button><button id="zo" title="Zoom out">−</button><button id="zr" title="Reset view">⌖</button></div><div id="route" class="ov"></div><div id="mm" class="ov"></div><div id="depthConsole"><b>GROUND / DEPTH</b><div class="depth-number" id="depthReadout">Surface</div><input id="geoDepth" type="range" min="0" max="35" step="1" value="0" aria-label="Move vertical camera from surface to subsurface"><div class="depth-label">Drag down to explore the cross-section<br>Illustrative depth, not meters</div><button id="depthSurface" type="button">Surface</button> <button id="depthStorage" type="button">Storage</button></div><div id="geoKeys"><div><i style="background:#a66042"></i>Rock / soil</div><div><i style="background:#4f92b1"></i>Illustrative aquifer</div><div><i style="background:#555f67"></i>Caprock</div><div><i style="background:#c5a264"></i>Saline formation</div></div><div id="environmentTag">ILLUSTRATIVE LANDSCAPE · 3D scenery, not emissions data</div><div id="leg">Drag to PAN · choose Orbit to rotate · right-drag to rotate · wheel to zoom · click equipment. Brown = fuel carbon in · orange = CO₂ released · teal = captured CO₂. Conceptual flow, not CFD; not to scale. Geological strata, river, vehicles, nearby homes, vegetation, background units and glowing lines are illustrative scenery (orange glow follows emissions, teal follows capture).</div></div></section>
+<aside><div id="tabs"></div><div id="pane"></div></aside>
+</main>
+<section id="sim" hidden><div class="cd" id="scn" style="margin-bottom:10px"><h3>Scenario · conditional model results, not forecasts</h3></div>
+<div class="tea-hero"><div><h2 style="margin:0 0 4px;font-size:21px">CCUS Economics &amp; Investment Studio</h2><div class="tea-intro">Box-model techno-economic analysis · Capture → Transport → Utilization / Storage → Market / Policy · all cash flows in 2025 USD millions (illustrative, not a financing recommendation)</div></div><div class="tea-subtle">One illustrative BF–BOF plant · 2025–2050 · 8% starting discount rate, adjustable</div></div>
+<div id="teaMetrics" class="tea-kpis"></div>
+<div class="tea-grid">
+ <div class="cd"><h3>Annual revenue, OPEX &amp; CAPEX · $M/year</h3><div class="tea-legend"><span><i style="background:#34c7a6"></i>Revenue + savings</span><span><i style="background:#ec9361"></i>OPEX</span><span><i style="background:#6f9ee8"></i>Gross CAPEX</span></div><div id="financeFlow"></div></div>
+ <div class="cd"><h3>Cumulative undiscounted net cash flow · $M</h3><div id="financeCumulative"></div><div class="tea-subtle">NPV separately discounts yearly net cash flows. Payback uses undiscounted cumulative cash flow.</div></div>
+ <div class="cd"><h3>CAPEX allocation &amp; annual OPEX by box</h3><div id="financeBoxes"></div></div>
+ <div class="cd"><h3>One-at-a-time NPV sensitivity</h3><div id="financeSensitivity"></div></div>
+ <div class="cd"><h3>Monte Carlo · NPV distribution</h3><div class="tea-mc-actions"><button id="mcRun" class="ai" type="button">▶ Run Monte Carlo</button><label style="display:inline;margin:0">Trials <select id="mcSamples"><option value="250">250</option><option value="500" selected>500</option><option value="1000">1,000</option></select></label></div><div id="mcStatus" class="tea-subtle">Not run yet. Click Run Monte Carlo.</div><div class="tea-mc-stats" id="mcStats"></div><div id="mcPlot"></div></div>
+ <div class="cd"><h3>Energy mix &amp; current scenario</h3><div id="c2"></div><div class="lg"><span style="color:#f2b632">■ Solar</span> <span style="color:#4aa3d8">■ Wind</span> <span style="color:#2a9d62">■ Other low-carbon</span> <span style="color:#8a949d">■ Fossil grid</span></div><div id="big" class="big" style="margin-top:12px"></div></div>
+ <div class="cd tea-span"><h3>CCUS box model · mass flow / financial flow (selected year)</h3><div id="teaChain"></div></div>
+</div>
+<div class="cd" style="margin-bottom:10px"><h3>TEA assumptions &amp; investment parameters · illustrative</h3><div class="tea-subtle">Change any control to recompute every investment graph. These are user-editable placeholders; utilization is not counted as permanent storage. Carbon-price monetization and service fees are hypothetical, not verified 45Q/credit entitlements.</div><div id="teaControls" class="tea-config"></div></div>
+<div class="cd" id="simImpactBox" aria-live="polite"></div><div id="scenarioCaveat">⚠ Scenario results use an illustrative physical electricity mix, not a formal GHG Protocol location-based inventory. “Net” includes a 100-year future-storage-loss adjustment assigned to its capture year; it is not a measured annual leakage rate. Financial boxes use illustrative cost coefficients; they are not a validated engineering estimate or investment case.</div>
+<div class="cd"><h3>CO₂ pathways: from fuel and electricity to atmosphere or storage</h3><div id="skc" class="lg"><button class="pb" data-m="e">Energy flow (GWh/yr)</button><button class="pb" data-m="c">Carbon flow (Mt CO₂e/yr)</button> Year <input type="range" id="sy" min="2025" max="2050" value="2050" style="width:150px;vertical-align:middle"> <output id="syo">2050</output></div><div id="sk"></div><div class="lg">Width = GWh/yr (energy view) or Mt CO₂e/yr (carbon view); the units are never mixed. Zero-emission power has no CO₂ link. Capture-energy CO₂ is inside Scope 2. Click a node to highlight; hover for values. Conversion losses and CO₂ transport fuel are not modelled.</div></div>
+<div class="sg3" id="sl"></div>
+<div class="cd"><h3>AI analyst · explain &amp; conditional outlook</h3><div class="lg">In connected mode an LLM reads only this model’s structured outputs; offline you get a labelled template summary. It can run what-if scenarios through the engine (tool call). Outlook = scenario reasoning, not a prediction. Parameters are illustrative.</div>
+<input id="aq" placeholder="Ask anything, e.g. What if the carbon price is $150 and wind reaches 40%?"><button class="ai" id="a0">Explain &amp; outlook</button><button class="ai" id="a1">Ask</button>
+<span id="aqs"></span><div id="aiout">Press “Explain &amp; outlook”.</div></div></section>
+<footer>One illustrative BF–BOF pathway, 2.0 Mt steel/yr. Boundary: plant-gate Scope 1 + purchased electricity (illustrative physical electricity supply-mix proxy (not a formal location-based Scope 2 inventory) + capture energy; storage loss = 100-year expected loss attributed to the capture year; lifecycle (equipment, Scope 3) not included. Upstream (Scope 3), CO₂ transport fuel and product use are excluded. TEA cost coefficients and underground geology are illustrative only. No actual reservoir, 45Q eligibility or investment result is implied. All parameters are illustrative assumptions with ranges shown in “Limits”.</footer>
+<script src="/vendor/three-r128.min.js"></script>
+<script>
+/* Industrial Carbon Twin engine: deterministic, no UI. ALL PARAMETERS ILLUSTRATIVE.
+   Boundary: one BF-BOF plant, 2.0 Mt steel/yr. Scope 1 + illustrative electricity supply-mix proxy (not a formal location-based inventory) + capture energy.
+   Units: emissions Mt CO2e/yr; energy GWh/yr; factors kg CO2/kWh; GWh*kg/kWh/1000 = Mt. */
+(function (g) {
+'use strict';
+const SRC = [ // e = baseline Scope 1 (Mt/yr); gwh = fuel energy (GWh/yr); c = capture-eligible
+  { id: 'sinter', e: .38, c: 1, gwh: 2100, fuel: 'coal' }, { id: 'bf', e: .80, c: 1, gwh: 6800, fuel: 'coal' },
+  { id: 'stoves', e: .30, c: 1, gwh: 2300, fuel: 'pgas' }, { id: 'mill', e: .50, c: 0, gwh: 2500, fuel: 'ngas' }];
+const K = { reducible: .6, capShare: .75, elecPerFuel: .7, steel: 2, rate: .08,
+  lc: { so: .045, wi: .011, ot: .012 } }; // lifecycle kg/kWh: illustrative memo only, never added to operational totals
+const P0 = { re: 20, ef: .42, eff: 0, ccs: false, cap: 90, pen: .3, perm: 99, cp: 75, el: 0, sub: 0, yr: 2030, so: 8, wi: 7, ot: 5, ed: 1000, dur: 10 };
+const R = { so: [0, 100], wi: [0, 100], ot: [0, 100], ef: [0, 1.2], eff: [0, 50], el: [0, 100], cap: [0, 100], pen: [0, 1], perm: [0, 100],
+  cp: [0, 1000], sub: [0, 100], yr: [2025, 2050], dur: [1, 25], ed: [100, 5000] };
+const cl = (v, [a, b]) => Math.min(b, Math.max(a, v));
+const YRS = Array.from({ length: 26 }, (_, i) => 2025 + i);
+
+/* Reject/clamp invalid input; supply shares are the source of truth (re is derived); fossil = remainder. */
+function validate(x) {
+  const p = { ...P0, ...x }, w = [];
+  for (const k in R) { let v = +p[k]; if (!Number.isFinite(v)) { w.push(k + ' invalid, default used'); v = P0[k]; }
+    const c = cl(v, R[k]); if (c !== v) w.push(`${k} clamped to ${c}`); p[k] = c; }
+  p.ccs = !!p.ccs; let s = p.so + p.wi + p.ot;
+  if (s > 100 + 1e-9) { w.push('supply shares exceeded 100%, scaled to 100%'); for (const k of ['so', 'wi', 'ot']) p[k] *= 100 / s; s = 100; }
+  p.re = s; return { p, w };
+}
+
+/* Steady-state accounting for one set of parameters. */
+function calc(x) {
+  const { p } = validate(x), k = 1 - p.eff / 100 * K.reducible, s1 = {}, fuel = {}; let t1 = 0, cp = 0;
+  for (const s of SRC) { const f = s.id === 'mill' ? 1 - p.el / 100 : 1; s1[s.id] = s.e * k * f; fuel[s.id] = s.gwh * k * f; t1 += s1[s.id]; if (s.c) cp += s1[s.id] * K.capShare; }
+  const cap = p.ccs ? cp * p.cap / 100 : 0, pg = cap * p.pen * 1000;            // capture energy, GWh = Mt * MWh/t * 1000
+  const disp = SRC[3].gwh * k * p.el / 100, eh = disp * K.elecPerFuel;           // fuel displaced -> electricity needed
+  const base = p.ed * (1 - p.eff / 100), el = base + eh + pg;                    // purchased electricity demand
+  const fs = Math.max(0, 100 - p.re), sup = { so: el * p.so / 100, wi: el * p.wi / 100, ot: el * p.ot / 100, fo: el * fs / 100 }, gf = p.ef / 1000;
+  const s2 = sup.fo * gf, pen = pg * fs / 100 * gf, leak = cap * (1 - p.perm / 100), res = t1 - cap, op = res + s2;
+  const lc = s2 + (sup.so * K.lc.so + sup.wi * K.lc.wi + sup.ot * K.lc.ot) / 1000;
+  return { p, s1, fuel, t1, cp, cf: p.ccs ? K.capShare * p.cap / 100 : 0, cap, pg, eh, disp, base, el, sup, s2, pen, leak,
+    store: cap - leak, res, op, net: op + leak, lc }; // net = operational + expected 100-yr storage loss (attributed to capture year)
+}
+const bau = p => ({ ...p, eff: 0, el: 0, so: P0.so, wi: P0.wi, ot: P0.ot, re: P0.re, ccs: false });
+const ramp = (p, y) => cl((y - p.yr) / p.dur, [0, 1]);
+function at(x, y) { const { p } = validate(x), u = ramp(p, y);
+  const q = { ...p, eff: p.eff * u, el: p.el * u, so: P0.so + (p.so - P0.so) * u, wi: P0.wi + (p.wi - P0.wi) * u, ot: P0.ot + (p.ot - P0.ot) * u, ccs: p.ccs && u > 0, cap: p.cap * u };
+  return { u, q, r: calc(q) }; }
+
+function irr(cf) { const n = r => cf.reduce((s, c, t) => s + c / Math.pow(1 + r, t), 0);
+  if (n(1e-4) < 0) return '<0%'; if (n(1) > 0) return '>100%'; let lo = 1e-4, hi = 1;
+  for (let i = 0; i < 60; i++) { const m = (lo + hi) / 2; n(m) > 0 ? lo = m : hi = m; } return (lo * 100).toFixed(1) + '%'; }
+/* Finance on the 2025-2050 timeline: CAPEX spent pro rata to deployment; benefit = avoided CO2 * carbon price (+ energy savings) - OPEX.
+   Carbon price never alters physical emissions. 8% discount to 2025, no terminal value, no tax/financing. */
+function fin(x) {
+  if (g.FinancialEngine) return g.FinancialEngine.finance(x,g.TEA_CONFIG);
+  const { p } = validate(x), full = calc(p), capex = (full.cap * 450 + p.eff * 8) * (1 - p.sub / 100), bn = calc(bau(p)).net;
+  let prev = 0, npv = 0, cum = 0, last; const cf = [];
+  YRS.forEach((y, t) => { const a = at(p, y), r = a.r, d = bn - r.net, opex = r.cap * 50 + r.pg * .07 + Math.max(0, r.p.re - 20) / 100 * r.el * .01,
+    sav = r.p.eff * 3, c = d * p.cp + sav - opex - capex * (a.u - prev); prev = a.u; cum += d; cf.push(c); npv += c / Math.pow(1 + K.rate, t); last = { d, opex, sav }; });
+  const crf = K.rate / (1 - Math.pow(1 + K.rate, -25));
+  return { d: last.d, capex, opex: last.opex, ann: last.opex - last.sav, npv, cum, irr: capex > 0 ? irr(cf) : '—', mac: last.d > .001 ? (capex * crf + last.opex - last.sav) / last.d : null, cashflows_MUSD:cf, finance_quality:'Partial illustrative NPV: no electrification CAPEX, no renewable supply CAPEX/contract, no injection/transport/MRV costs. Carbon-price savings are hypothetical, not verified credit or subsidy eligibility.' };
+}
+
+/* Flow tables for the two Sankeys. Node = [column, label, colour]; link = [from, to, value]. Never mix units. */
+function energyFlows(r) {
+  const N = { coal: [0, 'Coal & coke', '#5a4638'], pgas: [0, 'Furnace gas', '#c9742a'], ngas: [0, 'Natural gas', '#e8742a'], sol: [0, 'Solar', '#f2b632'], win: [0, 'Wind', '#4aa3d8'], oth: [0, 'Other low-carbon', '#2a9d62'], fgr: [0, 'Fossil grid power', '#8a949d'],
+    ele: [1, 'Purchased electricity', '#c9a227'], sin: [2, 'Coke & sinter', '#7f93a5'], bf: [2, 'Blast furnace', '#7f93a5'], sto: [2, 'Hot-blast stoves', '#7f93a5'], mil: [2, 'Steel shop (fuel)', '#7f93a5'],
+    aux: [2, 'Base electric loads', '#7f93a5'], eht: [2, 'Electric heating', '#7f93a5'], ccs: [2, 'CCS capture & compression', '#0e8f93'] };
+  return { N, unit: 'GWh', X: [190, 450, 690], L: [['coal', 'sin', r.fuel.sinter], ['coal', 'bf', r.fuel.bf], ['pgas', 'sto', r.fuel.stoves], ['ngas', 'mil', r.fuel.mill],
+    ['sol', 'ele', r.sup.so], ['win', 'ele', r.sup.wi], ['oth', 'ele', r.sup.ot], ['fgr', 'ele', r.sup.fo], ['ele', 'aux', r.base], ['ele', 'eht', r.eh], ['ele', 'ccs', r.pg]] };
+}
+function carbonFlows(r) {
+  const N = { coal: [0, 'Coal & coke carbon', '#5a4638'], pgas: [0, 'Furnace-gas combustion', '#c9742a'], ngas: [0, 'Natural gas & fuel', '#e8742a'], fgr: [0, 'Fossil grid generation', '#8a949d'],
+    sin: [1, 'Coke & sinter', '#7f93a5'], bf: [1, 'Blast furnace', '#7f93a5'], sto: [1, 'Hot-blast stoves', '#7f93a5'], mil: [1, 'Steel shop & rolling', '#7f93a5'], ele: [1, 'Electricity use (Scope 2)', '#c9a227'],
+    atm: [2, 'Released to atmosphere', '#e0583a'], cap: [2, 'Captured CO₂', '#0e8f93'], stg: [3, 'Geological storage', '#2a9d62'], lost: [3, 'Expected loss (100 y)', '#d64545'] }, c = r.cf, s = r.s1;
+  return { N, unit: 'Mt', X: [170, 400, 620, 800], L: [['coal', 'sin', s.sinter], ['coal', 'bf', s.bf], ['pgas', 'sto', s.stoves], ['ngas', 'mil', s.mill], ['fgr', 'ele', r.s2],
+    ['sin', 'atm', s.sinter * (1 - c)], ['bf', 'atm', s.bf * (1 - c)], ['sto', 'atm', s.stoves * (1 - c)], ['mil', 'atm', s.mill], ['ele', 'atm', r.s2],
+    ['sin', 'cap', s.sinter * c], ['bf', 'cap', s.bf * c], ['sto', 'cap', s.stoves * c], ['cap', 'stg', r.store], ['cap', 'lost', r.leak]] };
+}
+function imbalance(L) { const m = {}; L.forEach(([a, b, v]) => { (m[a] = m[a] || { i: 0, o: 0 }).o += v; (m[b] = m[b] || { i: 0, o: 0 }).i += v; });
+  return Math.max(0, ...Object.values(m).filter(n => n.i && n.o).map(n => Math.abs(n.i - n.o))); }
+const checks = r => ({ energy_GWh: imbalance(energyFlows(r).L), carbon_Mt: imbalance(carbonFlows(r).L),
+  supply_vs_demand_GWh: Math.abs(r.sup.so + r.sup.wi + r.sup.ot + r.sup.fo - r.el) });
+
+/* Controlled tool interface for any LLM: validated inputs in, structured numbers out. */
+const MAP = { solar_share: 'so', wind_share: 'wi', other_lowcarbon_share: 'ot', electrification_rate: 'el', efficiency_improvement: 'eff', ccs_enabled: 'ccs',
+  capture_rate: 'cap', carbon_price: 'cp', subsidy_rate: 'sub', adoption_start_year: 'yr', ramp_years: 'dur', storage_retention: 'perm',
+  capture_energy_penalty: 'pen', fossil_emission_factor: 'ef', electricity_demand_gwh: 'ed' };
+const n4 = v => Math.round(v * 1e4) / 1e4;
+function runScenario(inp) {
+  const y = +(inp.target_year ?? 2050); if (!Number.isInteger(y) || !(y >= 2025 && y <= 2050)) throw new Error('target_year must be an integer 2025-2050');
+  const x = { ...(inp.base || P0) }, w = [], ov = inp.overrides || {};
+  // AI/tool inputs must not silently bypass slider constraints. UI imports are handled by validate().
+  for (const k in ov) {
+    if (!MAP[k]) throw new Error('Unsupported scenario parameter: ' + k);
+    const target=MAP[k];
+    if (target==='ccs') {if (typeof ov[k]!=='boolean') throw new Error(k+' must be boolean');}
+    else {
+      if (typeof ov[k]!=='number'||!Number.isFinite(ov[k])) throw new Error(k+' must be a finite number');
+      const bounds=R[target];if (bounds && (ov[k]<bounds[0]||ov[k]>bounds[1]))throw new Error(k+' out of range: '+bounds.join('–'));
+    }
+    x[target]=ov[k];
+  }
+  if (x.so+x.wi+x.ot>100+1e-7) throw new Error('Electricity supply shares must total at most 100% (remainder is fossil)');
+  const v = validate(x), p = v.p, a = at(p, y), r = a.r, bn = calc(bau(p)).net, F = fin(p), ck = checks(r);
+  const cum = YRS.filter(t => t <= y).reduce((s, t) => s + bn - at(p, t).r.net, 0), tot = r.el || 1;
+  return { scenario_name: inp.scenario_name || 'custom', year: y, deployment_fraction: n4(a.u), inputs: p,
+    energy_mix: { demand_GWh: n4(r.el), supply_GWh: { solar: n4(r.sup.so), wind: n4(r.sup.wi), other_low_carbon: n4(r.sup.ot), fossil_grid: n4(r.sup.fo) },
+      shares_pct: { solar: n4(r.sup.so / tot * 100), wind: n4(r.sup.wi / tot * 100), other_low_carbon: n4(r.sup.ot / tot * 100), fossil_grid: n4(r.sup.fo / tot * 100) } },
+    scope1_gross_MtCO2e: n4(r.t1), scope1_released_MtCO2e: n4(r.res), scope2_scenario_MtCO2e: n4(r.s2), scope2_method: 'illustrative physical supply mix; not an audited location-based or market-based inventory', operational_total_MtCO2e: n4(r.op),
+    expected_storage_loss_100y_MtCO2e: n4(r.leak), net_incl_storage_loss_MtCO2e: n4(r.net), captured_MtCO2e: n4(r.cap), retained_in_storage_MtCO2e: n4(r.store),
+    capture_energy_CO2_MtCO2e: n4(r.pen), bau_net_MtCO2e: n4(bn), avoided_vs_bau_MtCO2e: n4(bn - r.net), cumulative_avoided_to_year_MtCO2e: n4(cum),
+    intensity_tCO2_per_t_steel: n4(r.net / K.steel), lifecycle_scope2_memo_MtCO2e: n4(r.lc),
+    finance: { capex_MUSD: n4(F.capex), opex_MUSD_per_yr_final: n4(F.opex), npv_MUSD: n4(F.npv), irr: F.irr, usd_per_t_avoided: F.mac == null ? null : n4(F.mac), basis: '2025-2050 dated annual deployment/cashflows, 8% discount, no terminal value or tax; partial costs only', finance_quality: F.finance_quality },
+    net_zero_claim_allowed: false, net_zero_within_limited_boundary: r.net <= 0.01, model_id: 'industrial-carbon-twin-illustrative-v0.2', model_boundary: 'One illustrative BF-BOF plant, direct emissions + physical electricity-mix scenario; no full Scope 3', checks: ck, warnings: [...v.w, ...w],
+    assumptions: ['Illustrative physical supply-mix estimate: fossil share × fossil-generation emission factor; not a formal location-based or market-based Scope 2 inventory',
+      'Electrification: 0.7 MWh electricity per MWh of displaced gas (illustrative)', 'Efficiency lowers energy use; 60% of Scope 1 treated as energy-related (illustrative)',
+      'Storage loss = (1 - 100 y retention) of captured CO2, attributed to capture year', 'Excluded: Scope 3, CO2 transport/injection fuel, lifecycle emissions of equipment, hydrogen DRI',
+      'Conditional scenario results, not forecasts'], data_quality: 'illustrative' };
+}
+g.CarbonEngine = { SRC, K, P0, R, YRS, validate, calc, bau, at, fin, energyFlows, carbonFlows, checks, runScenario, MAP };
+if (typeof module !== 'undefined') module.exports = g.CarbonEngine;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+</script>
+<script>
+/* CCUS Box-Model TEA: illustrative user-defined parameters, not an audited business case.
+   All money units: million USD, all mass units: million tonnes CO2 / yr. */
+(function(g){'use strict';
+ const E=g.CarbonEngine;
+ const DEFAULTS={discount:8,captureCapex:450,transportCapex:85,storageCapex:110,
+  efficiencyCapex:8,electrifyCapex:3,renewCapex:1.5,utilCapex:180,
+  captureOpex:35,transportOpex:13,storageOpex:18,utilOpex:12,mrvOpex:5,
+  powerPrice:.07,renewPremium:.01,effSavings:3,fuelSavings:.4,
+  transportLoss:.5,utilShare:0,utilPrice:30,storageFee:0,
+  policyEligible:100,uncertainty:20};
+ g.TEA_CONFIG=Object.assign({},DEFAULTS);
+ const range=(n,a,b)=>Math.max(a,Math.min(b,n));
+ const sum=a=>a.reduce((s,n)=>s+n,0);
+ function cashIRR(cfs){
+   if(!cfs.some(v=>v<0)||!cfs.some(v=>v>0))return '—';
+   const npv=r=>cfs.reduce((v,c,i)=>v+c/Math.pow(1+r,i),0);
+   // Scan feasible real discount roots. Multiple roots make IRR ambiguous.
+   const nodes=[-.95,-.9,-.8,-.6,-.4,-.2,-.1,0,.0001,.01,.03,.06,.1,.15,.25,.4,.65,1,1.5,2,3];
+   const roots=[];for(let j=1;j<nodes.length;j++){
+     let l=nodes[j-1],h=nodes[j],nl=npv(l),nh=npv(h);
+     if(!Number.isFinite(nl)||!Number.isFinite(nh))continue;
+     if(Math.abs(nl)<1e-7){roots.push(l);continue}
+     if(nl*nh>0)continue;
+     for(let k=0;k<55;k++){const m=(l+h)/2,nm=npv(m);if(nl*nm<=0){h=m;nh=nm}else{l=m;nl=nm}}
+     roots.push((l+h)/2);
+   }
+   const unique=roots.filter((r,i)=>i===0||Math.abs(r-roots[i-1])>.0001);
+   return unique.length===1?(unique[0]*100).toFixed(1)+'%':unique.length>1?'Multiple roots':'—';
+ }
+ function finance(raw, config){
+   const cfg={...DEFAULTS,...(config||g.TEA_CONFIG)},p=E.validate(raw).p,
+    full=E.calc(p),bv=E.calc(E.bau(p)).net,r=cfg.discount/100;
+   const cap={
+      Capture:p.ccs?full.cap*cfg.captureCapex:0,
+      Transport:p.ccs?full.cap*cfg.transportCapex:0,
+      Storage:p.ccs?full.cap*cfg.storageCapex:0,
+      Utilization:p.ccs?full.cap*cfg.utilShare/100*cfg.utilCapex:0,
+      'Energy upgrades':p.eff*cfg.efficiencyCapex+p.el*cfg.electrifyCapex+Math.max(0,p.re-E.P0.re)*cfg.renewCapex
+   };
+   const capexGross=sum(Object.values(cap));const years=[];let prev=0,cumAvoid=0,cumulativeCash=0,
+    discountedCapture=0,discountedAvoided=0,discountedCosts=0,payback=null,wasNegative=false;
+   for(let i=0;i<E.YRS.length;i++){
+     const year=E.YRS[i],a=E.at(p,year),z=a.r,u=a.u;
+     const lost=z.cap*cfg.transportLoss/100,arrived=Math.max(0,z.cap-lost),
+      used=arrived*cfg.utilShare/100,stored=arrived-used;
+     const avoided=bv-z.net-lost; // transport loss adjustment to legacy illustrative avoided metric
+     const opex={
+       Capture:z.cap*cfg.captureOpex+z.pg*cfg.powerPrice,
+       Transport:arrived*cfg.transportOpex,
+       Storage:stored*(cfg.storageOpex+cfg.mrvOpex),
+       Utilization:used*cfg.utilOpex,
+       'Energy upgrades':z.eh*cfg.powerPrice+Math.max(0,z.p.re-E.P0.re)/100*z.el*cfg.renewPremium
+     };
+     const op=sum(Object.values(opex));
+     const policy=Math.max(0,avoided)*p.cp*cfg.policyEligible/100;
+     const service=stored*cfg.storageFee,utilRevenue=used*cfg.utilPrice;
+     const savings=z.p.eff*cfg.effSavings+z.p.el*cfg.fuelSavings;
+     const grossInvest=capexGross*Math.max(0,u-prev),subsidy=grossInvest*p.sub/100;
+     const revenue=policy+service+utilRevenue+savings;
+     const net=revenue-op-grossInvest+subsidy;
+     cumulativeCash+=net;cumAvoid+=avoided;
+     if(cumulativeCash<0)wasNegative=true;
+     if(wasNegative&&payback===null&&cumulativeCash>=0&&u>0)payback=year;
+     discountedCapture+=z.cap/Math.pow(1+r,i);
+     discountedAvoided+=Math.max(0,avoided)/Math.pow(1+r,i);
+     discountedCosts+=(op+grossInvest-subsidy-savings)/Math.pow(1+r,i);
+     years.push({year,u,captured:z.cap,transportLoss:lost,transported:arrived,utilized:used,stored,
+       avoided,capex:grossInvest,subsidy,opex:op,opexBoxes:opex,revenue,
+       policy,service,utilRevenue,savings,net,cumulativeCash,cf:net});prev=u;
+   }
+   const npv=sum(years.map((z,i)=>z.net/Math.pow(1+r,i)));
+   const end=years[years.length-1];
+   return {d:end.avoided,capex:capexGross*(1-p.sub/100),capexGross,
+     capexBoxes:cap,subsidyTotal:capexGross*p.sub/100,
+     opex:end.opex,opexBoxes:end.opexBoxes,ann:end.opex-end.savings,
+     npv,cum:cumAvoid,irr:cashIRR(years.map(z=>z.net)),
+     mac:discountedAvoided>1e-9?discountedCosts/discountedAvoided:null,
+     lcoc:discountedCapture>1e-9?discountedCosts/discountedCapture:null,
+     payback:payback===null?'Not reached':String(payback),
+     years,cashflows_MUSD:years.map(y=>y.net),
+     finance_quality:'Illustrative cash flows. Capture/transport/storage costs, energy-upgrade investments, policy-value eligibility and distributions are user assumptions; missing facility, market and legal evidence. Carbon-price value is hypothetical, not a 45Q entitlement. No financing, tax, inflation, environmental externalities or EOR oil emissions modeled.',
+     storageAndUtilization:'Utilized CO2 not credited as geologically stored. Legacy plant CO2 pathway remains a separate simplified boundary.'};
+ }
+ function sensitivity(p, cfg){
+   const main=finance(p,cfg).npv;
+   const cases=[['Carbon price',null,'cp'],['Capture CAPEX','captureCapex'],['Transport CAPEX','transportCapex'],['Storage CAPEX','storageCapex'],['Power price','powerPrice'],['Transport OPEX','transportOpex'],['Storage OPEX','storageOpex'],['Capture OPEX','captureOpex'],['Policy eligibility','policyEligible']];
+   return cases.map(([name,key,pkey])=>{
+      const pct=(cfg.uncertainty||20)/100;
+      if(pkey){const base=p[pkey],lo=finance({...p,[pkey]:base*(1-pct)},cfg).npv,hi=finance({...p,[pkey]:base*(1+pct)},cfg).npv;return{name,lo,hi};}
+      const lo=finance(p,{...cfg,[key]:cfg[key]*(1-pct)}).npv,hi=finance(p,{...cfg,[key]:cfg[key]*(1+pct)}).npv;
+      return{name,lo,hi};
+   }).sort((a,b)=>Math.abs(b.hi-b.lo)-Math.abs(a.hi-a.lo)).slice(0,7).map(x=>({...x,base:main}));
+ }
+ function monteCarlo(p,cfg,n=500){
+    let seed=20261115;const rand=()=>{seed=(seed+0x6D2B79F5)|0;let t=seed;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return ((t^(t>>>14))>>>0)/4294967296;};
+    const q=(cfg.uncertainty||20)/100;
+    // Independently sampled symmetric triangular multipliers; UNCALIBRATED demonstration distributions.
+    const mult=()=>1+(rand()+rand()-1)*q;
+    const result=[],samples=[];
+    for(let i=0;i<n;i++){
+      const pp={...p,cp:Math.max(0,p.cp*mult()),cap:range(p.cap*mult(),0,100)};
+      const cc={...cfg,captureCapex:cfg.captureCapex*mult(),transportCapex:cfg.transportCapex*mult(),
+        storageCapex:cfg.storageCapex*mult(),captureOpex:cfg.captureOpex*mult(),powerPrice:cfg.powerPrice*mult(),
+        policyEligible:range(cfg.policyEligible*mult(),0,100)};
+      const outcome=finance(pp,cc);result.push(outcome.npv);samples.push({index:i,npv:outcome.npv,irr:outcome.irr,discount:cc.discount});
+    }
+    result.sort((a,b)=>a-b);
+    const pct=q=>result[Math.max(0,Math.min(n-1,Math.floor((n-1)*q)))];
+    return {values:result,samples,n,mean:sum(result)/n,p05:pct(.05),median:pct(.5),p95:pct(.95),
+      positive:result.filter(v=>v>0).length/n,uncertainty:cfg.uncertainty};
+ }
+ g.FinancialEngine={DEFAULTS,finance,sensitivity,monteCarlo};
+})(typeof window!=='undefined'?window:globalThis);
+</script>
+<script>
+const $=s=>document.querySelector(s),f=(v,d=2)=>(+v).toFixed(d),M=v=>Math.round(v).toLocaleString('en-US');
+/* ================= ENGINE (separate from UI / 3D) ================= */
+const E=CarbonEngine,P0={...E.P0},P={...P0},SRC=E.SRC,calc=E.calc,fin=E.fin,BASEP=E.bau,base=p=>calc(BASEP(p)).net;
+const SC=[['Baseline',{}],['Efficiency',{eff:15}],['Low-carbon power',{so:32,wi:28,ot:20,re:80}],['CCS only',{ccs:true}],['Combined',{eff:15,so:32,wi:28,ot:20,re:80,ccs:true}]];
+const scp=pt=>norm({...BASEP(P),...pt});
+function norm(q){const c=q.so+q.wi+q.ot;if(Math.abs(c-q.re)>.01){if(c>0){const k=q.re/c;q.so*=k;q.wi*=k;q.ot*=k}else q.ot=q.re}return q}
+
+/* ===== scenario simulator helpers (pure) ===== */
+const netAt=y=>E.at(P,y);
+const YRS=Array.from({length:26},(_,i)=>2025+i);
+function axes(w,h,L,B,T,Y,ticks,fm){let s=`<svg viewBox="0 0 ${w} ${h}" width="100%">`;ticks.forEach(v=>s+=`<line x1="${L}" x2="${w-8}" y1="${Y(v)}" y2="${Y(v)}" stroke="#e3eaf0"/><text x="${L-4}" y="${Y(v)+3}" font-size="9" text-anchor="end" fill="#62778a">${fm(v)}</text>`);
+ for(let i=0;i<=5;i++)s+=`<text x="${L+i*5/25*(w-L-8)}" y="${h-6}" font-size="9" text-anchor="middle" fill="#62778a">${2025+i*5}</text>`;return s}
+function lc(ser,ymax){const w=440,h=210,L=36,B=22,T=8,X=i=>L+i/25*(w-L-8),Y=v=>h-B-v/ymax*(h-B-T);let s=axes(w,h,L,B,T,Y,[0,1,2,3,4].map(i=>ymax*i/4),v=>f(v,1));
+ ser.forEach(([n,d,c,da],j)=>{s+=`<polyline fill="none" stroke="${c}" stroke-width="2.5" ${da?'stroke-dasharray="5 3"':''} points="${d.map((v,i)=>X(i)+','+Y(v)).join(' ')}"/><text x="${L+8+j*120}" y="${T+8}" font-size="10" fill="${c}">● ${n}</text>`});return s+'</svg>'}
+function ar(ser){const w=440,h=210,L=36,B=22,T=8,X=i=>L+i/25*(w-L-8),Y=v=>h-B-v/100*(h-B-T);let s=axes(w,h,L,B,T,Y,[0,25,50,75,100],v=>v+'%'),cum=Array(26).fill(0);
+ ser.forEach(([n,d,c])=>{const lo=cum.slice(),hi=d.map((v,i)=>cum[i]+v);s+=`<polygon fill="${c}" opacity=".88" points="${hi.map((v,i)=>X(i)+','+Y(v)).join(' ')} ${lo.map((v,i)=>X(i)+','+Y(v)).reverse().join(' ')}"/>`;cum=hi});return s+'</svg>'}
+let SKM='c',SY=2050,SKS=null;
+function skRender(F){const{N:Nn,L,unit,X}=F,N={};for(const k in Nn)N[k]=Object.assign([...Nn[k]],{k,i:0,o:0,x:X[Nn[k][0]]});
+ const Lk=L.filter(l=>l[2]>1e-6);Lk.forEach(([a,b,v])=>{N[a].o+=v;N[b].i+=v});const V=Object.values(N).filter(n=>n.i||n.o);V.forEach(n=>n.v=Math.max(n.i,n.o));
+ const H=330,gap=12,cols=X.map((_,c)=>V.filter(n=>n[0]==c)),sc=Math.min(...cols.filter(c=>c.length).map(c=>(H-gap*(c.length-1)-4*c.length)/c.reduce((s,n)=>s+n.v,0)));
+ cols.forEach(c=>{const tot=c.reduce((s,n)=>s+Math.max(4,n.v*sc)+gap,-gap);let y=(H-tot)/2+10;c.forEach(n=>{n.h=Math.max(4,n.v*sc);n.y=y;y+=n.h+gap;n.oo=0;n.io=0})});
+ const g=v=>f(v,unit=='GWh'?0:3)+' '+(unit=='GWh'?'GWh/yr':'Mt CO₂e/yr');let s=`<svg viewBox="0 0 910 ${H+20}" width="100%" style="font-size:11px">`;
+ Lk.forEach(([a,b,v])=>{const A=N[a],B=N[b],w=Math.max(1.5,v*sc),y0=A.y+A.oo+w/2,y1=B.y+B.io+w/2,xm=(A.x+12+B.x)/2;A.oo+=w;B.io+=w;
+  s+=`<path data-a="${a}" data-b="${b}" d="M${A.x+12} ${y0} C${xm} ${y0} ${xm} ${y1} ${B.x} ${y1}" fill="none" stroke="${A[2]}" stroke-width="${w}"><title>${A[1]} → ${B[1]}: ${g(v)}</title></path>`});
+ V.forEach(n=>{const lt=n[0]==0;s+=`<g data-n="${n.k}" style="cursor:pointer"><rect x="${n.x}" y="${n.y}" width="12" height="${n.h}" rx="2" fill="${n[2]}"/><text x="${lt?n.x-6:n.x+18}" y="${n.y+n.h/2+4}" text-anchor="${lt?'end':'start'}" fill="#15222e" stroke="#fff" stroke-width="3" paint-order="stroke">${n[1]} · ${g(n.v)}</text></g>`});return s+'</svg>'}
+function sankey(r){return skRender(SKM=='e'?E.energyFlows(r):E.carbonFlows(r))}
+function skHi(){document.querySelectorAll('#sk path').forEach(p=>p.style.opacity=!SKS?.38:(p.dataset.a==SKS||p.dataset.b==SKS)?.85:.07)}
+$('#sk').onclick=e=>{const n=e.target.closest('[data-n]');SKS=n&&SKS!==n.dataset.n?n.dataset.n:null;skHi()};
+$('#skc').onclick=e=>{if(e.target.dataset.m){SKM=e.target.dataset.m;SKS=null;update()}};$('#skc').oninput=e=>{SY=+e.target.value;update()};
+$('#plantYear').oninput=e=>{SY=+e.target.value;update()};
+const SCN=[['BAU',{}],['Renewable power',{so:35,wi:30,ot:15}],['Electrification',{el:50}],['CCS',{ccs:true}],['Integrated',{eff:15,so:35,wi:30,ot:15,el:50,ccs:true}]];
+$('#scn').insertAdjacentHTML('beforeend',SCN.map(([n],i)=>`<button class="pb" data-s="${i}">${n}</button>`).join('')+' <span class="lg">Custom = move any slider. Timing sliders: start year and deployment duration.</span>');
+$('#scn').onclick=e=>{const i=e.target.dataset.s;if(i!=null){const q={...BASEP(P),...SCN[i][1]};q.re=Math.min(100,q.so+q.wi+q.ot);set(q)}};
+const YT=()=>'<table><tr><th>Year</th><th>Net (100y adj)</th><th>Scope 1</th><th>Scope 2</th><th>Captured</th></tr>'+[2030,2040,2050].map(y=>{const x=netAt(y).r;return`<tr><td>${y}</td><td>${f(x.net)}</td><td>${f(x.res)}</td><td>${f(x.s2)}</td><td>${f(x.cap)}</td></tr>`}).join('')+'</table><small>Mt CO₂e/yr · conditional model results, not forecasts</small>';
+/*SCENE*/
+const S=new THREE.Scene(),A={},solar=[],V=(...a)=>new THREE.Vector3(...a);
+const bx=(w,h,d)=>new THREE.BoxGeometry(w,h,d),cy=(r,h,rt,s=24)=>new THREE.CylinderGeometry(rt??r,r,h,s);
+const STL=0xaeb8c1,TEAL=0x1f7f7a,YEL=0xe9c13b,ORG=0xe8742a,WHT=0xf2f4f6,GRN=0x2fa66a,CON=0xcbd2d8,RF=0x7d8d9b,DK=0x4d5a66,COP=0xd89b80;
+function G(id){const g=new THREE.Group();g.userData.id=id;S.add(g);A[id]=g;return g}
+function P3(g,geo,c,x,y,z,o={}){const m=new THREE.Mesh(geo,new THREE.MeshStandardMaterial({color:c,roughness:.5,metalness:.35,...o.m}));m.position.set(x,y,z);if(o.r)m.rotation.set(...o.r);m.castShadow=m.receiveShadow=true;Object.assign(m.userData,{b:c,t:o.t,e:o.m&&o.m.emissive||0,o:o.m&&o.m.opacity!=null?o.m.opacity:1});g.add(m);return m}
+function pipe(g,a,b,r,c,o){const A_=V(...a),B_=V(...b),d=B_.clone().sub(A_),m=P3(g,cy(r,d.length(),r,14),c,...A_.clone().add(B_).multiplyScalar(.5).toArray(),o);m.quaternion.setFromUnitVectors(V(0,1,0),d.normalize());P3(g,new THREE.SphereGeometry(r*1.05,12,8),c,...b,o);return m}
+function frame(g,x,z,w,d,h,c,rings){[[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>P3(g,bx(.35,h,.35),c,x+a*w/2,h/2,z+b*d/2));
+ rings.forEach(y=>{[[w+.4,.25,.25,0,-d/2],[w+.4,.25,.25,0,d/2],[.25,.25,d+.4,-w/2,0],[.25,.25,d+.4,w/2,0]].forEach(([a,b,e,dx,dz])=>P3(g,bx(a,b,e),c,x+dx,y,z+dz));P3(g,bx(w+1.2,.15,d+1.2),YEL,x,y+.2,z)})}
+function stripes(g,x,z,h,r,n){const s=h/n;for(let i=0;i<n;i++)P3(g,cy(r*(1-.35*i/n),s,r*(1-.35*(i+1)/n)),i%2?WHT:ORG,x,s*(i+.5),z,{t:1})}
+
+/* ========= VISUAL-ONLY INDUSTRIAL DETAIL KIT =========
+ * Procedural sub-meshes add engineering visual texture to the EXISTING assets.
+ * No new plant asset IDs, no new major buildings, no physical-model changes.
+ * Fine details do not cast shadows; use cached geometries/materials where possible.
+ */
+const DETAIL_MESHES=[], DMATS=new Map(), DGEO=new Map();
+const DC={steel:0xc5d4df,bright:0xe0eaf0,edge:0x63798c,dark:0x344b5d,
+  frame:0x879dac,safety:0xf0be47,rail:0xb7cad7,blue:0x4a8cbb,
+  teal:0x37b8b2,green:0x57b793,oxide:0xb97858,concrete:0x627281,
+  panel:0x9bb2c2,glass:0x29485b,cable:0x263b51};
+function dg(type,...p){const k=[type,...p].join('_');if(!DGEO.has(k))DGEO.set(k,type==='b'?new THREE.BoxGeometry(...p):type==='c'?new THREE.CylinderGeometry(p[0],p[0],p[1],p[2]||10):type==='t'?new THREE.TorusGeometry(p[0],p[1],p[2]||5,p[3]||32):new THREE.SphereGeometry(p[0],10,7));return DGEO.get(k)}
+function detail(g,geo,col,x,y,z,opts={}){
+  const bg=(g===BG),key=col+'_'+(opts.rough??.42)+'_'+(opts.metal??.57);
+  let mat;
+  if(bg){if(!DMATS.has(key))DMATS.set(key,new THREE.MeshStandardMaterial({color:col,roughness:opts.rough??.42,metalness:opts.metal??.57,side:THREE.FrontSide}));mat=DMATS.get(key)}
+  else mat=new THREE.MeshStandardMaterial({color:col,roughness:opts.rough??.42,metalness:opts.metal??.57});
+  const m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);
+  if(opts.rot)m.rotation.set(...opts.rot);
+  m.castShadow=false;m.receiveShadow=true;
+  // Compatible with existing carbon-heat tinting and parent-group picking.
+  m.userData={b:col,t:0,e:0,o:1,industrialDetail:true};g.add(m);DETAIL_MESHES.push(m);return m;
+}
+function boxD(g,w,h,d,c,x,y,z,o){return detail(g,dg('b',w,h,d),c,x,y,z,o)}
+function tubeD(g,a,b,r=.065,c=DC.rail){const a0=V(...a),b0=V(...b),dv=b0.clone().sub(a0),l=dv.length();if(l<.001)return;
+  const m=detail(g,dg('c',r,l,9),c,...a0.add(b0).multiplyScalar(.5).toArray());m.quaternion.setFromUnitVectors(V(0,1,0),dv.normalize());return m}
+function torusD(g,x,y,z,r=.9,t=.055,c=DC.edge,rot=[Math.PI/2,0,0]){return detail(g,dg('t',r,t,5,40),c,x,y,z,{rot})}
+function sphereD(g,x,y,z,r=.08,c=DC.steel){return detail(g,dg('s',r),c,x,y,z)}
+function rectRail(g,x,y,z,w,d,h=.85){
+  for(const zz of [z-d/2,z+d/2]){tubeD(g,[x-w/2,y+h,zz],[x+w/2,y+h,zz],.055,DC.rail);tubeD(g,[x-w/2,y+h*.52,zz],[x+w/2,y+h*.52,zz],.036,DC.edge)}
+  for(const xx of [x-w/2,x+w/2])tubeD(g,[xx,y+h,z-d/2],[xx,y+h,z+d/2],.055,DC.rail);
+  const count=Math.max(2,Math.round(w/3));for(let i=0;i<=count;i++){const xx=x-w/2+w*i/count;for(const zz of [z-d/2,z+d/2])tubeD(g,[xx,y,zz],[xx,y+h,zz],.048,DC.rail)}
+}
+function gridD(g,x,y,z,w,d){
+  boxD(g,w,.10,d,DC.dark,x,y,z);boxD(g,w,.035,d,DC.frame,x,y+.065,z);
+  for(let i=-3;i<=3;i++)boxD(g,w,.022,.028,DC.rail,x,y+.089,z+i*d/8);
+  for(let j=-2;j<=2;j++)boxD(g,.028,.022,d,DC.rail,x+j*w/6,y+.09,z);
+}
+function ringRail(g,x,y,z,r){
+  torusD(g,x,y+.86,z,r+.28,.065,DC.rail);torusD(g,x,y+.39,z,r+.28,.037,DC.edge);
+  for(let i=0;i<14;i++){const a=2*Math.PI*i/14,xx=x+(r+.28)*Math.cos(a),zz=z+(r+.28)*Math.sin(a);
+    tubeD(g,[xx,y,zz],[xx,y+.86,zz],.051,DC.rail)}
+}
+function ladderD(g,x,y,z,height,along='x',cage=false){
+  if(height<=0)return;const zdir=along==='z';const A=(u,v)=>zdir?[x+v,y+u,z]:[x,y+u,z+v];
+  tubeD(g,A(0,-.32),A(height,-.32),.057,DC.safety);tubeD(g,A(0,.32),A(height,.32),.057,DC.safety);
+  const n=Math.max(2,Math.round(height/.43));for(let i=1;i<n;i++)tubeD(g,A(height*i/n,-.31),A(height*i/n,.31),.033,DC.rail);
+  if(cage){for(let i=2;i<Math.round(height/1.6);i++){let yy=i*1.6;if(yy>height-.6)break;
+    // curved safety-cage ribs approximate the protective ladder enclosure
+    for(let j=-2;j<2;j++){const p0=A(yy,j*.23),p1=A(yy,(j+1)*.23);p0[0]+=(zdir?1:0)*(.55+.25*Math.sqrt(Math.max(0,1-(j*.42)**2)));p1[0]+=(zdir?1:0)*(.55+.25*Math.sqrt(Math.max(0,1-((j+1)*.42)**2)));
+    p0[2]+=(zdir?0:1)*(.55+.25*Math.sqrt(Math.max(0,1-(j*.42)**2)));p1[2]+=(zdir?0:1)*(.55+.25*Math.sqrt(Math.max(0,1-((j+1)*.42)**2)));tubeD(g,p0,p1,.029,DC.edge)}
+  }}
+}
+function flangedNozzle(g,a,b,r=.22,c=DC.steel){tubeD(g,a,b,r,c);const aa=V(...a),bb=V(...b),dir=bb.clone().sub(aa).normalize();
+  for(const t of [.2,.82]){const p=aa.clone().lerp(bb,t);const m=detail(g,dg('c',r*1.48,.14,12),DC.edge,...p.toArray());m.quaternion.setFromUnitVectors(V(0,1,0),dir)}}
+function valveD(g,x,y,z,r=.34){boxD(g,.35,.40,.36,DC.dark,x,y,z);tubeD(g,[x,y+.18,z],[x,y+.55,z],.055,DC.steel);torusD(g,x,y+.56,z,r,.055,DC.safety,[0,0,0]);
+  for(let i=0;i<4;i++){let a=i*Math.PI/2;tubeD(g,[x,y+.56,z],[x+r*Math.cos(a),y+.56+r*Math.sin(a),z],.03,DC.safety)}}
+function gaugeD(g,x,y,z){tubeD(g,[x,y,z],[x,y+.25,z],.047,DC.bright);const m=detail(g,dg('c',.19,.11,20),DC.bright,x,y+.40,z,{rot:[Math.PI/2,0,0]});
+  boxD(g,.16,.018,.025,DC.dark,x,y+.41,z+.064);return m}
+function vesselDetails(g,x,z,r,h,base=0,heavy=false){
+  // Horizontal plating seams on the existing shell (no extra vessel volumes).
+  for(const p of [.18,.38,.58,.78,.95])torusD(g,x,base+h*p,z,r+.036,.045,p%2<1?DC.edge:DC.steel);
+  // Upper maintenance level, safety railing and visible skirt/anchor points.
+  const py=base+h*.76;torusD(g,x,py,z,r+.42,.16,DC.dark);ringRail(g,x,py+.08,z,r+.48);
+  const lx=x+r+.5;ladderD(g,lx,base+.12,z,h*.75,'z',heavy);
+  flangedNozzle(g,[x+r*.85,base+h*.33,z],[x+r+1.2,base+h*.33,z],.20,DC.teal);
+  flangedNozzle(g,[x-r*.85,base+h*.57,z],[x-r-1.1,base+h*.57,z],.17,DC.oxide);
+  valveD(g,x+r+1.18,base+h*.33+.36,z,.22);gaugeD(g,x+r*.56,base+h*.70,z+r*.63);
+  for(let a=0;a<8;a++){const ang=a*Math.PI/4;const xx=x+(r+.08)*Math.cos(ang),zz=z+(r+.08)*Math.sin(ang);
+    sphereD(g,xx,base+h*.18,zz,.07,DC.bright);sphereD(g,xx,base+h*.78,zz,.06,DC.steel)}
+  if(heavy){torusD(g,x,base+h*.52,z,r+.31,.08,DC.safety);flangedNozzle(g,[x,base+h,z],[x,base+h+1.2,z],.24,DC.bright)}
+}
+function pumpDetail(g,x,z,scale=1){
+  // Attached rotating-machine hardware, not a new machine.
+  const s=scale;boxD(g,3.3*s,.12,2.2*s,DC.concrete,x,.08*s,z);
+  for(let i=0;i<7;i++)boxD(g,.055*s,.75*s,1.15*s,DC.edge,x-1.12*s+i*.16*s,1.05*s,z);
+  boxD(g,.57*s,.5*s,.84*s,DC.frame,x+.02*s,1.05*s,z);torusD(g,x+.35*s,1.05*s,z,.34*s,.057*s,DC.safety,[0,Math.PI/2,0]);
+  flangedNozzle(g,[x+.7*s,1.18*s,z],[x+1.75*s,1.18*s,z],.21*s,DC.teal);
+  flangedNozzle(g,[x+1.0*s,1.0*s,z],[x+1.0*s,2.18*s,z],.17*s,DC.blue);
+  valveD(g,x+1.55*s,1.50*s,z,.20*s);gaugeD(g,x-.35*s,1.50*s,z);
+  for(const xx of [x-1.25*s,x+1.25*s])for(const zz of [z-.73*s,z+.73*s])sphereD(g,xx,.27*s,zz,.10*s,DC.bright);
+}
+function buildingDetail(g,x,z,w,d,h){
+  // Existing wall panels, roof seaming, access, ventilators and safety edges.
+  for(let i=1;i<=5;i++){const xx=x-w/2+w*i/6;boxD(g,.045,h*.78,.075,DC.frame,xx,h*.48,z+d/2+.035);boxD(g,.045,h*.78,.075,DC.frame,xx,h*.48,z-d/2-.035)}
+  for(let k=0;k<3;k++){const zz=z-d/2+d*(k+1)/4;boxD(g,w*.92,.035,.045,DC.panel,x,h+.40,zz)}
+  for(let k=0;k<4;k++){const xx=x-w*.39+k*w*.26;boxD(g,w*.15,.55,.07,DC.glass,xx,h*.59,z+d/2+.08)}
+  rectRail(g,x,h+.37,z,w*.91,d*.88,.74);ladderD(g,x+w*.5+.12,.2,z+d*.23,h,'z');
+  for(let k=0;k<3;k++){const xx=x-w*.28+k*w*.28;boxD(g,.40,.28,.8,DC.edge,xx,h+.58,z-d*.17)}
+}
+function rackDetail(g,x1,x2,z,y){
+  for(let x=x1+3;x<x2;x+=12){boxD(g,.12,.22,3.5,DC.frame,x,y+.9,z);for(const off of [-.9,-.3,.3,.9]){
+      torusD(g,x,y+.6,z+off,.23,.047,DC.steel,[0,0,Math.PI/2]);
+      boxD(g,.28,.12,.35,DC.dark,x,y+.30,z+off)}
+    tubeD(g,[x,y,z-1.15],[x+4.0,y,z-1.15],.055,DC.safety)}
+  // Cable tray and perforated tray rungs, following the same existing pipe rack.
+  boxD(g,x2-x1,.10,.72,DC.dark,(x1+x2)/2,y+.22,z+1.95);
+  for(let x=x1;x<=x2;x+=2.5)boxD(g,.045,.05,.7,DC.rail,x,y+.30,z+1.95);
+}
+/* ========= END DETAIL KIT ========= */
+
+/* ground slab + roads */
+const slab=G('ground');delete A.ground;P3(slab,bx(98,1.2,36),0x15233a,21,-.6,0);P3(slab,bx(98,.06,2.6),0x26374f,21,.03,11.5);P3(slab,bx(2.6,.06,36),0x26374f,-6,.03,0);
+/* raw materials + conveyor */
+let g=G('raw');P3(g,new THREE.ConeGeometry(2.6,3,18),0x5a3d33,-24,1.5,-12.5,{t:1});P3(g,new THREE.ConeGeometry(2.1,2.4,18),0x3b3430,-20,1.2,-14.5,{t:1});P3(g,bx(2.6,2.2,2.6),DK,-21,1.1,-10.5);
+const CA=V(-21,1.6,-10.5),CB=V(-2.6,17.4,-1.2),CD=CB.clone().sub(CA),CL=CD.length();CD.normalize();
+P3(g,bx(CL,.7,1.6),DK,...CA.clone().add(CB).multiplyScalar(.5).toArray(),{t:1}).quaternion.setFromUnitVectors(V(1,0,0),CD);
+for(let i=1;i<7;i++){const q=CA.clone().add(CB.clone().sub(CA).multiplyScalar(i/7));P3(g,bx(.3,q.y,.3),YEL,q.x,q.y/2,q.z)}
+/* coke & sinter */
+g=G('sinter');P3(g,bx(7,5,6),CON,-12,2.5,-14,{t:1});P3(g,bx(7.4,.4,6.4),RF,-12,5.2,-14);stripes(g,-15.5,-17,12,.8,6);pipe(g,[-12,5,-14],[-15.5,9,-17],.3,STL);
+/* blast furnace */
+g=G('bf');frame(g,0,0,6.6,6.6,17,TEAL,[4,8.5,13,17]);
+P3(g,cy(2.8,3),COP,0,1.5,0,{t:1,m:{emissive:0xff4a10,emissiveIntensity:.55}});P3(g,cy(2.8,2.5,3.7),COP,0,4.25,0,{t:1,m:{emissive:0xff6a20,emissiveIntensity:.3}});
+P3(g,cy(3.7,1.5),STL,0,6.25,0,{t:1});P3(g,cy(3.7,6.5,2.4),STL,0,10.25,0,{t:1});P3(g,cy(1.6,1.6,1.2),DK,0,14.05,0,{t:1});
+P3(g,new THREE.TorusGeometry(3.45,.32,10,30),STL,0,3.9,0,{r:[Math.PI/2,0,0]});
+pipe(g,[0,14.5,0],[0,17.8,0],.55,STL);pipe(g,[0,17.8,0],[16,17.8,0],.55,STL);
+/* hot-blast stoves */
+g=G('stoves');[8,12,16].forEach(x=>{P3(g,cy(2,13),STL,x,6.5,0,{t:1});P3(g,new THREE.SphereGeometry(2,16,10,0,6.283,0,1.5708),STL,x,13,0,{t:1});
+ P3(g,cy(2.07,1.7),ORG,x,7,0);P3(g,cy(2.07,.8),ORG,x,10.2,0);pipe(g,[x,17.8,0],[x,14.3,0],.35,STL)});
+pipe(g,[3,3.9,2.2],[16,3.9,2.2],.5,STL);
+/* steel shop & rolling shed */
+g=G('mill');[[bx(16,7,.4),-20,3.5,-3],[bx(.4,7,10),-28,3.5,2],[bx(.4,7,10),-12,3.5,2]].forEach(([a,x,y,z])=>P3(g,a,STL,x,y,z,{t:1}));
+P3(g,bx(16.4,.3,6),RF,-20,7.85,-.7,{r:[-.28,0,0]});P3(g,bx(16.4,.3,6),RF,-20,7.85,4.7,{r:[.28,0,0]});P3(g,bx(16,.5,10.2),TEAL,-20,.25,2);
+P3(g,bx(10,.6,1.6),0xff7a2a,-21,.9,5.2,{m:{emissive:0xff4a10,emissiveIntensity:.9}});[-24,-21,-18].forEach(x=>P3(g,cy(.5,2.2),DK,x,1.1,1.5,{r:[0,0,1.5708]}));
+P3(g,cy(1.4,3.2),DK,-16,1.6,0,{t:1,r:[0,0,0]});
+/* stack + baghouse */
+g=G('stack');P3(g,bx(5,7,4),CON,21.5,3.5,0,{t:1});[0,1,2,3].forEach(i=>P3(g,bx(.3,6,4.2),STL,19.8+i*1.1,3.5,0));
+pipe(g,[18,6,0],[19,6,0],.45,STL);pipe(g,[24,5.5,0],[27,5.5,0],.5,STL);stripes(g,27,0,20,1,9);
+/* power + solar */
+g=G('util');P3(g,bx(8,4,5),CON,8,2,16,{t:1});P3(g,bx(8.4,.4,5.4),TEAL,8,4.2,16);P3(g,cy(.5,7,.35),STL,12,3.5,16,{t:1});
+for(let i=0;i<30;i++){const m=P3(g,bx(1.8,.1,1.2),0x2a6fcf,-27+(i%10)*2.2,.9,14.5+Math.floor(i/10)*2.2,{r:[.45,0,0],m:{metalness:.6,roughness:.25}});solar.push(m)}
+/* CCS */
+g=G('ccs');[36,41].forEach(x=>{frame(g,x,-1,5.8,5.8,17,GRN,[4,8,12,16.8]);P3(g,cy(2.2,16),STL,x,8,-1,{t:1});P3(g,new THREE.SphereGeometry(2.2,16,10,0,6.283,0,1.5708),STL,x,16,-1,{t:1});P3(g,cy(2.27,1),TEAL,x,5,-1)});
+pipe(g,[36,18,-1],[41,18,-1],.5,TEAL);pipe(g,[27,3.2,0],[36,3.2,0],.55,TEAL);pipe(g,[36,3.2,0],[36,3.2,-1],.55,TEAL);
+/* compression */
+g=G('comp');P3(g,bx(5,2.4,3.4),GRN,45,1.2,5,{t:1});P3(g,cy(1,3.4),STL,44,3.5,5,{t:1});P3(g,cy(1,3.4),STL,46.5,3.5,5,{t:1});pipe(g,[41,1.6,-1],[45,1.6,3.3],.45,TEAL);pipe(g,[47.5,.9,5],[49,.9,8],.45,TEAL);
+/* pipeline */
+g=G('pipe');pipe(g,[49,.9,8],[58,.9,8],.55,TEAL,{t:1});[50,53,56].forEach(x=>P3(g,bx(.4,.9,1.4),CON,x,.45,8));
+/* geological storage cut-away */
+g=G('stor');[[1.8,.9,0x4aa3d8,.6],[1.4,2.5,0x8a949d,1],[1,3.7,0x86b36f,1]].forEach(([h,y,c,o])=>P3(g,bx(9,h,8.5),c,63.5,y,8,{t:1,m:{transparent:o<1,opacity:o}}));
+pipe(g,[63.5,6.4,8],[63.5,.9,8],.28,TEAL);P3(g,cy(.8,1.4),TEAL,63.5,5.4,8);P3(g,cy(1.2,2.2),STL,60.8,5.3,10.2);
+/* lights */
+S.add(new THREE.HemisphereLight(0xffffff,0xb7c4d0,.95));
+const dl=new THREE.DirectionalLight(0xffffff,1.05);dl.position.set(40,65,40);dl.target.position.set(20,0,0);dl.castShadow=true;dl.shadow.mapSize.set(2048,2048);Object.assign(dl.shadow.camera,{left:-75,right:75,top:50,bottom:-50,near:1,far:170});dl.shadow.bias=-.0005;S.add(dl,dl.target);
+/* ===== dense background plant: ILLUSTRATIVE SCENERY (not modelled equipment). Glow of orange/teal lines follows emissions/capture. ===== */
+const BG=new THREE.Group();S.add(BG);const GL={o:[],t:[],b:[]};let GO=.6,GT=.1;
+const c14=(r,h,rt)=>cy(r,h,rt,14),HS=(r)=>new THREE.SphereGeometry(r,14,8,0,6.283,0,1.5708),SP=r=>new THREE.SphereGeometry(r,10,8);
+function d3(geo,c,x,y,z,o={}){const m=P3(BG,geo,c,x,y,z,o);m.castShadow=false;return m}
+function run(pts,r,c,L){const o={m:{emissive:c,emissiveIntensity:.6,roughness:.35}};for(let i=1;i<pts.length;i++){const a=V(...pts[i-1]),b=V(...pts[i]),d=b.clone().sub(a),m=d3(c14(r,d.length(),r),c,...a.clone().add(b).multiplyScalar(.5).toArray(),o);m.quaternion.setFromUnitVectors(V(0,1,0),d.normalize());L&&L.push(m.material)}pts.forEach(q=>{const s=d3(SP(r*1.02),c,...q,o);L&&L.push(s.material)})}
+function mk(x,y,z,c){d3(SP(.55),c,x,y,z,{m:{emissive:c,emissiveIntensity:.9}});d3(new THREE.TorusGeometry(.9,.1,6,16),c,x,y,z,{r:[Math.PI/2,0,0],m:{emissive:c,emissiveIntensity:.7}})}
+function tank(x,z,r,h,c=0xc9d2da){d3(c14(r,h),c,x,h/2,z);d3(HS(r),c,x,h,z);[.3,.62].forEach(k=>d3(c14(r+.06,.18),0x8d9aa6,x,h*k,z));d3(bx(.5,h,.15),DK,x+r*.98,h/2,z);d3(c14(.35,.6),STL,x,h+r*.95,z);d3(bx(r*1.2,.15,.15),YEL,x,h+.6,z+.3)}
+function vessel(x,z,r,h,c=0xb8c3cc){d3(c14(r,h),c,x,h/2+1,z);d3(HS(r),c,x,h+1,z);d3(HS(r),c,x,1,z,{r:[Math.PI,0,0]});[.3,.55,.8].forEach(k=>d3(c14(r+.45,.12),YEL,x,h*k+1,z));[[-1,-1],[1,1],[-1,1],[1,-1]].forEach(([a,b])=>{d3(bx(.12,h,.12),STL,x+a*(r+.45),h/2+1,z+b*(r+.45));d3(bx(.15,1,.15),DK,x+a*r*.7,.5,z+b*r*.7)});d3(c14(.25,2),STL,x,h+2.2,z)}
+function hx(x,z,len){d3(c14(1.1,len),0xaab6c0,x,2,z,{r:[0,0,1.5708]});[-1,1].forEach(s=>{d3(HS(1.1),0xaab6c0,x+s*len/2,2,z,{r:[0,0,-s*1.5708]});d3(bx(.5,1.4,2.2),DK,x+s*len/4,.7,z);d3(c14(.35,.9),STL,x+s*len/4,3.2,z)});d3(c14(1.16,.25),ORG,x-len/2+.8,2,z,{r:[0,0,1.5708]})}
+function pump(x,z){d3(bx(3.2,.4,1.7),DK,x,.2,z);d3(c14(.6,1.7),0x4a8fd0,x-.7,1.1,z,{r:[0,0,1.5708]});d3(c14(.8,.9),STL,x+.9,.9,z);d3(c14(.25,1.6),STL,x+.9,2.1,z);d3(bx(.5,.5,.5),ORG,x-.7,1.8,z)}
+function bld(x,z,w,d,h,c=0xcbd2d8){d3(bx(w,h,d),c,x,h/2,z);d3(bx(w+.4,.3,d+.4),RF,x,h+.15,z);d3(bx(w*.8,.5,.1),0x2a3a52,x,h*.6,z+d/2+.05);for(let i=0;i<3;i++)d3(bx(1.4,.9,1.2),STL,x-w/3+i*w/3,h+.75,z)}
+function cool(x,z){d3(c14(3.4,6,2.6),0xb7c4cf,x,3,z);d3(c14(1.7,1),DK,x,6.5,z);d3(c14(2.7,.2),0x2fd4d8,x,6.1,z,{m:{emissive:0x2fd4d8,emissiveIntensity:.6}})}
+function rack(x1,x2,z,y){for(let x=x1;x<=x2;x+=6){[-1.1,1.1].forEach(o=>d3(bx(.35,y,.35),DK,x,y/2,z+o));d3(bx(.3,.3,2.8),DK,x,y,z)}
+ [[-.9,0xff7a45,GL.o],[-.3,0x2fd4d8,GL.t],[.3,0x3b8cff,GL.b],[.9,0x9aa7b3,null]].forEach(([o,c,L])=>run([[x1,y+.6,z+o],[x2,y+.6,z+o]],.28,c,L))}
+/* ground slabs for north/south yards */
+P3(BG,bx(98,1.2,26),0x15233a,21,-.6,-31);P3(BG,bx(98,1.2,22),0x15233a,21,-.6,29);
+/* north: tank farm, towers, exchanger bank, cooling */
+[-24,-14,-4,6,16].forEach((x,i)=>{tank(x,-30,4.2,8+i%3*1.5);run([[x,6.6,-20.9],[x,6.6,-25.6]],.25,0xff7a45,GL.o);mk(x,14,-30,i%2?0x2fd4d8:0x3b8cff)});
+[30,34,38,42].forEach((x,i)=>{vessel(x,-27,1.5,10+i%2*3);mk(x,15.5+i%2*3,-27,0xff7a45)});
+[-26,-30,-34].forEach((z,i)=>{hx(54,z,9);pump(44,z+(i%2?1:-1))});cool(62,-24);cool(62,-34);bld(28,-37,10,5,5);
+rack(-30,66,-20,6);
+/* south: pump station, control building, exchangers, substation */
+for(let i=0;i<6;i++){pump(-26+i*5,27);d3(c14(.3,3),STL,-25.1+i*5,2.5,25)}
+bld(22,30,12,7,5);bld(-30,34,8,5,4,0xb9c3cc);hx(38,26,8);hx(38,31,8);hx(52,26,8);vessel(60,31,1.6,9);vessel(64,28,1.3,7);
+[-33,-29,-25].forEach(x=>{d3(bx(2.2,2.6,2.2),0x7b8896,x,1.3,22);d3(c14(.2,1.2),COP,x,3.2,22)});
+rack(-30,66,21,5.5);mk(22,7,26,0x2fd4d8);mk(-14,4,27,0x3b8cff);mk(52,5,26,0xff7a45);
+/* glowing route lines along roads */
+run([[-30,.4,12.8],[34,.4,12.8],[34,.4,6],[43,.4,6]],.3,0x2fd4d8,GL.t);
+run([[-6,.4,-17],[-6,.4,10],[30,.4,10]],.3,0xff7a45,GL.o);
+run([[30,.4,-17],[30,.4,-6],[62,.4,-6]],.3,0x3b8cff,GL.b);
+function pulse(t){const w=.78+.22*Math.sin(t/380);GL.o.forEach(m=>m.emissiveIntensity=GO*w);GL.t.forEach(m=>m.emissiveIntensity=GT*w);GL.b.forEach(m=>m.emissiveIntensity=.5*w)}
+{const gh=new THREE.GridHelper(150,50,0x2fd4d8,0x1b3552);gh.position.set(20,.08,0);gh.material.transparent=true;gh.material.opacity=.35;S.add(gh)}
+
+/* ========= VISUAL-ONLY REFINEMENT OF EXISTING ASSETS ========= */
+// Stockyard and existing conveyor: conveyor rollers, side guards and framed supports.
+{
+  const g=A.raw;for(let i=1;i<14;i++){
+    const p=CA.clone().lerp(CB,i/14);boxD(g,.10,.17,1.82,DC.edge,p.x,p.y+.10,p.z);
+    if(i%2===0){tubeD(g,[p.x,p.y+.35,p.z-.85],[p.x,p.y+.35,p.z+.85],.055,DC.rail);sphereD(g,p.x,p.y+.35,p.z-.85,.095,DC.safety)}}
+  for(const [xx,zz,rr] of [[-24,-12.5,2.6],[-20,-14.5,2.1]]){
+    torusD(g,xx,1.45,zz,rr*.73,.067,DC.rail);
+    for(let i=0;i<8;i++){const a=Math.PI*2*i/8;sphereD(g,xx+rr*.72*Math.cos(a),1.45,zz+rr*.72*Math.sin(a),.09,DC.safety)}}
+}
+// Sinter house: existing roof and walls with service walk, louvres, ducts and steel mullions.
+{
+ const g=A.sinter;buildingDetail(g,-12,-14,7,6,5.2);
+ for(let k=0;k<6;k++){const xx=-14.8+k*1.08;boxD(g,.55,.68,.085,DC.glass,xx,3.75,-10.94);boxD(g,.60,.055,.12,DC.panel,xx,4.1,-10.87)}
+ gridD(g,-12,6,-14,5.4,2.8);rectRail(g,-12,6.08,-14,5.4,2.8,.76);
+ flangedNozzle(g,[-15.45,3.0,-14],[-17.1,3.0,-14],.26,DC.oxide);
+}
+// Blast furnace: dense horizontal/diagonal truss, shell seams, service rings and gas nozzles.
+{
+ const g=A.bf;vesselDetails(g,0,0,2.5,12.3,2.0,true);
+ for(let i=0;i<3;i++){const y=5+i*3.6;torusD(g,0,y,0,3.1,.08,DC.bright);}
+ for(const z of [-3.3,3.3])for(let i=0;i<3;i++){
+   const y0=3.0+i*4.2;const left=i%2===0?-3.3:3.3,right=-left;
+   tubeD(g,[left,y0,z],[right,y0+4.0,z],.085,DC.frame);
+   tubeD(g,[right,y0,z],[left,y0+4.0,z],.060,DC.frame)}
+ gridD(g,0,17.15,0,7.4,7.2);rectRail(g,0,17.20,0,7.4,7.2,.8);
+ ladderD(g,3.75,.55,3.05,16.3,'x',true);
+ flangedNozzle(g,[2.4,6.2,1.7],[5.1,6.2,1.7],.36,DC.oxide);
+ valveD(g,5.0,6.6,1.7,.32);gaugeD(g,2.6,12.0,2.3);
+}
+// Existing three hot-blast stoves: shell panels, individual ladders and one maintenance walkway.
+{
+ const g=A.stoves;
+ for(const x of [8,12,16]){
+   vesselDetails(g,x,0,2.0,12.5,.3,false);
+   for(let y=1.0;y<12;y+=2.2)torusD(g,x,y,0,2.09,.048,DC.frame);
+   flangedNozzle(g,[x,6.7,-1.9],[x,6.7,-3.0],.20,DC.oxide);
+   gaugeD(g,x+.6,9.8,1.9)}
+ gridD(g,12,12.7,2.5,12.0,1.5);rectRail(g,12,12.78,2.5,12.0,1.5,.82);
+}
+// Existing steel shop: cladding seams, skylight ribs, furnace-door accents, vents and service access.
+{
+ const g=A.mill;for(let i=0;i<9;i++){
+   const x=-27.2+i*1.8;boxD(g,.075,6.5,.12,DC.edge,x,3.35,-3.05);
+   tubeD(g,[x,7.45,-3.05],[x,8.15,1.8],.053,DC.rail);
+   tubeD(g,[x,8.15,1.8],[x,7.45,4.95],.053,DC.rail);
+   if(i%2===0)boxD(g,.85,.24,.75,DC.dark,x,8.1,1.9)}
+ for(let j=0;j<4;j++){const x=-25.3+j*3.5;boxD(g,2.5,1.0,.09,DC.glass,x,4.5,-3.15);
+   boxD(g,2.6,.08,.11,DC.panel,x,5.0,-3.08)}
+ for(let i=0;i<9;i++)boxD(g,.085,.6,.9,DC.edge,-25+i*.95,1.05,5.9);
+ ladderD(g,-27.7,.15,5.5,7.9,'z');
+}
+// Original stack/baghouse: top inspection rings, handrails, louvers and access ladder.
+{
+ const g=A.stack;buildingDetail(g,21.5,0,5,4,7);
+ for(let k=0;k<4;k++)boxD(g,3.7,.12,.10,DC.edge,21.5,1.5+k*1.15,2.10);
+ for(const y of [7.2,12.1,17.1]){
+   torusD(g,27,y,0,1.5,.17,DC.dark);ringRail(g,27,y+.15,0,1.43)}
+ ladderD(g,28.5,.4,.0,18.4,'z',true);
+ flangedNozzle(g,[25.9,5.4,0],[27,5.4,0],.37,DC.oxide);
+}
+// Utility building and EXISTING solar panels: facade, inverter-like details and metal panel frames.
+{
+ const g=A.util;buildingDetail(g,8,16,8,5,4.4);
+ for(let i=0;i<30;i++){
+   const m=solar[i];const x=m.position.x,z=m.position.z,y=m.position.y;
+   boxD(g,1.85,.07,1.25,DC.frame,x,y-.09,z,{rot:[.45,0,0]});
+   boxD(g,.045,.035,1.12,DC.rail,x-.62,y+.02,z,{rot:[.45,0,0]});
+   boxD(g,.045,.035,1.12,DC.rail,x+.62,y+.02,z,{rot:[.45,0,0]});
+   // Follow the panel's original visibility as the renewable-share slider changes.
+   const a=DETAIL_MESHES.slice(-3);m.userData.detailFollowers=a;
+ }
+ for(let i=0;i<4;i++)boxD(g,.7,.5,.35,DC.dark,5.6+i*1.55,1.8,18.64);
+}
+// Two EXISTING CCS columns, with vessel bands, catwalks and dedicated process instrumentation.
+{
+ const g=A.ccs;
+ for(const x of [36,41]){
+   vesselDetails(g,x,-1,2.2,15.6,1.0,true);
+   for(const y of [4.6,9.3,13.3]){torusD(g,x,y,-1,2.47,.13,DC.frame);}
+   flangedNozzle(g,[x-1.9,11,-1],[x-3.2,11,-1],.23,DC.teal);
+   gaugeD(g,x+1.2,6.8,-.3);
+ }
+ gridD(g,38.5,12.1,2.2,6.3,1.8);rectRail(g,38.5,12.16,2.2,6.3,1.8,.85);
+ tubeD(g,[36,17.5,-1],[41,17.5,-1],.24,DC.teal);
+}
+// Existing CO2 compression skid, powertrain, fin arrays, valves, pressure gauges.
+{
+ const g=A.comp;pumpDetail(g,45,5,1.25);
+ for(let k=0;k<10;k++)boxD(g,.062,1.15,2.0,DC.rail,43.15+k*.31,2.6,4.85);
+ boxD(g,5.9,.22,4.0,DC.concrete,45,.1,5);
+ valveD(g,46.4,4.2,5.0,.34);gaugeD(g,44.2,4.1,5.4);
+ flangedNozzle(g,[45.6,3.6,6],[48.1,3.6,6],.17,DC.teal);
+}
+// Existing CO2 transfer pipeline: flange joints, saddle supports and stop valves.
+{
+ const g=A.pipe;for(const x of [50.5,53.5,56.5]){
+  torusD(g,x,.9,8,.63,.12,DC.steel,[0,0,Math.PI/2]);
+  boxD(g,1.2,.13,1.6,DC.concrete,x,.05,8);
+  boxD(g,.15,.42,1.15,DC.edge,x,.55,8)}
+ valveD(g,54.4,1.75,8,.25);
+}
+// Existing geological storage cut-away: casing / monitoring indications (no new facility).
+{
+ const g=A.stor;for(const y of [1.9,2.5,3.1,3.9])torusD(g,63.5,y,8,.48,.063,DC.steel);
+ boxD(g,2.2,.32,2.0,DC.concrete,63.5,4.5,8);valveD(g,63.5,6.45,8,.36);
+ for(let i=0;i<8;i++)sphereD(g,60+i*.9,1.8,11.8,.10,DC.teal);
+}
+// Enrich the EXISTING backdrop objects at their original coordinates; no extra large buildings.
+[-24,-14,-4,6,16].forEach((x,i)=>vesselDetails(BG,x,-30,4.2,8+i%3*1.5,0,false));
+[30,34,38,42].forEach((x,i)=>vesselDetails(BG,x,-27,1.5,10+i%2*3,1,true));
+[[-26,1.6,9],[60,1.6,9],[64,1.3,7]].forEach(([x,r,h])=>{const z=x<0?-32:x===60?31:28;if(x>0)vesselDetails(BG,x,z,r,h,1,false)});
+[-26,-30,-34].forEach((z,i)=>pumpDetail(BG,44,z+(i%2?1:-1),.83));
+for(let i=0;i<6;i++)pumpDetail(BG,-26+i*5,27,.83);
+for(const [x,z,w,d,h] of [[28,-37,10,5,5],[22,30,12,7,5],[-30,34,8,5,4]])buildingDetail(BG,x,z,w,d,h);
+for(const z of [-24,-34]){ringRail(BG,62,5.45,z,2.65);for(let a=0;a<8;a++){
+ const t=2*Math.PI*a/8;boxD(BG,.4,1.35,.14,DC.edge,62+2.4*Math.cos(t),4.6,z+2.4*Math.sin(t),{rot:[0,t,0]})}}
+rackDetail(BG,-30,66,-20,6);rackDetail(BG,-30,66,21,5.5);
+// Enrich the existing horizontal heat exchanger models with fin rings, bearing brackets and small gauges.
+for(const [x,z,l] of [[54,-26,9],[54,-30,9],[54,-34,9],[38,26,8],[38,31,8],[52,26,8]]){
+ for(let i=1;i<16;i++){
+ const xx=x-l/2+l*i/16;torusD(BG,xx,2,z,1.15,.034,DC.steel,[0,Math.PI/2,0]);}
+ boxD(BG,l+1,.15,2.5,DC.concrete,x,.15,z);gaugeD(BG,x+l*.22,2.85,z);
+}
+// Road markings and existing slab details only, no extra units/buildings.
+for(let x=-25;x<67;x+=7){boxD(slab,2.4,.012,.10,DC.safety,x,.064,11.4);boxD(BG,2.4,.012,.10,DC.safety,x,.064,-19.8)}
+for(let x=-28;x<60;x+=9)for(const z of [-13.2,16.9]){
+ boxD(BG,1.0,.04,.68,DC.dark,x,.075,z);
+ for(let i=0;i<4;i++)boxD(BG,.06,.052,.64,DC.edge,x-.37+i*.24,.096,z)
+}
+for(const [x,z,w,d] of [[0,0,9,9],[36,-1,8,8],[41,-1,8,8],[45,5,7,5],[21.5,0,7,6]]){
+ boxD(slab,w,.055,d,DC.concrete,x,.005,z); // existing equipment foundation edges
+}
+// Secondary fill lighting to reveal the new metal seams and equipment silhouettes.
+const fillLight=new THREE.DirectionalLight(0xc2e3ff,.36);fillLight.position.set(-45,26,-28);S.add(fillLight);
+/* ========= LIVING RIVERSIDE LANDSCAPE (VISUAL ONLY) =========
+  This layer does not add CarbonEngine sources, alter Scope 1/2 numbers, or create clickable plant IDs.
+  Existing industrial asset IDs, hit testing, machinery, Carbon heat and Sankey remain untouched.
+  All scenery is invented/illustrative, not actual land use or plant geography.
+*/
+const ENV=new THREE.Group();ENV.name='Environmental context (illustrative, non-emitting)';S.add(ENV);
+const ENV_MOVERS=[],ENV_WATER=[];
+const E_MAT=new Map(),E_GEO=new Map();
+const EC={grass:0x365c42,grass2:0x527b52,meadow:0x62885a,bank:0x8d9d71,
+  rock:0x7c8a91,road:0x343f52,line:0xf4d67d,soil:0x6b634a,water:0x1d7390,
+  silver:0xa4b9c3,dark:0x2d4050,stone:0xb5b6ab,roof:0x6d7182,wood:0xa8886c,
+  tree:0x37744c,tree2:0x56a363,tree3:0x2d6747,evergreen:0x225347,leaf:0x78b36c,
+  glass:0x43778a};
+function eMaterial(col,opts={}){
+ const key=[col,opts.metalness||0,opts.roughness??.85,opts.transparent||false,opts.opacity??1,opts.side||0].join('_');
+ if(!E_MAT.has(key))E_MAT.set(key,new THREE.MeshStandardMaterial({color:col,metalness:opts.metalness||0,roughness:opts.roughness??.85,transparent:opts.transparent||false,opacity:opts.opacity??1,side:opts.side||THREE.FrontSide}));
+ return E_MAT.get(key);
+}
+function eGeo(kind,...p){const k=kind+'_'+p.join('_');if(!E_GEO.has(k)){
+  const geo=kind==='b'?new THREE.BoxGeometry(...p):kind==='c'?new THREE.CylinderGeometry(p[0],p[1],p[2],p[3]||10):kind==='s'?new THREE.SphereGeometry(p[0],p[1]||8,p[2]||6):kind==='cone'?new THREE.ConeGeometry(p[0],p[1],p[2]||8):new THREE.TorusGeometry(p[0],p[1],5,20);
+  E_GEO.set(k,geo);
+ }return E_GEO.get(k)
+}
+function em(g,geo,col,x,y,z,rot=null,opt={}){const m=new THREE.Mesh(geo,eMaterial(col,opt));m.position.set(x,y,z);if(rot)m.rotation.set(...rot);m.castShadow=false;m.receiveShadow=false;g.add(m);return m}
+function eb(g,w,h,d,col,x,y,z,rot){return em(g,eGeo('b',w,h,d),col,x,y,z,rot)}
+function ecyl(g,r1,r2,h,col,x,y,z,rot,segments){return em(g,eGeo('c',r1,r2,h,segments||10),col,x,y,z,rot)}
+function esph(g,r,col,x,y,z){return em(g,eGeo('s',r,9,7),col,x,y,z)}
+function econe(g,r,h,col,x,y,z){return em(g,eGeo('cone',r,h,9),col,x,y,z)}
+function eSeg(g,a,b,r,c){const p=V(...a),q=V(...b),d=q.clone().sub(p),l=d.length();if(l<.001)return;const o=ecyl(g,r,r,l,c,...p.clone().add(q).multiplyScalar(.5).toArray());o.quaternion.setFromUnitVectors(V(0,1,0),d.normalize());return o}
+let seed=20261115;function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
+const ELAND=new THREE.Group(),EROADS=new THREE.Group(),EWATER=new THREE.Group(),EGREEN=new THREE.Group(),EHOUSES=new THREE.Group(),ETRAFFIC=new THREE.Group();
+for(const [g,n] of [[ELAND,'Terrain'],[EROADS,'Service roads and bridge'],[EWATER,'River and banks'],[EGREEN,'Trees and vegetation'],[EHOUSES,'Riverside neighborhood'],[ETRAFFIC,'Service vehicles']]){g.name=n;ENV.add(g)}
+// Continuous underlay outside the existing THREE ground slabs; original plant floor y=0 stays uncovered.
+eb(ELAND,190,.22,178,EC.grass,20,-.34,15);
+for(const [x,z,w,d,c] of [[20,-47,175,15,EC.soil],[20,44,182,15,EC.grass2],[20,85,182,48,EC.grass2],[20,-58,182,15,EC.meadow]])eb(ELAND,w,.035,d,c,x,-.205,z);
+// Existing process yard remains physically in the same place. Roads are outside its perimeter.
+function road(x,z,w,d){eb(EROADS,w,.065,d,EC.road,x,-.135,z);if(w>d){for(let a=x-w/2+5;a<x+w/2-3;a+=8)eb(EROADS,3,.017,.13,EC.line,a,-.084,z)}else{for(let a=z-d/2+3;a<z+d/2-3;a+=7)eb(EROADS,.13,.017,2.8,EC.line,x,-.085,a)}}
+road(20,39.8,181,6.7);road(20,-48,181,5.8);road(20,73.4,181,5.5);
+for(const z of [35.8,43.8,-51.2,-44.7,70.25,76.5])eb(EROADS,181,.075,.17,EC.stone,20,-.08,z);
+// River sweeps east-west through the landscape south of the industrial area.
+function riverCenter(x){return 56+2.55*Math.sin((x+23)/25)+.65*Math.cos(x/12)}
+function ribbon(center,w,y,col,opts={}){
+ const points=[],idx=[],uv=[];const N=72,xmin=-75,xmax=117;
+ for(let i=0;i<=N;i++){const x=xmin+(xmax-xmin)*i/N,z=center(x);points.push(x,y,z-w/2,x,y,z+w/2);uv.push(i/N,0,i/N,1);if(i<N){const j=i*2;idx.push(j,j+1,j+2,j+1,j+3,j+2)}}
+ const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(points,3));geo.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geo.setIndex(idx);geo.computeVertexNormals();
+ return em(EWATER,geo,col,0,0,0,null,{side:THREE.DoubleSide,...opts});
+}
+ribbon(riverCenter,18,-.11,0x25536a,{metalness:.13,roughness:.34});
+ribbon(riverCenter,15.9,-.075,EC.water,{metalness:.18,roughness:.27});
+// Thin ribbons stand in for sunlit water movement (animated independently, optional).
+for(let k=0;k<11;k++){
+ const x=-55+k*15.5,z=riverCenter(x)-4+rnd()*8;
+ const mark=eb(EWATER,3.4,.012,.05,k%2?0x89cddd:0x65bfd1,x,-.048,z);
+ mark.material=eMaterial(k%2?0x89cddd:0x65bfd1,{transparent:true,opacity:.55,roughness:.25});
+ ENV_WATER.push({mesh:mark,x0:x,phase:rnd()*6.28});
+}
+// Vegetated riverbank lip and riprap stones follow water edges.
+for(const side of [-1,1]){
+ for(let x=-67;x<112;x+=2.4){const z=riverCenter(x)+side*(8.4+.55*Math.sin(x*.4));
+  eb(EWATER,2.65,.20,.75,side===1?EC.bank:EC.grass2,x,-.09,z);
+  if(rnd()<.38)esph(EWATER,.20+rnd()*.27,EC.rock,x,.05,z+side*.20)
+ }
+}
+// Compact low-poly deciduous / evergreen trees: procedural, seeded and outside industrial slabs.
+function tree(x,z,s=1,ever=false){const y=-.15,h=(3.25+rnd()*1.55)*s;
+ ecyl(EGREEN,.13*s,.20*s,h,0x735747,x,y+h/2,z);
+ if(ever){for(let j=0;j<3;j++)econe(EGREEN,(1.05-.22*j)*s,(2.8-.4*j)*s,j%2?EC.evergreen:EC.tree3,x,y+h*.64+j*.60*s,z)}
+ else{esph(EGREEN,1.05*s,EC.tree,x,y+h*.78,z);esph(EGREEN,.87*s,EC.tree2,x-.42*s,y+h*.90,z+.2*s);esph(EGREEN,.78*s,EC.leaf,x+.38*s,y+h*.95,z-.35*s)}
+}
+function bush(x,z,s=1){esph(EGREEN,.58*s,rnd()<.5?EC.tree:EC.tree2,x,-.08,z);if(rnd()<.5)esph(EGREEN,.4*s,EC.leaf,x+.35*s,.02,z+.13*s)}
+for(let i=0;i<102;i++){
+ const x=-67+rnd()*176;let z;
+ if(i<46)z=riverCenter(x)+(rnd()>.5?1:-1)*(11.5+rnd()*6.5);
+ else if(i<69)z=-55-rnd()*9;
+ else z=79+rnd()*22;
+ // Preserve bridge approach and residential driveways.
+ if(Math.abs(x-15)<8 && z>39&&z<78)continue;
+ if(z>77&&z<97&&x>-49&&x<79 && i%3!==0)continue;
+ tree(x,z,.65+rnd()*.58,i%4===0);
+}
+for(let i=0;i<125;i++){
+ const x=-68+rnd()*177;let z=i<65?riverCenter(x)+(rnd()>.5?1:-1)*(9.4+rnd()*2.4):i<91?-54-rnd()*11:78+rnd()*26;
+ if(Math.abs(x-15)<5&&z>39&&z<78)continue;
+ bush(x,z,.35+rnd()*.7)
+}
+// Wetland reeds in short clusters; these are landscape cues, not carbon-removal accounting.
+for(let i=0;i<115;i++){
+ const x=-68+rnd()*179,sgn=rnd()<.5?-1:1,z=riverCenter(x)+sgn*(7.65+rnd()*1.55);
+ const h=.35+rnd()*.9;eb(EGREEN,.035,h,.035,i%3?EC.bank:EC.tree2,x,-.1+h/2,z)
+}
+// Service bridge crosses the river, preserving the existing industrial scene on its northern side.
+eb(EROADS,6.4,.44,37.8,EC.road,15,.28,58.1); // raised bridge deck stays above river surface
+for(let z=43;z<74;z+=7)eb(EROADS,.13,.021,2.9,EC.line,15,.51,z);
+for(const xx of [11.6,18.4]){eb(EROADS,.28,.70,39,EC.stone,xx,.78,58.1);
+ for(let zz=40;zz<76;zz+=3.2)eb(EROADS,.14,.95,.14,EC.silver,xx,.81,zz)
+}
+for(const zz of [49,67])for(const xx of [12.2,17.8])ecyl(EROADS,.32,.44,2,EC.stone,xx,-.6,zz);
+// Small houses and administrative-looking buildings are across the water, outside the simulated facility boundary.
+const HOME_C=[0xcac9bd,0xc8d8ce,0xd5b8a4,0xa9bbc8,0xd7c4ad,0xc9d4d0,0xbcc6bc];
+function house(x,z,w=5.5,d=6.0,h=4.2,ci=0){const g=new THREE.Group();g.name='Contextual house · not part of plant';EHOUSES.add(g);
+ const color=HOME_C[ci%HOME_C.length];eb(g,w,h,d,color,x,h/2,z);eb(g,w+1,.16,d+1,EC.dark,x,h+.05,z);
+ // Distinct pitched roof formed from two inclined roof plates.
+ const peak=.93+ci%3*.17;
+ eb(g,w*.59,.17,d+1.15,ci%3===0?0x634e49:ci%3===1?0x596b75:0x7b635a,x-w*.245,h+peak*.55,z,[0,0,-Math.atan2(peak,w/2)]);
+ eb(g,w*.59,.17,d+1.15,ci%3===0?0x634e49:ci%3===1?0x596b75:0x7b635a,x+w*.245,h+peak*.55,z,[0,0,Math.atan2(peak,w/2)]);
+ // Front door, windows and trim, street frontage at z - d/2.
+ eb(g,.95,2.05,.07,0x5f6d6f,x-w*.19,1.03,z-d/2-.045);
+ for(const wx of [x-w*.26,x+w*.25])for(const wy of [2.65, h>4.9?4.1:2.65]){
+  if(wy>h-.35)continue;
+  eb(g,.90,.78,.085,EC.glass,wx,wy,z-d/2-.055);eb(g,1.04,.07,.15,EC.stone,wx,wy+.43,z-d/2-.09);
+ }
+ eb(g,w+1.1,.08,d+.9,EC.stone,x,-.15,z);
+ eb(g,w*.3,.12,1.15,EC.wood,x-w*.19,.11,z-d/2-1);
+ // Chimney, garden and low planter boxes.
+ eb(g,.43,1,.45,EC.stone,x+w*.29,h+.72,z+.9);
+ for(let j=0;j<3;j++)bush(x+w*.57,z-d*.25+j*.92,.44);
+}
+const HOUSES=[[-44,85,5.2,6,4.1],[-32,84,6,6.5,4.7],[-20,86,5.1,5.8,4.1],[-6,86,5.5,6.6,5.2],[28,85,6.3,6.5,4.3],[42,85,5.6,6,5.0],[56,86,6.4,6.6,4.1],[70,85,5.4,6,4.8],[-38,99,5.5,5.7,4.5],[-17,101,5.5,6.2,5.1],[37,99,6.2,6.1,5.0],[64,100,5.8,6.5,4.4]];
+HOUSES.forEach(([x,z,w,d,h],i)=>house(x,z,w,d,h,i));
+// Small pavement and community park area; each neighborhood object remains noninteractive scenery.
+for(const [x,z] of [[-55,79],[82,81],[12,93]]){
+ eb(EHOUSES,10,.04,9,EC.meadow,x,-.14,z);
+ for(let j=0;j<3;j++)bush(x-3.5+j*3.4,z-2.5,.82)
+}
+// Traffic: small service cars and freight trucks move on existing peripheral road corridors.
+function vehicle(color,truck=false){const g=new THREE.Group();g.name=truck?'Illustrative logistics truck':'Illustrative service car';ETRAFFIC.add(g);
+ const L=truck?7.5:3.9;
+ eb(g,L,.75,1.82,truck?0xd8dce1:color,0,.92,0);
+ if(truck){eb(g,4.4,1.55,1.78,0xc1ced5,-1.25,1.67,0);eb(g,2.1,1.25,1.80,color,2.4,1.48,0);
+  eb(g,.12,.73,1.52,EC.glass,3.47,1.65,0)}
+ else{eb(g,2.1,.9,1.68,color,-.12,1.55,0);eb(g,1.2,.43,1.72,EC.glass,.53,1.7,0)}
+ for(const wx of [-L*.33,L*.33])for(const wz of [-.92,.92]){
+ const m=ecyl(g,.43,.43,.22,EC.dark,wx,.43,wz,[Math.PI/2,0,0],12);
+ ecyl(g,.20,.20,.225,0xaab4bd,wx,.43,wz,[Math.PI/2,0,0],10)
+ }
+ for(const wz of [-.62,.62]){eb(g,.065,.17,.25,0xffefbc,L/2+.06,1.02,wz);eb(g,.065,.15,.25,0xe75b4e,-L/2-.06,1.02,wz)}
+ return g
+}
+function addCar(x,z,col,vel,truck=false){const g=vehicle(col,truck);g.position.set(x,0,z);if(vel<0)g.rotation.y=Math.PI;ENV_MOVERS.push({g,axis:'x',speed:vel,start:-60,end:105,base:z,phase:0})}
+addCar(-36,39.0,0xe5a642,5.0,true);addCar(53,41.25,0x4fbec4,-4.1,false);addCar(-10,-47,0x73a8d0,5.6,false);
+addCar(55,-49.1,0xe78c56,-3.5,true);addCar(-41,72.65,0xc0d0d7,3.4,false);addCar(71,74.1,0x6cb395,-4.0,false);
+const bridgeCar=vehicle(0xe8b15e,false);bridgeCar.rotation.y=-Math.PI/2;bridgeCar.position.set(14.0,0,41.5);
+ENV_MOVERS.push({g:bridgeCar,axis:'z',speed:2.5,start:41,end:74,base:14,phase:0});
+// Boat, pier and floating details make the river visually recognizable; no emissions counted.
+const BOAT=new THREE.Group();BOAT.name='Illustrative small river boat';EWATER.add(BOAT);
+eb(BOAT,5.0,.63,2.1,0xb8d5dc,0,0,0);eb(BOAT,2.1,1.05,1.65,0x5f91a5,-.55,.82,0);eb(BOAT,1.20,.52,1.69,EC.glass,-.40,1.18,0);
+eb(BOAT,5.35,.13,2.2,0x39788f,0,-.35,0);ecyl(BOAT,.12,.12,1.7,EC.silver,.65,1.55,-.3);
+BOAT.position.set(32,.32,riverCenter(32));
+// Shoreline observation deck demonstrates the waterfront context without touching the industrial equipment.
+eb(EHOUSES,6,.16,3.0,EC.wood,52,.07,70);for(const xx of [49.4,54.6])for(const zz of [68.8,71.2])eb(EHOUSES,.18,1.8,.18,EC.stone,xx,-.8,zz);
+function animateEnvironment(t,dt){if(!ENV.visible)return;
+ for(const o of ENV_MOVERS){const old=o.g.position[o.axis],next=old+o.speed*dt;
+  o.g.position[o.axis]=next>o.end?o.start:next<o.start?o.end:next;}
+ for(const w of ENV_WATER){w.mesh.position.x=.3*Math.sin(t*.00055+w.phase);w.mesh.material.opacity=.38+.18*Math.sin(t*.00075+w.phase)}
+ BOAT.position.x=32+11*Math.sin(t*.00015);BOAT.position.z=riverCenter(BOAT.position.x)+1.1*Math.cos(t*.0003);BOAT.rotation.y=.06*Math.sin(t*.00018);
+}
+/* ========= END LIVING LANDSCAPE ========= */
+/* ========= SUBSURFACE GEOLOGIC CUTAWAY — VISUAL, NOT A RESERVOIR SIMULATOR =========
+ * Depth units are schematic scene coordinates, not measured meters.
+ * The geological layers are separate from carbon/TEA accounting.
+ * Keeps existing Three.js equipment ID map untouched. */
+const SUBSURFACE=new THREE.Group();SUBSURFACE.name='Illustrative subsurface cutaway';S.add(SUBSURFACE);
+const SUB_CO2=[];
+const GEO={soil:0x9a5c3c,sandstone:0xbe7348,weathered:0xad6244,aquifer:0x4f92b1,
+  shale:0x825d50,caprock:0x555f67,saline:0xc5a264,reservoir:0x564d43,base:0x817765,
+  pale:0xb2d8e7,teal:0x35d8cc,orange:0xdf8a54};
+const GHOST=(col,rough=.92,metal=0)=>new THREE.MeshStandardMaterial({color:col,roughness:rough,metalness:metal});
+const geoPart=(geo,color,x,y,z,options={})=>{
+ const m=new THREE.Mesh(geo,GHOST(color,options.rough||.91,options.metal||0));m.position.set(x,y,z);
+ if(options.rx)m.rotation.x=options.rx;
+ m.castShadow=false;m.receiveShadow=true;SUBSURFACE.add(m);return m;
+};
+const areaX=19,areaZ=4,areaW=109,areaD=59,frontZ=areaZ+areaD/2;
+// Top-to-bottom layer stack; heights sum to 35 local illustrative units.
+const GEO_LAYERS=[
+ {name:'Soil / near surface',top:-.6,depth:5.6,col:GEO.soil},
+ {name:'Various rock strata',top:-6.2,depth:5.4,col:GEO.sandstone},
+ {name:'Illustrative aquifer',top:-11.6,depth:2.2,col:GEO.aquifer},
+ {name:'Underlying rock strata',top:-13.8,depth:7.1,col:GEO.weathered},
+ {name:'Caprock / seal',top:-20.9,depth:2.7,col:GEO.caprock},
+ {name:'Saline reservoir rock',top:-23.6,depth:6.5,col:GEO.saline},
+ {name:'Basal rock strata',top:-30.1,depth:5.0,col:GEO.base}
+];
+GEO_LAYERS.forEach((layer,index)=>{
+ const y=layer.top-layer.depth/2;
+ const mesh=geoPart(bx(areaW,layer.depth,areaD),layer.col,areaX,y,areaZ);
+ const wire=new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry),
+ new THREE.LineBasicMaterial({color:index===2?0x97def1:0x263441,transparent:true,opacity:.6}));wire.position.copy(mesh.position);SUBSURFACE.add(wire);
+ // Dark horizontal bed lines on the visible cross-section.
+ if(index!==2&&index!==4){
+   for(let j=1;j<=Math.floor(layer.depth/1.6);j++){
+    const ly=layer.top-j*1.45;if(ly<layer.top-layer.depth+.12)continue;
+    geoPart(bx(areaW-.8,.035,.06),0x564b46,areaX,ly,frontZ+.055);
+   }
+ }
+});
+// Mineral speckling on the exposed front face, using instancing for performance.
+let seedGeo=1627;function geoRandom(){seedGeo=(Math.imul(seedGeo,1664525)+1013904223)|0;return (seedGeo>>>0)/4294967296}
+const poreGeom=new THREE.TetrahedronGeometry(.11,0),poreMat=new THREE.MeshStandardMaterial({color:0x382e2c,roughness:1});
+const poreCount=220,pores=new THREE.InstancedMesh(poreGeom,poreMat,poreCount);
+const dummy=new THREE.Object3D();for(let i=0;i<poreCount;i++){
+  const lx=areaX-areaW/2+2+geoRandom()*(areaW-4),y=-1-geoRandom()*33;
+  dummy.position.set(lx,y,frontZ+.17);const s=.5+geoRandom()*2.3;dummy.scale.set(s,s,s);dummy.rotation.set(0,geoRandom()*Math.PI,0);dummy.updateMatrix();pores.setMatrixAt(i,dummy.matrix);
+}pores.instanceMatrix.needsUpdate=true;pores.castShadow=false;SUBSURFACE.add(pores);
+// Aquifer water stripe / caprock contact / porous saline target interval.
+geoPart(bx(areaW-.1,.16,.12),GEO.pale,areaX,-12.65,frontZ+.1);
+geoPart(bx(areaW-.1,.24,.13),0x354850,areaX,-22.25,frontZ+.13);
+for(let i=0;i<28;i++){
+ const x=areaX-areaW/2+3+geoRandom()*(areaW-6),y=-24.6-geoRandom()*5;
+ geoPart(new THREE.SphereGeometry(.12+geoRandom()*.11,6,4),0xe2c894,x,y,frontZ+.24);
+}
+// One illustrative injection well, visible on the front cutaway face.
+const WELL_X=60.8,WELL_Z=frontZ+.45;
+const wellMaterial=GHOST(0xbfdce3,.28,.6);
+function wellPipe(points,r=.23,color=0xd3edf3){
+  for(let i=1;i<points.length;i++){
+   const a=new THREE.Vector3(...points[i-1]),b=new THREE.Vector3(...points[i]),d=b.clone().sub(a),len=d.length();
+   const m=new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,12),GHOST(color,.3,.65));
+   m.position.copy(a.add(b).multiplyScalar(.5));m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),d.normalize());
+   m.castShadow=false;SUBSURFACE.add(m);
+  }
+}
+wellPipe([[WELL_X,2,WELL_Z],[WELL_X,-26.6,WELL_Z]],.27,0xd5eaf3);
+wellPipe([[WELL_X,-26.6,WELL_Z],[WELL_X-11,-26.6,WELL_Z]],.17,GEO.teal);
+geoPart(bx(2.3,.42,1.7),0x48646c,WELL_X,1.05,WELL_Z);
+for(let i=0;i<8;i++){
+ const m=geoPart(new THREE.SphereGeometry(.22,10,7),GEO.teal,WELL_X,-3-i*3,WELL_Z+.35,
+  {rough:.25,metal:.3});m.material.emissive=new THREE.Color(0x20a4a8);m.material.emissiveIntensity=.55;
+ SUB_CO2.push({mesh:m,phase:i/8});
+}
+// Storage plume within the saline interval (conceptual, not simulated fluid migration).
+for(let i=0;i<18;i++){
+ const x=WELL_X-2-geoRandom()*18,y=-25.2-geoRandom()*3.3;
+ const m=geoPart(new THREE.SphereGeometry(.25+geoRandom()*.38,10,7),0x38b6b2,x,y,frontZ+.30,
+  {rough:.4});m.material.transparent=true;m.material.opacity=.54;m.material.emissive=new THREE.Color(0x063c42);
+}
+function animateSubsurface(t){
+ const active=P.ccs&&SUBSURFACE.visible;
+ for(const q of SUB_CO2){q.mesh.visible=active;if(!active)continue;
+   const k=(q.phase+t*.0001)%1;q.mesh.position.y=1-k*27;
+ }
+}
+/* ========= END SUBSURFACE CUTAWAY ========= */
+
+
+/* ========= END VISUAL REFINEMENT ========= */
+
+/*ENDSCENE*/
+/* ================= assets metadata ================= */
+const kk=()=>1-P.eff/100*.6;
+const AS={
+raw:{n:'Stockyard & conveyor',s:'Stockyard',p:'Coal, coke and iron ore are stored and lifted to the furnace top.',role:'Carbon enters the plant here as fuel and reductant.',sc:'Inputs (no direct emissions)',cap:'≈6 Mt raw material/yr',en:()=>120,em:()=>0,m:['Electric conveyor optimisation','Raw-material quality control']},
+sinter:{n:'Coke & sinter plant',s:'Coke & sinter',p:'Coke making and ore agglomeration.',role:'Combustion and process CO₂ from coal carbon.',sc:'Scope 1 combustion + process',cap:'2.6 Mt sinter/yr',en:()=>2100*kk(),em:r=>r.s1.sinter,m:['Waste-heat recovery','Point-source capture','Energy efficiency']},
+bf:{n:'Blast furnace',s:'Blast furnace',p:'Coke carbon reduces iron ore to hot metal: Fe₂O₃ + C → Fe + CO₂.',role:'Largest single source: carbon is the chemical reductant, not just fuel.',sc:'Scope 1 process + combustion',cap:'2.0 Mt hot metal/yr',en:()=>6800*kk(),em:r=>r.s1.bf,m:['Capture from top-gas / flue gas','Efficiency (injection, heat integration)','Longer term: hydrogen DRI (outside this model)']},
+stoves:{n:'Hot-blast stoves',s:'Hot-blast stoves',p:'Burn furnace gas to pre-heat the air blown into the furnace.',role:'Combustion CO₂ in a flue gas that can be captured.',sc:'Scope 1 combustion',cap:'3 stoves',en:()=>2300*kk(),em:r=>r.s1.stoves,m:['Flue-gas capture','Heat recovery']},
+mill:{n:'Steel shop & hot rolling',s:'Steel shop & rolling',p:'Converter steelmaking, casting and reheating.',role:'Diffuse sources assumed not capturable here.',sc:'Scope 1 process + combustion',cap:'2.0 Mt steel/yr',en:()=>2500*kk(),em:r=>r.s1.mill,m:['Electric reheating','Gas recovery']},
+stack:{n:'Main stack',s:'Stack',p:'Collected flue gas leaves through the stack after dust removal.',role:'Where un-captured fossil CO₂ is released to the atmosphere.',sc:'Scope 1 released',cap:'—',en:()=>0,em:r=>r.res,m:['Capture upstream reduces this flow']},
+util:{n:'Purchased power & solar',s:'Power & solar',p:'Electricity bought from the grid; solar panels indicate the low-carbon share.',role:'Scope 2 emissions occur at the power plant, not on site.',sc:'Scope 2 (illustrative physical supply mix)',cap:'—',en:r=>r.el,em:r=>r.s2,m:['Higher low-carbon share (PPA, on-site)','Lower capture energy']},
+ccs:{n:'CO₂ capture unit',s:'CO₂ capture',p:'Absorber / regenerator columns separate CO₂ from flue gas.',role:'Captures fossil CO₂ before release. It does not remove CO₂ already in the air.',sc:'Mitigation technology',cap:'by capture rate',en:r=>r.pg*.7,em:r=>r.cap,g:1,cc:1,m:['Higher capture rate','Lower energy penalty','Solvent management']},
+comp:{n:'CO₂ compression & dehydration',s:'Compression',p:'Compresses and dries CO₂ for dense-phase transport.',role:'Part of the capture energy penalty.',sc:'Mitigation technology',cap:'with captured flow',en:r=>r.pg*.3,em:r=>r.cap,g:1,cc:1,m:['Efficient compressors','Heat integration']},
+pipe:{n:'CO₂ pipeline',s:'Pipeline',p:'Transports dense CO₂ to the storage site.',role:'Transport adds cost and (here, excluded) fuel emissions.',sc:'Mitigation technology',cap:'with captured flow',en:()=>0,em:r=>r.cap,g:1,cc:1,m:['Shared infrastructure','Leak monitoring']},
+stor:{n:'Geological storage',s:'Geological storage',p:'CO₂ is injected into a porous reservoir beneath a sealing caprock.',role:'Permanence depends on caprock integrity and monitoring.',sc:'Mitigation technology',cap:'by retention',en:()=>0,em:r=>r.store,g:1,cc:1,m:['Site characterisation','MRV monitoring','Long-term liability']}};
+/* ================= particles + camera ================= */
+const cv=$('#cv'),R=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});R.shadowMap.enabled=true;R.shadowMap.type=THREE.PCFSoftShadowMap;R.toneMapping=THREE.ACESFilmicToneMapping;R.outputEncoding=THREE.sRGBEncoding;
+const C=new THREE.PerspectiveCamera(38,1,.1,400);
+const N=1600,pa=new Float32Array(N*3).fill(-999),pc=new Float32Array(N*3),ag=new Float32Array(N).fill(99),lf=new Float32Array(N),ty=new Uint8Array(N),vv=new Float32Array(N*3),pp=new Float32Array(N);
+const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pa,3));pg.setAttribute('color',new THREE.BufferAttribute(pc,3));
+const pts=new THREE.Points(pg,new THREE.PointsMaterial({size:.8,vertexColors:true,transparent:true,opacity:.92,depthWrite:false}));pts.frustumCulled=false;S.add(pts);
+const mkp=a=>{const s=[];let t=0;for(let i=1;i<a.length;i++){const l=Math.hypot(...a[i].map((v,j)=>v-a[i-1][j]));s.push(l);t+=l}return{a,s,t}};
+const PT={2:mkp([[27,5,0],[36,3.2,0],[36,17,-1],[41,17,-1],[41,1.6,-1],[45,1.6,3.3],[49,.9,8],[63.5,.9,8]]),3:mkp([[-21,1.6,-10.5],[-2.6,17.4,-1.2],[0,15,0]])},SPD={2:7,3:4};
+const rate=[0,0,0,0],acc=[0,0,0,0];let fr=0;
+function spawn(t){for(let k=0;k<N;k++){const i=(fr+k)%N;if(ag[i]>=lf[i]){fr=(i+1)%N;ty[i]=t;ag[i]=0;pp[i]=0;const rn=Math.random;
+ if(t==0){pa.set([27+rn()*.4-.2,20.4,rn()*.4-.2],i*3);vv.set([.6+rn()*.5,2+rn(),rn()*.4-.2],i*3);lf[i]=6}
+ else if(t==1){pa.set([12,7.2,16],i*3);vv.set([.4,1.3,.1],i*3);lf[i]=4}else lf[i]=99;return}}}
+let th=.38,ph=1.14,rad=151,sel=null,mode='n';const tg=V(20,4,17),tg2=tg.clone();
+let depthLevel=0;
+function syncDepth(){const d=$('#geoDepth');if(d){d.value=depthLevel;$('#depthReadout').textContent=depthLevel===0?'Surface':depthLevel+' units'}}
+function moveVerticalView(depth){const next=Math.max(0,Math.min(35,Number(depth)));tg2.y-=next-depthLevel;depthLevel=next;ph=Math.min(1.50,1.14+depthLevel*.0095);tg.copy(tg2);syncDepth();}
+$('#geoDepth').addEventListener('input',e=>moveVerticalView(e.target.value));
+$('#depthSurface').onclick=()=>{moveVerticalView(0);rad=135;};
+$('#depthStorage').onclick=()=>{moveVerticalView(27);rad=Math.min(112,Math.max(85,rad));};
+function focus(id){depthLevel=0;syncDepth();if(!id){tg2.set(20,4,0);rad=112;return}const c=new THREE.Box3().setFromObject(A[id]).getCenter(V());tg2.copy(c);rad=Math.min(rad,id=='bf'?48:58)}
+/* Freely moving site camera: primary left-drag pans across the ground plane.
+   Orbit button / Shift+drag / right-drag rotates; click still selects equipment.
+   No OrbitControls dependency and no automatic re-centering after a pan. */
+let navMode='pan',dn=null;
+cv.addEventListener('contextmenu',e=>e.preventDefault());
+function panCamera(dx,dy){
+  const worldPerPixel=2*rad*Math.tan(THREE.MathUtils.degToRad(C.fov*.5))/Math.max(1,cv.clientHeight);
+  const right=V(Math.cos(th),0,-Math.sin(th)),away=V(-Math.sin(th),0,-Math.cos(th));
+  const shift=right.multiplyScalar(-dx*worldPerPixel).add(away.multiplyScalar(dy*worldPerPixel*1.20));
+  tg2.add(shift);tg2.x=Math.max(-125,Math.min(165,tg2.x));tg2.z=Math.max(-145,Math.min(145,tg2.z));
+  tg.copy(tg2); // immediate response; independent of the last selected object
+}
+cv.addEventListener('pointerdown',e=>{
+  if(e.button!==0&&e.button!==2)return;
+  const kind=e.button===2||e.shiftKey?'orbit':navMode;
+  dn={id:e.pointerId,x:e.clientX,y:e.clientY,lx:e.clientX,ly:e.clientY,t:th,p:ph,kind,button:e.button,moved:false};
+  cv.setPointerCapture(e.pointerId);
+});
+cv.addEventListener('pointermove',e=>{
+  if(!dn||e.pointerId!==dn.id)return;
+  const dx=e.clientX-dn.lx,dy=e.clientY-dn.ly;
+  dn.lx=e.clientX;dn.ly=e.clientY;
+  if(Math.hypot(e.clientX-dn.x,e.clientY-dn.y)>4)dn.moved=true;
+  if(dn.kind==='orbit'){
+    th=dn.t-(e.clientX-dn.x)*.008;
+    ph=Math.max(.22,Math.min(1.49,dn.p-(e.clientY-dn.y)*.008));
+  }else if(dn.moved){panCamera(dx,dy)}
+});
+cv.addEventListener('pointerup',e=>{
+  if(dn&&e.pointerId===dn.id){if(!dn.moved&&dn.button===0){const id=pick(e);if(id)select(id)}dn=null;}
+});
+cv.addEventListener('pointercancel',()=>dn=null);
+cv.addEventListener('wheel',e=>{e.preventDefault();rad=Math.max(28,Math.min(205,rad*(1+e.deltaY*.001)))},{passive:false});
+const RC=new THREE.Raycaster();
+function pick(e){const b=cv.getBoundingClientRect();RC.setFromCamera(new THREE.Vector2((e.clientX-b.left)/b.width*2-1,-(e.clientY-b.top)/b.height*2+1),C);
+ const h=RC.intersectObjects(Object.values(A),true)[0];if(!h)return null;let o=h.object;while(o&&!o.userData.id)o=o.parent;return o?o.userData.id:null}
+function size(){const w=cv.clientWidth,h=cv.clientHeight;R.setPixelRatio(Math.min(2,devicePixelRatio));R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix()}
+new ResizeObserver(size).observe(cv);
+const LB={};Object.keys(AS).forEach(id=>{const d=document.createElement('div');d.className='lb';d.textContent=AS[id].s;d.onclick=()=>select(id);$('#cvw').appendChild(d);const b=new THREE.Box3().setFromObject(A[id]);LB[id]={d,p:V((b.min.x+b.max.x)/2,b.max.y+1.2,(b.min.z+b.max.z)/2)}});
+let last=performance.now();
+function loop(now){const dt=Math.min(.05,(now-last)/1e3);last=now;
+ tg.lerp(tg2,.08);C.position.set(tg.x+rad*Math.sin(ph)*Math.sin(th),tg.y+rad*Math.cos(ph),tg.z+rad*Math.sin(ph)*Math.cos(th));C.lookAt(tg);C.updateMatrixWorld();
+ for(let t=0;t<4;t++){acc[t]+=rate[t]*dt;while(acc[t]>=1){spawn(t);acc[t]--}}
+ for(let i=0;i<N;i++){if(ag[i]>=lf[i]){pa[i*3+1]=-999;continue}ag[i]+=dt;const j=i*3,t=ty[i];
+  if(t<2){const u=ag[i]/lf[i];for(let k=0;k<3;k++)pa[j+k]+=vv[j+k]*dt;pc[j]=1-.25*u;pc[j+1]=.45+.33*u;pc[j+2]=.15+.65*u}
+  else{const p=PT[t];pp[i]+=dt*SPD[t];if(pp[i]>=p.t){lf[i]=0;continue}let d=pp[i],s=0;while(d>p.s[s]){d-=p.s[s];s++}const a=p.a[s],b=p.a[s+1],q=d/p.s[s];
+   for(let k=0;k<3;k++)pa[j+k]=a[k]+(b[k]-a[k])*q;pa[j+1]+=Math.sin(pp[i]*3)*.12;if(t==2){pc[j]=.05;pc[j+1]=.72;pc[j+2]=.74}else{pc[j]=.27;pc[j+1]=.17;pc[j+2]=.12}}}
+ pg.attributes.position.needsUpdate=pg.attributes.color.needsUpdate=true;
+ const w=cv.clientWidth,h=cv.clientHeight;for(const id in LB){const v=LB[id].p.clone().project(C),l=LB[id].d;l.style.display=v.z<1?'block':'none';l.style.left=(v.x*.5+.5)*w+'px';l.style.top=(-v.y*.5+.5)*h+'px';l.classList.toggle('on',id==sel)}
+ pulse(now);animateEnvironment(now,dt);animateSubsurface(now);R.render(S,C);requestAnimationFrame(loop)}
+function tint(r){for(const id in A){const a=AS[id],off=a.cc&&!P.ccs;A[id].children.forEach(m=>{let c=new THREE.Color(m.userData.b);
+ if(mode=='c'&&m.userData.t)c=a.g?new THREE.Color(GRN):a.em(r)>0?new THREE.Color(0xdcd3cc).lerp(new THREE.Color(0xe8341c),Math.min(1,a.em(r)/.9)):new THREE.Color(0xd5dce2);
+ m.material.color.copy(c);m.material.emissive.setHex(m.userData.e||(id==sel?0x0f5f6b:0));m.material.transparent=true;m.material.opacity=off?.18:m.userData.o})}}
+/* ===== Param change diagnostics: explain physical vs financial vs cohort impacts ===== */
+let lastParamChange=null;
+const PARAM_HELP={
+  eff:'Direct fuel/process emissions and base electricity use are reduced by an illustrative uniform response (not a fitted plant model).',
+  re:'Changes the assumed physical low-carbon electricity mix. Its grid change is NOT a formal location-based Scope 2 claim.',
+  so:'Solar displaces fossil share unless shares exceed 100%. Solar vs wind alone uses zero operational generation emissions in this simplified model.',
+  wi:'Wind displaces fossil share unless shares exceed 100%. Solar and wind have the same direct operational factor in this simplified model.',
+  ot:'This changes modeled fossil supply fraction. No grid-contract matching, lifecycle or hourly dispatch is modeled.',
+  ef:'Fossil-generation factor affects scenario electricity emissions, including power used by CCS.',
+  el:'Electrification reduces eligible mill fuel emissions but raises electricity demand. Electrification investment costs are NOT modeled.',
+  ed:'Total purchased electricity load changes; Scope 2 proxy responds according to the supply mix.',
+  ccs:'Controls capture and compression; disabled CCS implies capture parameters have no physical effect.',
+  cap:'Only effective if CCS is installed AND commissioned by the selected display year.',
+  pen:'Capture electric penalty affects demand and emissions only when CCS captures CO2.',
+  perm:'100-year retention changes a future-loss adjustment, NOT a measured annual leakage rate.',
+  cp:'Carbon price affects the illustrative financial proxy (NPV), not physical CO2 or capture.',
+  sub:'CAPEX subsidy affects modeled investment and NPV, not physical CO2. No effect if modeled investment is zero.',
+  yr:'Commissioning start changes the annual time pathway and dated NPV; final steady-state may be unchanged.',
+  dur:'Ramp length changes annual deployment and dated NPV; final steady-state can remain unchanged.'
+};
+function snapParam(x){return {y:E.at(x,SY).r.net, y30:E.at(x,2030).r.net,y50:E.at(x,2050).r.net,npv:E.fin(x).npv,cum:E.fin(x).cum,cap:E.at(x,SY).r.cap};}
+function markInput(key,old){lastParamChange={key,before:snapParam(old)};}
+function renderImpact(){
+  const targets=['#impactBox','#simImpactBox'].map($).filter(Boolean);if(!targets.length)return;
+  const item=lastParamChange,cur=snapParam(P);
+  const cols=[['Year '+SY+' net',cur.y,'y',' Mt'],['2030 net',cur.y30,'y30',' Mt'],['2050 net',cur.y50,'y50',' Mt'],['NPV',cur.npv,'npv',' $M'],['Cumulative avoided',cur.cum,'cum',' Mt'],['Year '+SY+' captured',cur.cap,'cap',' Mt']];
+  const ch=cols.map(([name,val,key,unit])=>{
+    const diff=item?val-item.before[key]:null;
+    const fmt=d=>Math.abs(d)<1e-8?'0':(d>0?'+':'')+d.toFixed(Math.abs(d)<.01?4:3);
+    return '<span>'+name+'<br><b>'+val.toFixed(3)+'</b>'+unit+(item?' <small style="color:#85d5d0">Δ '+fmt(diff)+'</small>':'')+'</span>';
+  }).join('');
+  const key=item?.key,used=key&&PARAM_HELP[key];
+  const markup='<strong>Parameter impact · model diagnostics</strong><div class="impactrow">'+ch+'</div>'+
+    '<div class="subtle">'+(used?'<b>Last changed: '+key+'.</b> '+used:'Change any input to inspect changes. All values are conditional model outputs.')+'</div>'+
+    '<div class="subtle" style="margin-top:5px">A zero Δ can be correct: disabled CCS, unchanged aggregate power share, policy-only inputs, or deployment outside the selected year. NPV depends on uncalibrated cost and policy assumptions.</div>';targets.forEach(n=>n.innerHTML=markup);
+}
+/* ================= UI ================= */
+const D={eff:['Energy efficiency gain',0,30,1,'%'],re:['Low-carbon electricity',0,100,1,'%'],ef:['Fossil-generation emission factor',.1,.9,.01,' kg/kWh'],cap:['Capture rate',50,95,1,'%'],pen:['Capture energy penalty',.1,.6,.01,' MWh/tCO₂'],perm:['Storage retention (100 y)',90,100,1,'%'],cp:['Carbon price',0,250,5,' $/t']};
+$('#ctl').innerHTML=Object.entries(D).map(([k,v])=>`<div id="w_${k}"><label>${v[0]}<output id="o_${k}"></output></label><input type="range" id="r_${k}" min="${v[1]}" max="${v[2]}" step="${v[3]}"></div>`).join('');
+Object.keys(D).forEach(k=>$('#r_'+k).oninput=e=>{const before={...P};P[k]=+e.target.value;if(k=='re')norm(P);markInput(k,before);update()});$('#ccs').onchange=e=>{const before={...P};P.ccs=e.target.checked;markInput('ccs',before);update()};
+$('#pre').innerHTML='<h3>Scenarios</h3>'+SC.map(([n,pt],i)=>`<button class="pb" data-i="${i}">${n}</button>`).join('');
+$('#pre').onclick=e=>{const i=e.target.dataset.i;if(i)set(scp(SC[i][1]))};
+function set(o){Object.assign(P,o);update()}
+function sync(){for(const k in D){$('#r_'+k).value=P[k];$('#o_'+k).textContent=(k=='ef'||k=='pen'?f(P[k]):P[k])+D[k][4]}$('#ccs').checked=P.ccs}
+let tab='asset';const TB={asset:'Asset',led:'Carbon ledger',cmp:'Compare',cost:'Cost',lim:'Limits'};
+$('#tabs').innerHTML=Object.entries(TB).map(([k,v])=>`<button data-t="${k}">${v}</button>`).join('');
+$('#tabs').onclick=e=>{if(e.target.dataset.t){tab=e.target.dataset.t;update()}};
+$('#modes').onclick=e=>{if(e.target.id==='navModePan'||e.target.id==='navModeOrbit'){navMode=e.target.id==='navModePan'?'pan':'orbit';$('#navModePan').classList.toggle('on',navMode==='pan');$('#navModeOrbit').classList.toggle('on',navMode==='orbit');return;}if(e.target.id==='environmentToggle'){
+  const active=!e.target.classList.contains('on');e.target.classList.toggle('on',active);
+  e.target.textContent='Landscape: '+(active?'ON':'OFF');ENV.visible=active;
+  $('#environmentTag').hidden=!active;return;
+ }if(e.target.id==='wideView'){
+  const goPlant=e.target.classList.contains('on');e.target.classList.toggle('on',!goPlant);
+  e.target.textContent=goPlant?'Landscape view':'Plant view';
+  if(goPlant){depthLevel=0;syncDepth();tg2.set(20,4,0);rad=112;th=.42;ph=1.28}
+  else{depthLevel=0;syncDepth();tg2.set(20,4,17);rad=151;th=.38;ph=1.14}
+  return;
+ }if(e.target.id==='detailToggle'){
+ const on=!e.target.classList.contains('on');e.target.classList.toggle('on',on);
+ e.target.textContent='High detail: '+(on?'ON':'OFF');DETAIL_MESHES.forEach(m=>m.visible=on);
+ update();return;
+ }if(e.target.dataset.m){mode=e.target.dataset.m;document.querySelectorAll('#modes button[data-m]').forEach(b=>b.classList.toggle('on',b===e.target));update()}};
+function select(id){sel=id;focus(id);tab='asset';update()}
+const bar=(l,v,mx,c,t)=>`<div class="bar"><span>${l}</span><div class="bw"><i style="width:${Math.max(0,Math.min(100,v/mx*100))}%;background:${c}"></i></div><span>${t??f(v)}</span></div>`;
+const OR='var(--or)',CY='var(--cy)',GR='var(--gr)',RD='var(--rd)';
+function pane(r,b){
+ if(tab=='asset'){const a=sel&&AS[sel];let h;
+  if(a){const e=a.em(r);h=`<h3 class="ah">${a.n} <span class="st ${a.cc&&!P.ccs?'off':''}">${a.cc&&!P.ccs?'Idle':'Running'}</span></h3><div>${a.p}</div><div class="note"><b>Carbon role:</b> ${a.role}</div><span class="q">Illustrative</span> ${a.sc}
+  <div class="tiles"><div><small>${a.g?'CO₂ flow':'Emissions'}</small><b style="color:${a.g?CY:OR}">${f(e)}<i>Mt/yr</i></b></div><div><small>Energy use</small><b>${a.en(r)?M(a.en(r)):'—'}<i>GWh/yr</i></b></div><div><small>Capacity</small><b class="sm">${a.cap}</b></div><div><small>Operating hours</small><b>8,000<i>h/yr</i></b></div></div><h4>Mitigation options</h4><ul>${a.m.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  if(a.cc&&!P.ccs)h+='<div class="note">CCS is not installed. Tick “Install CCS” on the left to divert the stack stream.</div>'}
+  else h='<h3>Asset</h3><div>Click equipment (or a label) in the 3D plant to see its energy use, emissions and carbon role.</div>';
+  return h+`<h3 style="margin-top:12px">Where the CO₂ comes from (Mt/yr)</h3>`+bar('Coke & sinter',r.s1.sinter,1,OR)+bar('Blast furnace',r.s1.bf,1,OR)+bar('Hot-blast stoves',r.s1.stoves,1,OR)+bar('Steel shop & rolling',r.s1.mill,1,OR)+bar('Purchased electricity',r.s2,1,'#c9a227')}
+ if(tab=='led'){const e1=calc({...P,ccs:false,so:8,wi:7,ot:5}).net,e2=calc({...P,ccs:false}).net,W=[['Baseline',b,0],['Efficiency',e1-b],['Low-carbon power',e2-e1],['CO₂ captured',-r.cap],['Capture energy (power CO₂)',r.pen],['Storage loss',r.leak]];
+  const lo=b-calc({...P,pen:.6,perm:90}).net,hi=b-calc({...P,pen:.15,perm:100}).net,eff=r.cap?(r.cap-r.pen-r.leak)/r.cap*100:0;
+  return`<h3>Follow the carbon (Mt CO₂/yr)</h3>`+bar('Fuel & process carbon',r.t1,2.4,OR)+bar('Captured at source',r.cap,2.4,CY)+bar('Released from stack',r.res,2.4,OR)+bar('Injected & retained',r.store,2.4,GR)+bar('Lost from storage',r.leak,2.4,RD)+bar('Electricity (Scope 2)',r.s2,2.4,'#c9a227')+
+  `<h3 style="margin-top:12px">Path to net emissions</h3>`+W.map(([n,v,z],i)=>bar(n,Math.abs(v),2.4,z===0?'#8aa0b2':v<0?GR:RD,(i&&v>0?'+':'')+f(v))).join('')+bar('Net (100y adjusted)',r.net,2.4,OR,f(r.net))+
+  `<div class="note"><b>Net capture efficiency: ${r.cap?f(eff,0)+'%':'—'}.</b> ${r.cap?`Of every tonne captured, ${f(r.pen/r.cap*100,0)}% is offset by electricity CO₂ to run capture and ${f(r.leak/r.cap*100,0)}% is expected to leak back. With a dirtier grid the penalty grows—raise “Low-carbon electricity” to see it shrink.`:'Switch CCS on to see how capture energy and storage permanence reduce the benefit.'}</div>
+  <div style="font-size:12px">Avoided vs baseline: <b>${f(b-r.net)} Mt/yr</b>${r.cap?` · plausible range ${f(Math.max(0,lo))}–${f(hi)} (penalty 0.15–0.6 MWh/t, retention 90–100%)`:''}</div>
+  <div class="note"><b>Capture ≠ removal.</b> CCS on a stack prevents fossil CO₂ from being released. Carbon dioxide removal (e.g. DACCS, BECCS) takes CO₂ already in the atmosphere and is a different, separately accounted activity.</div>`}
+ const cols=[...SC.map(([n,pt])=>[n,scp(pt)]),['Your mix',P]];
+ if(tab=='cmp'){const X=cols.map(([n,p])=>[n,E.at(p,SY).r]),ch=(t,fn,c,u)=>{const v=X.map(([n,x])=>[n,fn(x)]),mx=Math.max(...v.map(a=>a[1]),1e-9);return`<h4>${t}</h4>`+v.map(([n,x])=>bar(n,x,mx,c,f(x)+u)).join('')};
+  return`<h3>Compare pathways</h3>`+ch('Annual CO₂ emissions (Mt/yr)',x=>x.net,OR,'')+ch('Emissions per tonne of steel (tCO₂/t)',x=>x.net/2,OR,'')+ch('Captured CO₂ (Mt/yr)',x=>x.cap,CY,'')+ch('Avoided vs baseline (Mt/yr)',x=>b-x.net,GR,'')+
+  `<div class="note">“CCS only” on a 20% low-carbon grid avoids less than its gross capture because capture energy is mostly fossil-powered. “Combined” shows why power and capture are linked.</div>`}
+ if(tab=='cost'){const F=cols.map(([n,p])=>fin(p));
+  const row=(l,fn)=>`<tr><td>${l}</td>${[F[5],F[1],F[2],F[3],F[4]].map(x=>`<td>${fn(x)}</td>`).join('')}</tr>`;
+  return`<h3>Simple cost comparison</h3><table><tr><th></th><th>Yours</th><th>Eff.</th><th>Power</th><th>CCS</th><th>All</th></tr>${row('CAPEX $M',x=>M(x.capex))}${row('Net cost $M/yr',x=>M(x.ann))}${row('Avoided Mt/yr',x=>f(x.d))}${row('Cost $/t avoided',x=>x.mac==null?'—':M(x.mac))}${row('NPV $M',x=>`<span class="${x.npv<0?'neg':'pos'}">${M(x.npv)}</span>`)}${row('IRR',x=>x.irr)}</table>
+  <div class="note">Carbon price ${P.cp} $/t. NPV uses dated 2025–2050 deployment and annual operating benefits with an illustrative 8% discount. CAPEX subsidy (${P.sub}%) is INCLUDED as a reduction of modeled investment, not excluded. The TEA panel includes illustrative electrification, renewables, transport, injection and MRV proxies, but the required project-specific data, taxes and financing remain missing; it is not a validated investment case. The modeled avoided-emission value is NOT a verified legal carbon-credit entitlement.</div>`}
+ const row=(a,b2,c,d)=>`<tr><td>${a}</td><td>${b2}</td><td>${c}</td><td>${d}</td></tr>`;
+ return`<h3>System boundary & limits</h3><ul><li>One illustrative BF–BOF plant, 2.0 Mt steel/yr, calendar-year steady state.</li><li>Included: modeled Scope 1, physical electricity supply-mix proxy, capture/compression energy, 100-year storage adjustment allocated to the capture-year cohort (not actual annual leakage).</li><li>Excluded: Scope 3 upstream (mining, imported coke), transport/injection fuel, monitoring emissions, product use.</li></ul>
+ <table><tr><th>Parameter</th><th>Value</th><th>Range</th><th>Status</th></tr>${row('Scope 1 baseline','1.98 Mt','±20%','Illustr.')}${row('Electricity','1,000 GWh','±25%','Illustr.')}${row('Grid factor',f(P.ef)+' kg/kWh','0.1–0.9','Illustr.')}${row('Capturable share','75%','60–90%','Illustr.')}${row('Capture rate',P.cap+'%','85–95%','Illustr.')}${row('Energy penalty',f(P.pen)+' MWh/t','0.15–0.6','Illustr.')}${row('Retention 100 y',P.perm+'%','90–100%','Illustr.')}${row('Capture CAPEX','450 $/(t/yr)','±50%','Illustr.')}</table>
+ <div class="note">The capture-energy and permanence framing follows the review by Bui et al. (2018), <i>Carbon capture and storage (CCS): the way forward</i>, Energy &amp; Environmental Science 11, 1062–1176. Numerical values here are placeholders, not values taken from that paper; replace with sourced data before any real use.</div>
+ <div class="note">Results are model outputs under stated assumptions, not measurements. Uncertainty is shown as simple low/high ranges, not a probabilistic (Monte Carlo) analysis.</div>`}
+function update(){sync();const a=E.at(P,SY),r=a.r,b=base(P);
+ $('#kpis').innerHTML=[['Horizon-adjusted CO₂ (Mt)',f(r.net),OR],['CO₂ per t steel',f(r.net/2),OR],['Captured / stored (Mt)',f(r.cap)+' / '+f(r.store),CY],['Avoided vs baseline',f(b-r.net)+' ('+f((b-r.net)/b*100,0)+'%)',GR]].map(([a,v,c])=>`<div class="k"><small>${a}</small><b style="color:${c}">${v}</b></div>`).join('');
+ document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x.dataset.t==tab));
+ $('#pane').innerHTML='<div id="modelBadge">Year '+SY+' · deployed '+f(a.u*100,0)+'% of selected measures · physical operational '+f(r.op,3)+' Mt CO₂e/yr · 100-year storage adjustment '+f(r.leak,4)+' Mt (cohort assumption)</div>'+pane(r,b);renderImpact();$('#plantYear').value=SY;$('#plantYearValue').textContent=SY;solar.forEach((m,i)=>{m.visible=i<Math.round(P.re/100*30);if(m.userData.detailFollowers)for(const d of m.userData.detailFollowers)d.visible=m.visible&&$('#detailToggle').classList.contains('on')});rate[0]=r.res*28;rate[1]=r.s2*30;rate[2]=r.cap*55;rate[3]=r.t1*10;tint(r);skin(r);if(simOn)renderSim(r,b)}
+const ST=[['Plant','① A conventional blast-furnace steel plant (baseline). Drag to pan; choose Orbit to rotate; drag the depth slider to inspect subsurface.',()=>{Object.assign(P,P0);sel=null;focus(null);tab='asset'}],
+['Follow carbon','② Brown carbon enters on the conveyor, the furnace turns it into CO₂, and orange CO₂ leaves the stack. See the ledger.',()=>{sel='bf';focus('bf');tab='led'}],
+['Efficiency','③ Improve energy efficiency: less fuel burned, lower Scope 1 and electricity use.',()=>{P.eff=15;sel=null;focus(null);tab='cmp'}],
+['Clean power','④ Raise low-carbon electricity: Scope 2 falls and capture later becomes cleaner.',()=>{P.re=80;norm(P);sel='util';focus('util');tab='led';const w=$('#w_re');w.classList.remove('flash');void w.offsetWidth;w.classList.add('flash')}],
+['Add CCS','⑤ Install CCS: the stack stream is diverted, compressed, piped and stored. Read the penalty and storage loss.',()=>{P.ccs=true;sel='ccs';focus('ccs');tab='led'}],
+['Compare','⑥ Compare emissions, intensity, captured CO₂ and avoided emissions across pathways.',()=>{sel=null;focus(null);tab='cmp'}],
+['Cost & limits','⑦ Link choices to investment: costs, NPV and $/t avoided. Then review the boundary and uncertainty.',()=>{tab='cost'}]];
+let si=0;$('#steps').innerHTML=ST.map((s,i)=>`<button data-i="${i}">${i+1} ${s[0]}</button>`).join('');
+function step(i){si=i;ST[i][2]();$('#gt').textContent=ST[i][1];document.querySelectorAll('#steps button').forEach((x,j)=>x.classList.toggle('on',j==i));$('#nx').textContent=i==6?'Restart ↺':'Next ▶';update()}
+$('#steps').onclick=e=>{if(e.target.dataset.i)step(+e.target.dataset.i)};$('#nx').onclick=()=>step((si+1)%7);
+
+/* ===== Scenario Simulator view ===== */
+let simOn=false,SM=null;
+const SL={so:['Solar',0,60,1,'%'],wi:['Wind',0,60,1,'%'],ot:['Other low-carbon (hydro/nuclear)',0,40,1,'%'],ef:D.ef,eff:D.eff,el:['Electrify heating',0,50,1,'%'],cap:D.cap,pen:D.pen,perm:D.perm,cp:D.cp,sub:['CAPEX subsidy',0,50,1,'%'],yr:['Adoption start year',2026,2040,1,''],dur:['Deployment duration',1,25,1,' yr'],ed:['Electricity demand',500,2000,50,' GWh']};
+const GP=[['Electricity supply',['so','wi','ot','ef']],['Fuel & process',['ed','eff','el']],['Carbon capture & storage',['cap','pen','perm']],['Policy & timing',['cp','sub','yr','dur']]];
+$('#sl').innerHTML=GP.map(([t,ks])=>`<div class="cd"><h3>${t}</h3>`+(t[0]=='C'?'<label style="margin:0 0 4px"><span><input type="checkbox" data-c="1"> Install CCS</span></label>':'')+ks.map(k=>`<label>${SL[k][0]}<output id="z_${k}"></output></label><input type="range" data-k="${k}" min="${SL[k][1]}" max="${SL[k][2]}" step="${SL[k][3]}">`).join('')+'</div>').join('');
+$('#sl').oninput=e=>{const k=e.target.dataset.k,before={...P};if(e.target.dataset.c){P.ccs=e.target.checked}else if(k){P[k]=+e.target.value;if(['so','wi','ot'].includes(k)){P.re=Math.min(100,P.so+P.wi+P.ot);norm(P)}}markInput(k||'ccs',before);update()};
+$('#vw').onclick=()=>{simOn=!simOn;$('main').hidden=$('#guide').hidden=$('#steps').hidden=simOn;$('#sim').hidden=!simOn;$('#vw').textContent=simOn?'◀ 3D plant':'Scenario Simulator ▶';update();if(!simOn)size()};
+/* ===== Interactive techno-economic studio; conceptual CCUS Box Model ===== */
+const MONEY=x=>!Number.isFinite(x)?'—':(x<0?'−':'')+'$'+Math.abs(x).toLocaleString('en-US',{maximumFractionDigits:1})+'M';
+const USD=x=>x==null||!Number.isFinite(x)?'—':'$'+x.toFixed(1)+'/t';
+const ESC=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TEA_VARS={
+ discount:['Discount rate',0,20,.5,'%'],captureCapex:['Capture CAPEX',100,900,10,' $/t-yr'],
+ transportCapex:['Transport CAPEX',0,280,5,' $/t-yr'],storageCapex:['Storage CAPEX',0,300,5,' $/t-yr'],
+ electrifyCapex:['Electrification investment',0,9,.25,' $M/point'],renewCapex:['Renewable upgrade investment',0,6,.25,' $M/point'],
+ captureOpex:['Capture OPEX',5,90,1,' $/t'],transportOpex:['Transport OPEX',0,60,1,' $/t'],
+ storageOpex:['Storage OPEX',0,70,1,' $/t'],mrvOpex:['Monitoring / MRV',0,25,1,' $/t'],
+ powerPrice:['Electricity cost',.01,.25,.005,' $/kWh'],transportLoss:['Transport CO₂ loss',0,8,.1,'%'],
+ utilShare:['CO₂ utilization share',0,50,1,'%'],utilPrice:['Utilization sales price',0,150,5,' $/t'],
+ storageFee:['Storage service fee',0,80,2,' $/t'],policyEligible:['Hypothetical monetizable avoided CO₂',0,100,5,'%'],
+ uncertainty:['Monte Carlo uncertainty',5,50,5,'%']
+};
+const TEA_GROUPS=[['Investment & discount',['discount','captureCapex','transportCapex','storageCapex','electrifyCapex','renewCapex']],
+ ['Operating costs',['captureOpex','transportOpex','storageOpex','mrvOpex','powerPrice']],
+ ['CO₂ routing & optional revenue',['transportLoss','utilShare','utilPrice','storageFee','policyEligible','uncertainty']]];
+$('#teaControls').innerHTML=TEA_GROUPS.map(([title,keys])=>`<div class="cd"><h3>${title}</h3>${keys.map(k=>{
+ const d=TEA_VARS[k];return `<label for="te_${k}">${d[0]} <output id="teo_${k}"></output></label><input id="te_${k}" data-tea="${k}" type="range" min="${d[1]}" max="${d[2]}" step="${d[3]}" value="${window.TEA_CONFIG[k]}">`;
+ }).join('')}</div>`).join('');
+let MONTE=null,MONTE_KEY='';
+$('#teaControls').addEventListener('input',e=>{
+ const key=e.target.dataset.tea;if(!key)return;
+ window.TEA_CONFIG[key]=+e.target.value;
+ update();
+});
+$('#mcRun').onclick=()=>{
+ const c={...window.TEA_CONFIG},p={...P},n=+$('#mcSamples').value;
+ $('#mcStatus').textContent='Computing '+n+' illustrative scenarios…';
+ // Yield one frame to show status before the CPU-only batch.
+ requestAnimationFrame(()=>{
+  try {MONTE=FinancialEngine.monteCarlo(p,c,n);MONTE_KEY=JSON.stringify([p,c]);renderMonte();}
+  catch(e){$('#mcStatus').textContent='Simulation error: '+e.message;}
+ });
+};
+const f4=x=>Number.isFinite(x)?x.toLocaleString('en-US',{maximumFractionDigits:2}):'—';
+function financialLine(values,title,unit='$M'){
+ const W=750,H=205,L=55,R=18,T=23,B=30;
+ const max=Math.max(...values,0),min=Math.min(...values,0),pad=(max-min||1)*.12;
+ const maxY=max+pad,minY=min-pad;const X=i=>L+i/(values.length-1)*(W-L-R),Y=v=>T+(maxY-v)/(maxY-minY)*(H-T-B);
+ let str=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${title}" style="width:100%;max-height:230px">`;
+ for(let k=0;k<=4;k++){const v=minY+(maxY-minY)*k/4,y=Y(v);str+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="#25405b"/><text x="${L-9}" y="${y+4}" fill="#91abc0" font-size="10" text-anchor="end">${v.toFixed(0)}</text>`}
+ str+=`<line x1="${L}" x2="${W-R}" y1="${Y(0)}" y2="${Y(0)}" stroke="#87a1af" stroke-dasharray="4 4"/>`;
+ const pts=values.map((v,i)=>`${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+ str+=`<polyline points="${pts}" stroke="#38d2cb" stroke-width="2.8" fill="none"/>`;
+ for(let i=0;i<values.length;i++){if(i%5===0||i===values.length-1)str+=`<text x="${X(i)}" y="${H-9}" fill="#91abc0" font-size="10" text-anchor="middle">${2025+i}</text>`;
+ if(i%2===0)str+=`<circle cx="${X(i)}" cy="${Y(values[i])}" r="2.7" fill="#a7f1e7"><title>${2025+i}: ${values[i].toFixed(2)} ${unit}</title></circle>`}
+ return str+'</svg>';
+}
+function annualCashChart(years){
+ const W=750,H=210,L=46,R=12,T=18,B=32,all=years.flatMap(y=>[y.revenue,y.opex,y.capex]),max=Math.max(1,...all)*1.18;
+ const y0=H-B,X=i=>L+i/(years.length)*(W-L-R),bh=v=>Math.max(0,v/max*(H-T-B));
+ let s=`<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-height:230px" role="img" aria-label="Revenue OPEX CAPEX over time"><line x1="${L}" y1="${y0}" x2="${W-R}" y2="${y0}" stroke="#728c9f"/>`;
+ for(let i=0;i<years.length;i++){
+  const d=years[i],x=X(i),gw=(W-L-R)/years.length;
+  [[d.revenue,'#34c7a6'],[d.opex,'#ec9361'],[d.capex,'#6f9ee8']].forEach(([v,c],j)=>{
+   const h=bh(v);s+=`<rect x="${x+j*gw*.27+2}" y="${y0-h}" width="${gw*.23}" height="${h}" fill="${c}" rx="1.2"><title>${d.year}: ${MONEY(v)}</title></rect>`;
+  });if(i%5===0||i===years.length-1)s+=`<text x="${x+gw*.45}" y="${H-10}" text-anchor="middle" fill="#9db6c8" font-size="10">${d.year}</text>`;
+ }
+ return s+'</svg>';
+}
+function boxBars(items){const max=Math.max(1,...items.map(([_,v])=>Math.max(0,v)));
+ return items.map(([name,val],i)=>`<div class="tea-bar"><span>${ESC(name)}</span><div class="tea-track"><div style="width:${Math.max(0,val)/max*100}%;background:${['#45cec4','#70a6f0','#d6a76c','#a994df','#7db4b0'][i%5]}"></div></div><b>${MONEY(val)}</b></div>`).join('');}
+function sensitiveBars(rows){const values=rows.flatMap(r=>[r.lo-r.base,r.hi-r.base]),extent=Math.max(1,...values.map(v=>Math.abs(v)));
+ return `<div class="tea-subtle">NPV change from a ±${window.TEA_CONFIG.uncertainty}% change in one input at a time (illustrative).</div>`+rows.map(x=>{
+   const low=Math.min(x.lo-x.base,x.hi-x.base),high=Math.max(x.lo-x.base,x.hi-x.base);
+   const a=50+low/extent*48,b=50+high/extent*48;
+   return `<div class="tea-sens"><span>${ESC(x.name)}</span><div class="tea-sens-track"><i class="tea-sens-zero"></i><i class="tea-sens-band" style="left:${Math.max(0,a)}%;width:${Math.max(2,b-a)}%"></i></div><b>${(x.hi-x.lo)>=0?'+':''}${f4(x.hi-x.lo)}</b></div>`;
+ }).join('')+'<div class="tea-subtle">Rows ranked by modeled impact; units are $M differences in NPV.</div>';
+}
+function renderMonte(){
+ if(!MONTE){$('#mcStatus').textContent='Not run yet. Click Run Monte Carlo.';$('#mcStats').innerHTML='';$('#mcPlot').innerHTML='';return;}
+ const current=JSON.stringify([{...P},{...window.TEA_CONFIG}]);
+ if(current!==MONTE_KEY){$('#mcStatus').textContent='Inputs changed — results are stale. Run again.';$('#mcStats').innerHTML='';$('#mcPlot').innerHTML='';return;}
+ const m=MONTE,v=m.values,min=v[0],max=v[v.length-1],n=20,bins=Array(n).fill(0),span=Math.max(1e-6,max-min);
+ for(const q of v)bins[Math.min(n-1,Math.floor((q-min)/span*n))]++;
+ const H=110,W=620,B=24,top=6,mx=Math.max(...bins),bar=(W-24)/n;
+ let s=`<svg viewBox="0 0 ${W} ${H}" style="width:100%" role="img" aria-label="Monte Carlo NPV distribution">`;
+ bins.forEach((v,i)=>{const h=v/mx*(H-B-top),x=12+i*bar;s+=`<rect x="${x+1}" y="${H-B-h}" width="${bar-2}" height="${h}" fill="${min+(i+.5)*span/n>0?'#34c8a5':'#e9906a'}" rx="1"><title>${min+i*span/n>=0?'Positive':'Negative'} NPV bin: ${v} trials</title></rect>`});
+ const z=12+(0-min)/span*(W-24);if(z>=12&&z<=W-12)s+=`<line x1="${z}" y1="${top}" x2="${z}" y2="${H-B}" stroke="#e7f0fc" stroke-dasharray="4 3"/>`;
+ s+=`<text x="12" y="${H-5}" fill="#aec4d3" font-size="10">${MONEY(min)}</text><text x="${W-12}" y="${H-5}" fill="#aec4d3" font-size="10" text-anchor="end">${MONEY(max)}</text></svg>`;
+ $('#mcStatus').textContent=`${m.n} seeded triangular-distribution trials; ±${m.uncertainty}% assumed input range. Not a calibrated probability forecast.`;
+ $('#mcStats').innerHTML=[['P5',MONEY(m.p05)],['Median',MONEY(m.median)],['P95',MONEY(m.p95)],['Positive NPV',Math.round(m.positive*100)+'%']].map(([a,b])=>`<span><small>${a}</small><b>${b}</b></span>`).join('');
+ $('#mcPlot').innerHTML=s;
+}
+function renderFinance(fx){
+ $('#teaMetrics').innerHTML=[['Project NPV',MONEY(fx.npv)],['Gross CAPEX',MONEY(fx.capexGross)],['Annual OPEX · 2050',MONEY(fx.opex)],['IRR',fx.irr],['Portfolio LCOC / captured t',USD(fx.lcoc)],['Payback',fx.payback]].map(([a,b])=>`<div class="tea-kpi"><small>${a}</small><strong>${b}</strong></div>`).join('');
+ $('#financeFlow').innerHTML=annualCashChart(fx.years);
+ $('#financeCumulative').innerHTML=financialLine(fx.years.map(y=>y.cumulativeCash),'Cumulative nominal net cash flow');
+ $('#financeBoxes').innerHTML='<div class="tea-subtle">Gross investment allocated to five CCUS cost centers, plus associated energy upgrades:</div>'+boxBars(Object.entries(fx.capexBoxes))+
+  '<div class="tea-subtle">Annual operating costs in 2050:</div>'+boxBars(Object.entries(fx.opexBoxes));
+ $('#financeSensitivity').innerHTML=sensitiveBars(FinancialEngine.sensitivity(P,window.TEA_CONFIG));
+ const y=fx.years.find(r=>r.year===SY)||fx.years[fx.years.length-1];
+ $('#teaChain').innerHTML=`<div class="tea-flow-steps"><div><b>Capture</b><small>${f4(y.captured)} Mt/yr</small><small>${MONEY(y.opexBoxes.Capture)}/yr cost</small></div><i>→</i><div><b>Transport</b><small>${f4(y.transported)} Mt/yr</small><small>${f4(y.transportLoss)} Mt lost</small></div><i>→</i><div><b>Utilization</b><small>${f4(y.utilized)} Mt/yr</small><small>Not permanent storage</small></div><span class="tea-flow-branch">↘</span><div><b>Storage</b><small>${f4(y.stored)} Mt/yr</small><small>Gross injected, not retained</small></div><i>↔</i><div><b>Market / Policy</b><small>${MONEY(y.policy)} assumed benefit</small><small>Not verified credits</small></div></div>`+
+ `<div class="tea-subtle">${y.year}: Policy value ${MONEY(y.policy)}, utilization sales ${MONEY(y.utilRevenue)}, storage-service revenue ${MONEY(y.service)}, gross CAPEX ${MONEY(y.capex)}, subsidy ${MONEY(y.subsidy)}. All boxes share one project boundary; internal payments are not double-counted.</div>`;
+ Object.keys(TEA_VARS).forEach(k=>{const el=$('#te_'+k);if(el){el.value=window.TEA_CONFIG[k];$('#teo_'+k).textContent=window.TEA_CONFIG[k]+TEA_VARS[k][4]}});
+ renderMonte();
+}
+
+function renderSim(r,b){
+ const F=fin(P),Y=YRS.map(netAt),cur=Y.map(y=>y.r.net),bn=base(P),n50=cur[25];
+ $('#c2').innerHTML=ar([['Solar',Y.map(y=>y.q.so),'#f2b632'],['Wind',Y.map(y=>y.q.wi),'#4aa3d8'],['Other',Y.map(y=>y.q.ot),'#2a9d62'],['Fossil',Y.map(y=>100-y.q.re),'#8a949d']]);
+ $('#big').innerHTML=`<div class="tea-compact"><div><small>Selected year · ${SY}</small><b style="color:var(--or);font-size:20px">${f(E.at(P,SY).r.op)} Mt</b><small>operational emissions · illustrative</small></div><div><small>2050 output · conditional</small><b style="color:var(--gr);font-size:20px">${f((bn-n50)/bn*100,0)}%</b><small>lower than illustrative BAU including cohort adjustment</small></div></div>`;
+ $('#sk').innerHTML=sankey(netAt(SY).r);$('#syo').textContent=SY;$('#sy').value=SY;skHi();
+ document.querySelectorAll('#sl [data-k]').forEach(i=>{i.value=P[i.dataset.k];$('#z_'+i.dataset.k).textContent=(['ef','pen'].includes(i.dataset.k)?f(P[i.dataset.k]):Math.round(P[i.dataset.k]*10)/10)+SL[i.dataset.k][4]});
+ document.querySelector('#sl [data-c]').checked=P.ccs;
+ renderFinance(F);
+}
+/* ===== AI analyst (Claude via sample capability) ===== */
+function ctx(){const r=E.at(P,SY).r,F=fin(P);return{baseline_net_MtCO2e:+f(base(P)),current:{net:+f(r.net),per_t_steel:+f(r.net/2),scope1:+f(r.t1),scope2:+f(r.s2),captured:+f(r.cap),stored_retained:+f(r.store),capture_energy_CO2:+f(r.pen),storage_loss:+f(r.leak),sources_MtCO2e:Object.fromEntries(Object.entries(r.s1).map(([k,v])=>[k,+f(v)]))},params:P,net_by_year:{2030:+f(netAt(2030).r.net),2040:+f(netAt(2040).r.net),2050:+f(netAt(2050).r.net)},cumulative_avoided_2025_2050:+f(YRS.reduce((s,y)=>s+base(P)-netAt(y).r.net,0),1),finance:{capex_M:Math.round(F.capex),npv_M:Math.round(F.npv),irr:F.irr,usd_per_t_avoided:F.mac==null?null:Math.round(F.mac)},finance_quality:F.finance_quality, electricity_boundary:'physical supply-mix proxy; not formal location-based inventory', storage_timing:'100-year cohort expected loss attributed to capture year, NOT annual physical leakage', data_quality:'all parameters illustrative, not measured'}}
+const SYS='You are an industrial decarbonization analyst inside a steel-plant carbon twin. RULES: use ONLY numbers from CONTEXT or from the run_scenario tool; never invent emission factors, costs or statistics. Label claims [Model result] or [Hypothesis]. Capturing fossil CO2 is not removing atmospheric CO2; never call the plant net-zero if residual emissions remain. Discuss largest sources, why current differs from baseline, capture energy penalty vs grid carbon intensity, storage permanence, policy sensitivity (carbon price, subsidy). Explicitly state that renewable/electrification costs are incomplete and a physical supply-mix scenario is not an audited Scope 2 inventory and give a conditional outlook for 2030/2040/2050. Outlook is scenario reasoning, not prediction. Mention that data are illustrative. Reply in the language of the question, under 230 words, short bullets.';
+const TOOL={name:'run_scenario',description:'Run the deterministic engine. Overrides apply on top of the current UI scenario. Returns structured Scope 1/2, capture, avoided CO2, energy mix, CAPEX/OPEX/NPV and conservation checks. Use for every numerical what-if.',inputSchema:{type:'object',properties:{scenario_name:{type:'string'},target_year:{type:'integer',minimum:2025,maximum:2050},overrides:{type:'object',properties:{solar_share:{type:'number'},wind_share:{type:'number'},other_lowcarbon_share:{type:'number'},electrification_rate:{type:'number'},efficiency_improvement:{type:'number'},ccs_enabled:{type:'boolean'},capture_rate:{type:'number'},carbon_price:{type:'number'},subsidy_rate:{type:'number'},adoption_start_year:{type:'integer'},ramp_years:{type:'integer'}}}},required:['target_year']},
+ execute:i=>E.runScenario({...i,base:P})};
+async function ask(q){const o=$('#aiout');if(!SM){const c=ctx(),t=Object.entries(c.current.sources_MtCO2e).sort((a,b)=>b[1]-a[1])[0];o.textContent=`[TEMPLATE SUMMARY · fixed rules over model outputs, NOT an LLM response · connect an LLM for interpretation]\n• Net ${c.current.net} Mt vs baseline ${c.baseline_net_MtCO2e} Mt.\n• Largest direct source: ${t[0]} (${t[1]} Mt).\n• Capture energy adds ${c.current.capture_energy_CO2} Mt of electricity CO₂; storage loss ${c.current.storage_loss} Mt.\n• 2050 net: ${c.net_by_year[2050]} Mt (illustrative).`;return}
+ o.textContent='Thinking…';try{await SM(SYS+'\nCONTEXT: '+JSON.stringify(ctx())+'\nQUESTION: '+q,{onText:({text})=>{o.textContent=text},tools:[TOOL],cache:false})}catch(e){o.textContent=e&&e.code=='not_granted'?'AI access was declined.':'AI analyst unavailable ('+((e&&e.message)||'error')+').'}}
+$('#a0').onclick=()=>ask('Explain this scenario versus the baseline and give a conditional outlook for 2030, 2040 and 2050.');
+$('#a1').onclick=()=>ask($('#aq').value||'What is the biggest lever and the biggest risk in this scenario?');
+$('#aqs').innerHTML=['What if carbon price is $150?','Is CCS worth it on a dirty grid?','Which lever is cheapest per tonne?'].map(t=>`<button class="pb">${t}</button>`).join('');$('#aqs').onclick=e=>{if(e.target.tagName=='BUTTON'){$('#aq').value=e.target.textContent;ask(e.target.textContent)}};
+if(typeof claude!=='undefined')claude.use('sample').then(x=>{SM=x}).catch(()=>{});
+/* ===== UI skin: search, breadcrumb, zoom, carbon route, minimap ===== */
+const AREA={raw:'Raw materials',sinter:'Ironmaking',bf:'Ironmaking',stoves:'Ironmaking',mill:'Steelmaking',stack:'Emissions',util:'Utilities',ccs:'CCS chain',comp:'CCS chain',pipe:'CCS chain',stor:'CCS chain'};
+function skin(r){GO=.25+.9*Math.min(1,(r.res+r.s2)/2.4);GT=P.ccs?.25+.9*Math.min(1,r.cap/1.4):.06;$('#crumb').innerHTML='Steel plant <i>›</i> '+(sel?AREA[sel]+' <i>›</i> <b>'+AS[sel].s+'</b>':'<b>Overview</b>');
+ const rt=P.ccs?['raw','sinter','bf','stoves','ccs','comp','pipe','stor']:['raw','sinter','bf','stoves','stack'];
+ $('#route').innerHTML=`<h4>Carbon route · ${P.ccs?'with CCS':'no CCS'}</h4><div class="rt">${rt.map(i=>`<button data-i="${i}" class="${sel==i?'on':''}">${AS[i].s}</button>`).join('<i>→</i>')}</div><div class="rs"><span>Fuel carbon <b>${f(r.t1)}</b></span><span>Captured <b>${f(r.cap)}</b></span><span>Released <b>${f(r.res+r.s2)}</b></span><span>Mt/yr</span></div><button class="pb" id="clr">Clear selection</button>`;
+ $('#mm').innerHTML='<svg viewBox="0 0 170 84" width="100%"><rect x=".5" y=".5" width="169" height="83" rx="6" fill="none" stroke="#2a3d5c"/>'+Object.keys(LB).map(id=>{const p=LB[id].p,x=(p.x+34)/104*160+5,y=(p.z+18)/36*74+5,on=id==sel;return`<circle data-i="${id}" cx="${x}" cy="${y}" r="${on?6:4}" fill="${AS[id].g?'#2fd4d8':'#ff7a45'}" stroke="${on?'#fff':'none'}"><title>${AS[id].n}</title></circle>`}).join('')+'</svg>'}
+$('#route').onclick=e=>{const i=e.target.dataset.i;if(i)select(i);if(e.target.id=='clr'){sel=null;focus(null);update()}};$('#mm').onclick=e=>{const i=e.target.dataset.i;if(i)select(i)};
+$('#zi').onclick=()=>{rad=Math.max(28,rad*.8)};$('#zo').onclick=()=>{rad=Math.min(205,rad*1.25)};$('#zr').onclick=()=>{sel=null;focus(null);update()};
+$('#srch').oninput=e=>{const q=e.target.value.toLowerCase().trim();$('#sres').innerHTML=q?Object.entries(AS).filter(([k,a])=>(a.n+' '+a.s+' '+a.sc+' '+AREA[k]).toLowerCase().includes(q)).map(([k,a])=>`<button data-i="${k}">${a.n}<small>${AREA[k]}</small></button>`).join('')||'<small style="padding:6px 10px;display:block">No match</small>':''};
+$('#sres').onclick=e=>{const b=e.target.closest('[data-i]');if(b){select(b.dataset.i);$('#sres').innerHTML='';$('#srch').value=''}};
+addEventListener('keydown',e=>{if(e.key==='Escape'&&document.activeElement===cv){sel=null;update()}if(e.key=='/'&&document.activeElement.tagName!='INPUT'){e.preventDefault();$('#srch').focus()}});
+size();step(0);requestAnimationFrame(loop);
+</script><script src="/src/scenario/ccus-pdf.js"></script><script src="/src/scenario/original-ccus-report.js"></script><link rel="stylesheet" href="/styles/research.css"><script src="/src/scenario/research-insights.js"></script></body></html>

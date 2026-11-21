@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Industrial Carbon Twin · Living Riverside Edition</title>
+
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/theme.css">
+<link rel="stylesheet" href="/styles/navigation.css">
+<link rel="stylesheet" href="/styles/twin-only.css">
+<link rel="stylesheet" href="/styles/sync.css">
+</head><body>
+<nav class="integrationNav" aria-label="Project navigation"><a class="integrationBrand" href="/index.html">◈ Industrial Carbon Twin</a><div class="integrationLinks"><a href="/atlas.html">U.S. Map</a><a href="/twin.html" class="active" aria-current="page">3D Dashboard</a></div></nav>
+
+<header><h1>Follow the <span>Carbon</span> · Living Riverside Twin</h1><div class="srch"><input id="srch" placeholder="Search equipment…   ( / )" autocomplete="off"><div id="sres"></div></div><span class="tag">Illustrative model · not a verified emissions inventory or investment case</span><span id="atlasSiteContext" hidden></span><span id="syncStatus" class="sync-indicator" role="status">Local preview · connecting API</span><button class="pb" id="vw" style="font-size:12px;padding:3px 10px" title="Open scenario and finance within the dashboard">Scenario &amp; Finance ▶</button><div id="steps"></div></header>
+<div id="guide"><span id="gt"></span><button id="nx">Next ▶</button></div>
+<main>
+<aside><h3>Controls</h3><div id="pre"></div><div id="ctl"></div>
+<div class="ck"><input type="checkbox" id="ccs"><label for="ccs" style="margin:0;display:inline">Install CCS (capture + storage)</label></div>
+<div id="yearPanel"><label for="plantYear">3D / ledger display year <output id="plantYearValue">2050</output></label><input id="plantYear" type="range" min="2025" max="2050" value="2050" step="1"><div class="subtle">Deployment year affects the displayed 3D results. This is not a historical observation.</div></div>
+<div id="impactBox" aria-live="polite"><strong>Parameter impact</strong><div class="subtle">Change a slider to see which computed outputs move, and why.</div></div>
+</aside>
+<section id="stage"><div id="kpis"></div>
+<div id="cvw"><canvas id="cv"></canvas><div id="modes"><button id="navModePan" class="on" title="Left-drag to move freely across the site">✥ Pan</button><button id="navModeOrbit" title="Left-drag to rotate the camera; right-drag always rotates">⟳ Orbit</button><button id="navModeFocus" title="Click equipment, then left-drag to orbit around the selected item">◎ Focus orbit</button><button data-m="n" class="on">Realistic</button><button data-m="c">Carbon heat</button><button id="detailToggle" class="on" title="Switch procedural industrial detail on or off">High detail: ON</button><button id="environmentToggle" class="on" title="Toggle land scenery, coastal waters, offshore platform, and vessels">Landscape: ON</button><button id="wideView" class="on" title="Switch between wider environment framing and the original plant framing">Plant view</button></div>
+<div id="crumb"></div><div id="zoom"><button id="zi" title="Zoom in">+</button><button id="zo" title="Zoom out">−</button><button id="zr" title="Reset view">⌖</button></div><div id="route" class="ov"></div><div id="mm" class="ov"></div><div id="depthConsole"><b>GROUND / DEPTH</b><div class="depth-number" id="depthReadout">Surface</div><input id="geoDepth" type="range" min="0" max="35" step="1" value="0" aria-label="Move vertical camera from surface to subsurface"><div class="depth-label">Drag down to explore the cross-section<br>Illustrative depth, not meters</div><button id="depthSurface" type="button">Surface</button> <button id="depthStorage" type="button">Storage</button><div id="marineViews"><button id="sectionView" type="button" title="Show the full coastal geology in profile">Section</button><button id="offshoreView" type="button" title="Focus on the drilling platform and ships">Offshore</button></div></div><div id="geoKeys"><div><i style="background:#9a5c3c"></i>Topsoil / sediments</div><div><i style="background:#be7348"></i>Sandstone beds</div><div><i style="background:#4f92b1"></i>Shallow aquifer</div><div><i style="background:#555f67"></i>Sealing caprock</div><div><i style="background:#c5a264"></i>Saline reservoir</div><div style="margin-top:4px;color:#81c8d5">Schematic depths · not to scale</div></div><div id="environmentTag">ILLUSTRATIVE OFFSHORE / GEOLOGY · NOT A REAL SURVEY</div><div id="coastHint">LAND → CONTINENTAL SHELF → SEA<br>Orbit for the sloping 3D cutaway · Section / Offshore for preset views</div><div id="leg">Default drag = PAN · choose Orbit for free rotation · choose Focus orbit then click equipment to orbit around it · use the depth slider for vertical movement · wheel to zoom. Brown = fuel carbon in · orange = CO₂ released · teal = captured CO₂. Conceptual flow, not CFD; not to scale. Layered dipping bedrock, sloping seabed, level sea surface, offshore drilling platform, marine vessels, river, roads, homes and vegetation are illustrative scenery (orange glow follows emissions, teal follows capture).</div></div></section>
+<aside><div id="tabs"></div><div id="pane"></div></aside>
+</main>
+<section id="sim" hidden><div class="cd" id="scn" style="margin-bottom:10px"><h3>Scenario · conditional model results, not forecasts</h3></div>
+<div class="tea-hero"><div><h2 style="margin:0 0 4px;font-size:21px">CCUS Economics &amp; Investment Studio</h2><div class="tea-intro">Box-model techno-economic analysis · Capture → Transport → Utilization / Storage → Market / Policy · all cash flows in 2025 USD millions (illustrative, not a financing recommendation)</div></div><div class="tea-subtle">One illustrative BF–BOF plant · 2025–2050 · 8% starting discount rate, adjustable</div></div>
+<div class="finance-layout"><aside class="finance-sidebar" aria-label="Scenario and financial inputs"><h2>Adjust assumptions</h2><p class="tea-subtle">Charts update as you edit. Presets keep your site, timing and financial assumptions.</p><label for="financeYear">Inspect year <input type="number" id="financeYear" min="2025" max="2050" step="1" value="2050"></label><details open><summary>Energy, CCS &amp; timing</summary><div class="sg3" id="sl"></div></details><details><summary>Costs, policy &amp; uncertainty</summary><div class="cd" style="margin-bottom:10px"><h3>TEA assumptions &amp; investment parameters · illustrative</h3><div class="tea-subtle">Change any control to recompute every investment graph. These are user-editable placeholders; utilization is not counted as permanent storage. Carbon-price monetization and service fees are hypothetical, not verified 45Q/credit entitlements.</div><div id="teaControls" class="tea-config"></div></div>
+</details></aside><div class="finance-results" id="financeResults"><div id="teaMetrics" class="tea-kpis"></div>
+<div class="tea-grid">
+ <div class="cd"><h3>Annual revenue, OPEX &amp; CAPEX · $M/year</h3><div class="tea-legend"><span><i style="background:#34c7a6"></i>Revenue + savings</span><span><i style="background:#ec9361"></i>OPEX</span><span><i style="background:#6f9ee8"></i>Gross CAPEX</span></div><div id="financeFlow"></div><p id="financeExplanation" class="tea-subtle" aria-live="polite"></p><details class="cash-table"><summary>Inspect annual cash-flow numbers · $M</summary><div id="financeAnnualTable"></div></details></div>
+ <div class="cd"><h3>Cumulative undiscounted net cash flow · $M</h3><div id="financeCumulative"></div><div class="tea-subtle">NPV separately discounts yearly net cash flows. Payback uses undiscounted cumulative cash flow.</div></div>
+ <div class="cd"><h3>CAPEX allocation &amp; annual OPEX by box</h3><div id="financeBoxes"></div></div>
+ <div class="cd"><h3>One-at-a-time NPV sensitivity</h3><div id="financeSensitivity"></div></div>
+ <div class="cd"><h3>Monte Carlo · NPV distribution</h3><div class="tea-mc-actions"><button id="mcRun" class="ai" type="button">▶ Run Monte Carlo</button><label style="display:inline;margin:0">Trials <select id="mcSamples"><option value="250">250</option><option value="500" selected>500</option><option value="1000">1,000</option></select></label></div><div id="mcStatus" class="tea-subtle">Not run yet. Click Run Monte Carlo.</div><div class="tea-mc-stats" id="mcStats"></div><div id="mcPlot"></div></div>
+ <div class="cd"><h3>Energy mix &amp; current scenario</h3><div id="c2"></div><div class="lg"><span style="color:#f2b632">■ Solar</span> <span style="color:#4aa3d8">■ Wind</span> <span style="color:#2a9d62">■ Other low-carbon</span> <span style="color:#8a949d">■ Fossil grid</span></div><div id="big" class="big" style="margin-top:12px"></div></div>
+ <div class="cd tea-span"><h3>CCUS box model · mass flow / financial flow (selected year)</h3><div id="teaChain"></div></div>
+</div>
+<div class="cd" id="simImpactBox" aria-live="polite"></div><div id="scenarioCaveat">⚠ Scenario results use an illustrative physical electricity mix, not a formal GHG Protocol location-based inventory. “Net” includes a 100-year future-storage-loss adjustment assigned to its capture year; it is not a measured annual leakage rate. Financial boxes use illustrative cost coefficients; they are not a validated engineering estimate or investment case.</div>
+<div class="cd"><h3>CO₂ pathways: from fuel and electricity to atmosphere or storage</h3><div id="skc" class="lg"><button class="pb" data-m="e">Energy flow (GWh/yr)</button><button class="pb" data-m="c">Carbon flow (Mt CO₂e/yr)</button> Year <input type="range" id="sy" min="2025" max="2050" value="2050" style="width:150px;vertical-align:middle"> <output id="syo">2050</output></div><div id="sk"></div><div class="lg">Width = GWh/yr (energy view) or Mt CO₂e/yr (carbon view); the units are never mixed. Zero-emission power has no CO₂ link. Capture-energy CO₂ is inside Scope 2. Click a node to highlight; hover for values. Conversion losses and CO₂ transport fuel are not modelled.</div></div>
+
+<div class="cd"><h3>AI analyst · explain &amp; conditional outlook</h3><div class="lg">In connected mode an LLM reads only this model’s structured outputs; offline you get a labelled template summary. It can run what-if scenarios through the engine (tool call). Outlook = scenario reasoning, not a prediction. Parameters are illustrative.</div>
+<input id="aq" placeholder="Ask anything, e.g. What if the carbon price is $150 and wind reaches 40%?"><button class="ai" id="a0">Explain &amp; outlook</button><button class="ai" id="a1">Ask</button>
+<span id="aqs"></span><div id="aiout">Press “Explain &amp; outlook”.</div></div></div></div></section>
+<footer>Illustrative BF–BOF reference: 2.0 Mt steel/yr, scaled for the selected synthetic site. Boundary: direct plant emissions + purchased electricity supply-mix proxy + CO₂ transport loss and assumed utilization re-release. Retention is a 100-year injection-cohort adjustment, not annual measured leakage. Scope 3, transport/injection energy, full lifecycle and reservoir constraints are excluded. Costs, policy value and geological scenery are assumptions.</footer>
+
+
+
+
+
+<!-- The legacy calculation source is now a single browser/Node-compatible shared package. -->
+<script src="/vendor/three-r128.min.js"></script>
+<script src="/shared/carbonEngine.js"></script>
+<script src="/shared/financialEngine.js"></script>
+<script src="/src/shared/scenario-api.js"></script>
+<script src="/src/twin/01-state-and-charts.js"></script>
+<script src="/src/twin/02-factory-scene.js"></script>
+<script src="/src/twin/03-coastal-environment.js"></script>
+<script src="/src/twin/04-geological-cutaway.js"></script>
+<script src="/src/twin/05-assets-camera-animation.js"></script>
+<script src="/src/twin/06-controls-and-results.js"></script>
+<script src="/src/twin/07-finance-and-analysis.js"></script>
+<script src="/src/twin/08-navigation-and-init.js"></script>
+<script src="/src/twin/09-scenario-link.js"></script>
+<script src="/src/twin/10-backend-binding.js"></script>
+</body></html>

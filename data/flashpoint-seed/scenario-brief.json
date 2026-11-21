@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1",
+  "scenarioId": "48d24c8d3aaac2cd4846ff6e",
+  "scenarioName": "Combined CCUS demonstration",
+  "modelVersion": "original-ccus-4f14b05433a1",
+  "year": 2050,
+  "quality": "illustrative",
+  "inputs": {
+    "params": {
+      "re": 80,
+      "ef": 0.42,
+      "eff": 15,
+      "ccs": true,
+      "cap": 90,
+      "pen": 0.3,
+      "perm": 99,
+      "cp": 75,
+      "el": 0,
+      "sub": 0,
+      "yr": 2030,
+      "so": 32,
+      "wi": 28,
+      "ot": 20,
+      "ed": 1000,
+      "dur": 10
+    },
+    "finance": {
+      "discount": 8,
+      "captureCapex": 450,
+      "transportCapex": 85,
+      "storageCapex": 110,
+      "efficiencyCapex": 8,
+      "electrifyCapex": 3,
+      "renewCapex": 1.5,
+      "utilCapex": 180,
+      "captureOpex": 35,
+      "transportOpex": 13,
+      "storageOpex": 18,
+      "utilOpex": 12,
+      "mrvOpex": 5,
+      "powerPrice": 0.07,
+      "renewPremium": 0.01,
+      "effSavings": 3,
+      "fuelSavings": 0.4,
+      "transportLoss": 0.5,
+      "utilShare": 0,
+      "utilPrice": 30,
+      "storageFee": 0,
+      "policyEligible": 100,
+      "uncertainty": 20
+    },
+    "year": 2050
+  },
+  "units": {
+    "carbon": "Mt CO2/year",
+    "money": "million constant 2025 USD",
+    "rate": "percent"
+  },
+  "scenario": {
+    "facilityType": "Illustrative BF-BOF steel plant",
+    "steelOutputMtPerYear": 2,
+    "deploymentFraction": 1,
+    "baselineNetMt": 2.3160000000000003,
+    "captureRatePct": 90,
+    "ccsEnabled": true,
+    "capturedMt": 0.9090900000000001,
+    "grossInjectedMt": 0.9045445500000001,
+    "utilizedMt": 0,
+    "transportLossMt": 0.00454545,
+    "physicalRetainedProxyMt": 0.8999991,
+    "permanentStoredMt": null,
+    "residualOperationalMt": 0.9870190679999999,
+    "horizonAdjustedNetMt": 0.996109968,
+    "physicalAvoidedMt": 1.3198900320000004,
+    "financeAvoidedMt": 1.3153445820000005,
+    "selectedMeasures": {
+      "efficiencyPct": 15,
+      "electrificationPct": 0,
+      "lowCarbonPowerPct": 80,
+      "ccs": true
+    }
+  },
+  "finance": {
+    "grossCapexMUsd": 796.36305,
+    "netDesignCapexMUsd": 796.36305,
+    "selectedYearOpexMUsd": 90.20900580000001,
+    "npvMUsd": -134.6275490285887,
+    "irr": "0.5%",
+    "paybackYear": 2050,
+    "carbonPriceUsdPerTonne": 75,
+    "discountRatePct": 8,
+    "uncertaintyRangePct": 20
+  },
+  "limitations": [
+    "All engineering inputs and financial coefficients are illustrative assumptions, not measured facility data or validated investment forecasts.",
+    "Gross injection is not proof of permanent storage. The original physical retention proxy and financial routing are separate simplified boundaries; permanent storage after transport and utilization is not established.",
+    "Utilized CO2 is not permanent sequestration. The original avoided-emissions ledger has a utilization limitation; this integration preserves rather than changes that model.",
+    "Carbon-price and subsidy values are hypothetical assumptions, not guaranteed revenue or proof of tax-credit eligibility.",
+    "Illustrative cash flows. Capture/transport/storage costs, energy-upgrade investments, policy-value eligibility and distributions are user assumptions; missing facility, market and legal evidence. Carbon-price value is hypothetical, not a 45Q entitlement. No financing, tax, inflation, environmental externalities or EOR oil emissions modeled.",
+    "Synthetic stakeholder opinions are exploratory AI output, not evidence of actual market demand or representative industry preferences."
+  ],
+  "researchObjective": "Explore hypothetical stakeholder reactions to this illustrative decarbonization investment scenario and the usefulness of the Carbon Twin interface.",
+  "surveyQuestions": [
+    "Which perspective best describes you? Industrial operations; sustainability/ESG; finance/investment; engineering; research/academia; policy/regulation; other.",
+    "Which factor matters most? Emissions reduction; initial CAPEX; OPEX; financial returns; regulatory compliance; technology maturity.",
+    "How attractive is this scenario under its stated assumptions? Rate 1 (not attractive) to 5 (very attractive), or not enough information.",
+    "What is your biggest concern about this strategy? Select one: cost; financial uncertainty; technology performance; storage durability; policy uncertainty; other.",
+    "Would scenario-based financial projections increase your decision confidence? Rate 1 (not at all) to 5 (very much), or not enough information.",
+    "Which additional information would you need before recommending an investment? Open-ended.",
+    "How useful is this interactive Carbon Twin for exploring decarbonization options? Rate 1 (not useful) to 5 (very useful), or unable to assess."
+  ],
+  "flashpointArguments": {
+    "brief": "Prepare a DRAFT survey titled Industrial Decarbonization Investment Decision Study. Return all proposed questions for review. If your workflow requires plan approval, return the plan and stop.\n\nDo not publish, send emails, recruit participants, launch a panel, or perform any additional paid actions. Do not treat this request as confirmation of any prior action.\n\nUse these calculated illustrative scenario figures as context. Do not invent missing values or describe utilization as permanent storage.\n\n{\"scenarioId\":\"48d24c8d3aaac2cd4846ff6e\",\"scenarioName\":\"Combined CCUS demonstration\",\"year\":2050,\"units\":{\"carbon\":\"Mt CO2/year\",\"money\":\"million constant 2025 USD\",\"rate\":\"percent\"},\"scenario\":{\"facilityType\":\"Illustrative BF-BOF steel plant\",\"steelOutputMtPerYear\":2,\"deploymentFraction\":1,\"baselineNetMt\":2.3160000000000003,\"captureRatePct\":90,\"ccsEnabled\":true,\"capturedMt\":0.9090900000000001,\"grossInjectedMt\":0.9045445500000001,\"utilizedMt\":0,\"transportLossMt\":0.00454545,\"physicalRetainedProxyMt\":0.8999991,\"permanentStoredMt\":null,\"residualOperationalMt\":0.9870190679999999,\"horizonAdjustedNetMt\":0.996109968,\"physicalAvoidedMt\":1.3198900320000004,\"financeAvoidedMt\":1.3153445820000005,\"selectedMeasures\":{\"efficiencyPct\":15,\"electrificationPct\":0,\"lowCarbonPowerPct\":80,\"ccs\":true}},\"finance\":{\"grossCapexMUsd\":796.36305,\"netDesignCapexMUsd\":796.36305,\"selectedYearOpexMUsd\":90.20900580000001,\"npvMUsd\":-134.6275490285887,\"irr\":\"0.5%\",\"paybackYear\":2050,\"carbonPriceUsdPerTonne\":75,\"discountRatePct\":8,\"uncertaintyRangePct\":20},\"limitations\":[\"All engineering inputs and financial coefficients are illustrative assumptions, not measured facility data or validated investment forecasts.\",\"Gross injection is not proof of permanent storage. The original physical retention proxy and financial routing are separate simplified boundaries; permanent storage after transport and utilization is not established.\",\"Utilized CO2 is not permanent sequestration. The original avoided-emissions ledger has a utilization limitation; this integration preserves rather than changes that model.\",\"Carbon-price and subsidy values are hypothetical assumptions, not guaranteed revenue or proof of tax-credit eligibility.\",\"Illustrative cash flows. Capture/transport/storage costs, energy-upgrade investments, policy-value eligibility and distributions are user assumptions; missing facility, market and legal evidence. Carbon-price value is hypothetical, not a 45Q entitlement. No financing, tax, inflation, environmental externalities or EOR oil emissions modeled.\",\"Synthetic stakeholder opinions are exploratory AI output, not evidence of actual market demand or representative industry preferences.\"]}\n\nUse these seven questions, in plain language:\n\nWhich perspective best describes you? Industrial operations; sustainability/ESG; finance/investment; engineering; research/academia; policy/regulation; other.\n\nWhich factor matters most? Emissions reduction; initial CAPEX; OPEX; financial returns; regulatory compliance; technology maturity.\n\nHow attractive is this scenario under its stated assumptions? Rate 1 (not attractive) to 5 (very attractive), or not enough information.\n\nWhat is your biggest concern about this strategy? Select one: cost; financial uncertainty; technology performance; storage durability; policy uncertainty; other.\n\nWould scenario-based financial projections increase your decision confidence? Rate 1 (not at all) to 5 (very much), or not enough information.\n\nWhich additional information would you need before recommending an investment? Open-ended.\n\nHow useful is this interactive Carbon Twin for exploring decarbonization options? Rate 1 (not useful) to 5 (very useful), or unable to assess.\n\nIntended later study: a small synthetic panel, explicitly labeled AI-Simulated Respondents — Exploratory Research Only. No real participants are being recruited by this request."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "surveyId": "fafab667-80e8-4f1d-8a48-5715a1103485",
+  "libraryPanelId": "01a1fb5e-7024-77a2-90f3-efff25fc5b45",
+  "panelId": "01a1fb5e-7010-7b8a-8bd6-b6d22fb83b59",
+  "runId": "01a1fb5e-702b-73c1-9289-35a8806e497c",
+  "collectionStatus": "completed",
+  "analysisStatus": "pending",
+  "totalPersonas": 12,
+  "completeResponses": 12,
+  "analyticsScope": {
+    "survey_id": "fafab667-80e8-4f1d-8a48-5715a1103485",
+    "panel_id": "01a1fb5e-7010-7b8a-8bd6-b6d22fb83b59",
+    "calibration_version": "uncalibrated",
+    "run_id": "01a1fb5e-702b-73c1-9289-35a8806e497c"
+  },
+  "inferenceModel": "gpt-5.4-mini",
+  "receipt": {
+    "success": true,
+    "network": "eip155:8453",
+    "transaction": "0xb7a7233b5dd5feff95c9f042703715fcc8ad1f27e2ad0fa1b85834b713cda26e"
+  },
+  "settlementVerified": true,
+  "returnedAt": "2026-11-20T23:51:51.227Z"
+}

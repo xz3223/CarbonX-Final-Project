@@ -1,0 +1,29 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const E=require('../../packages/domain/src/ctvEngine.js');
+const ref=require('../../packages/domain/src/ctvReference.js');
+const directory=path.resolve(__dirname,'../../.runtime/llm-jobs');
+const jobs=new Map();
+const executing=new Set();
+function config(){return {configured:!!(process.env.OPENAI_API_KEY&&process.env.OPENAI_MODEL),model:process.env.OPENAI_MODEL||null,target:1000}}
+function save(job){fs.mkdirSync(directory,{recursive:true});const file=path.join(directory,job.id+'.json'),temp=file+'.tmp';fs.writeFileSync(temp,JSON.stringify(job));fs.renameSync(temp,file)}
+function get(id){if(!/^[a-f0-9]{24}$/.test(id))throw Error('Unknown job');if(!jobs.has(id)){const file=path.join(directory,id+'.json');if(!fs.existsSync(file))throw Error('Unknown job');const j=JSON.parse(fs.readFileSync(file,'utf8'));if(j.status==='running')j.status='paused';const recorded=new Set(j.results.map(r=>r.index));for(let i=0;i<j.next;i++)if(!recorded.has(i))j.results.push({index:i,ok:false,error:'Interrupted request; not retried to avoid duplicate billing'});jobs.set(id,j)}return jobs.get(id)}
+function summary(j){const counts={Positive:0,Baseline:0,Redline:0};for(const r of j.results)if(r.ok)counts[r.category]++;const valid=Object.values(counts).reduce((a,b)=>a+b,0);return {id:j.id,status:j.status,model:j.model,target:1000,attempted:j.next,completed:j.results.length,valid,failed:j.results.length-valid,inFlight:j.next-j.results.length,counts,percentages:valid?Object.fromEntries(Object.entries(counts).map(([k,v])=>[k,v/valid*100])):null,inputs:j.inputs,band:j.band,baselineFloor:ref.pathways[0].npv,created:j.created,results:j.results,method:'1000 actual OpenAI requests; percentages over valid replies only, not calibrated probabilities',error:j.error||null}}
+async function infer(j,index,fetcher=fetch){
+const fields=['fee','capexIntensity','storageCost','uSteady'];const ranges=Object.fromEntries(fields.map(k=>[k,[Math.max(0,j.inputs[k]*(1-j.band/100)),Math.min(E.bounds[k][1],j.inputs[k]*(1+j.band/100))]]));
+const prompt={task:'Propose one CONDITIONAL financial scenario, not a factual forecast. Return ONLY a JSON object with four numeric keys: fee, capexIntensity, storageCost, uSteady. Each must fall within the stated bounds. Do not invent evidence or IRR. Repeated calls are correlated model opinions, not calibrated probabilities.',requestIndex:index,reference:{model:'CTV VI storage operator, 2026-2036, real 2024 USD, pre-tax unlevered, no terminal recovery or policy receipts',capacityMt:3.38},current:j.inputs,bounds:ranges};
+const response=await fetcher('https://api.openai.com/v1/chat/completions',{method:'POST',headers:{Authorization:'Bearer '+process.env.OPENAI_API_KEY,'Content-Type':'application/json'},signal:AbortSignal.timeout(90000),body:JSON.stringify({model:j.model,messages:[{role:'system',content:'You propose conditional numerical scenarios within bounds. Never claim project facts or probabilities. Return valid JSON only.'},{role:'user',content:JSON.stringify(prompt)}],max_completion_tokens:1024,response_format:{type:'json_object'}})});
+if(!response.ok){const error=Error('OpenAI HTTP '+response.status);error.fatal=[400,401,403,404,429].includes(response.status);throw error}
+const data=await response.json(),text=data.choices?.[0]?.message?.content;
+if(typeof text!=='string')throw Error('Missing structured reply');const patch=JSON.parse(text);if(Object.keys(patch).length!==4)throw Error('Expected exactly four fields');
+for(const k of fields){if(typeof patch[k]!=='number'||!Number.isFinite(patch[k])||patch[k]<ranges[k][0]-1e-9||patch[k]>ranges[k][1]+1e-9)throw Error('Out-of-range reply: '+k)}
+const p={...j.inputs,...patch};p.u1=Math.min(p.u1,p.uSteady);p.u2=Math.min(p.u2,p.uSteady);const r=E.calc(p);
+return {index,ok:true,responseId:data.id||null,usage:data.usage||null,inputs:p,npv:r.npv,irr:r.irr,category:E.classify(r)};
+}
+async function execute(j,fetcher,persist=save){if(executing.has(j.id))return;executing.add(j.id);j.status='running';delete j.error;persist(j);
+// One active request at a time keeps cancellation and exact call counts auditable. No automatic retries.
+try{while(j.status==='running'&&j.next<1000){const index=j.next++;persist(j);try{j.results.push(await infer(j,index,fetcher))}catch(e){j.results.push({index,ok:false,error:e.fatal?e.message:'Invalid, timed-out or failed reply'});if(e.fatal){j.status='paused';j.error=e.message+'; fix configuration/rate limit before resuming'}}persist(j)}
+if(j.next===1000&&j.status==='running')j.status='complete';persist(j)}finally{executing.delete(j.id)}}
+function create(raw,band){if(!config().configured)throw Error('Set OPENAI_API_KEY and OPENAI_MODEL on the server first');if([...jobs.values()].some(j=>j.status==='running'))throw Error('A report is already running');if(typeof band!=='number'||band<0||band>100)throw Error('Band must be 0–100');const j={id:crypto.randomBytes(12).toString('hex'),status:'pending',inputs:E.validate(raw),band,model:config().model,next:0,results:[],created:new Date().toISOString()};jobs.set(j.id,j);save(j);void execute(j).catch(()=>{j.status='paused';j.error='Local job persistence failed'});return summary(j)}
+function control(id,action){const j=get(id);if(action==='pause'){j.status='paused';save(j)}else if(action==='resume'){if(executing.size)throw Error('Wait for the active request to settle before resuming');if(!config().configured||config().model!==j.model)throw Error('Restore the same model configuration');if(j.next>=1000)throw Error('All requests already attempted');if([...jobs.values()].some(other=>other.status==='running'))throw Error('A report is already running');void execute(j).catch(()=>{j.status='paused'})}else throw Error('Unknown action');return summary(j)}
+module.exports={config,get,summary,create,control,infer,execute};

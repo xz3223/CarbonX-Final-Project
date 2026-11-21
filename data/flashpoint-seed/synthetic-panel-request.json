@@ -1,0 +1,22 @@
+{
+  "tool": "panel",
+  "arguments": {
+    "action": "create_and_run",
+    "name": "Industrial Carbon Twin — exploratory synthetic stakeholders",
+    "num_respondents": 12,
+    "research_objective": "Explore hypothetical stakeholder reactions to this illustrative decarbonization investment scenario and the usefulness of the Carbon Twin interface.",
+    "context": "Use the existing seven-question DRAFT survey. Do not publish, email real people, recruit humans, or change any engineering/financial assumptions.\n\nGenerate 12 AI-simulated respondents. Aim for a balanced mix of industrial plant managers, sustainability/ESG professionals, finance/investment analysts, environmental researchers, industrial engineers, and policy/regulatory analysts. Approximately two per perspective is a preference, not an unsupported hard quota; retain and report the actual generated composition.\n\nLabel every result AI-Simulated Respondents — Exploratory Research Only. Do not infer actual market demand or statistically representative industry preferences.\n\nReturn the job_id and, when available, actual answer data and question labels, role profiles, respondent completion statuses, distributions, concerns and limitations. Do not invent missing answers or segment assignments.\n\nCalculated scenario context:\n\n{\"scenarioId\":\"48d24c8d3aaac2cd4846ff6e\",\"year\":2050,\"units\":{\"carbon\":\"Mt CO2/year\",\"money\":\"million constant 2025 USD\",\"rate\":\"percent\"},\"scenario\":{\"facilityType\":\"Illustrative BF-BOF steel plant\",\"steelOutputMtPerYear\":2,\"deploymentFraction\":1,\"baselineNetMt\":2.3160000000000003,\"captureRatePct\":90,\"ccsEnabled\":true,\"capturedMt\":0.9090900000000001,\"grossInjectedMt\":0.9045445500000001,\"utilizedMt\":0,\"transportLossMt\":0.00454545,\"physicalRetainedProxyMt\":0.8999991,\"permanentStoredMt\":null,\"residualOperationalMt\":0.9870190679999999,\"horizonAdjustedNetMt\":0.996109968,\"physicalAvoidedMt\":1.3198900320000004,\"financeAvoidedMt\":1.3153445820000005,\"selectedMeasures\":{\"efficiencyPct\":15,\"electrificationPct\":0,\"lowCarbonPowerPct\":80,\"ccs\":true}},\"finance\":{\"grossCapexMUsd\":796.36305,\"netDesignCapexMUsd\":796.36305,\"selectedYearOpexMUsd\":90.20900580000001,\"npvMUsd\":-134.6275490285887,\"irr\":\"0.5%\",\"paybackYear\":2050,\"carbonPriceUsdPerTonne\":75,\"discountRatePct\":8,\"uncertaintyRangePct\":20},\"limitations\":[\"All engineering inputs and financial coefficients are illustrative assumptions, not measured facility data or validated investment forecasts.\",\"Gross injection is not proof of permanent storage. The original physical retention proxy and financial routing are separate simplified boundaries; permanent storage after transport and utilization is not established.\",\"Utilized CO2 is not permanent sequestration. The original avoided-emissions ledger has a utilization limitation; this integration preserves rather than changes that model.\",\"Carbon-price and subsidy values are hypothetical assumptions, not guaranteed revenue or proof of tax-credit eligibility.\",\"Illustrative cash flows. Capture/transport/storage costs, energy-upgrade investments, policy-value eligibility and distributions are user assumptions; missing facility, market and legal evidence. Carbon-price value is hypothetical, not a 45Q entitlement. No financing, tax, inflation, environmental externalities or EOR oil emissions modeled.\",\"Synthetic stakeholder opinions are exploratory AI output, not evidence of actual market demand or representative industry preferences.\"]}",
+    "survey_id": "fafab667-80e8-4f1d-8a48-5715a1103485"
+  },
+  "scenarioId": "48d24c8d3aaac2cd4846ff6e",
+  "requestHash": "6f31d495a358868145e1d7dba61cc424880434b2a0c01da6dd83c3ece8fa1157",
+  "approvalId": "synthetic-panel-20261120-1",
+  "approvalStatus": "not approved",
+  "maximumUsdc": "0.60",
+  "businessCalls": 1,
+  "paidRetries": 0,
+  "permittedAction": "Create and run one 12-persona synthetic panel against the existing DRAFT survey only. No public publication, emails or human recruitment.",
+  "statusQueries": "Only unsigned, non-paying status requests are permitted without further payment approval; stop on HTTP 402.",
+  "sourceSurveyConversationId": "01a1fad4-66e3-77e1-a7f6-e56827069cc7",
+  "priceBasis": "Ceiling based on the official documented create_and_run default; actual payment terms must not exceed 0.60 USDC."
+}

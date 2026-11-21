@@ -1,0 +1,876 @@
+{
+  "datasetVersion": "user-workbook-2026-11-16",
+  "sourceFile": "US_CCUS_Commercial_Readiness_50_States.xlsx",
+  "sourceSheet": "50-state scores",
+  "quality": "user-supplied screening scores; evidence has not been independently audited",
+  "scoreBounds": {
+    "perDimension": [
+      0,
+      6
+    ],
+    "total": [
+      0,
+      36
+    ]
+  },
+  "states": [
+    {
+      "code": "AK",
+      "name": "Alaska",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 2
+      },
+      "total": 16,
+      "tiedRank": 25,
+      "exampleRegions": "Cook Inlet / Kenai / North Slope / Prudhoe Bay"
+    },
+    {
+      "code": "AL",
+      "name": "Alabama",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 4,
+        "transport": 3,
+        "economics": 3,
+        "cluster": 6
+      },
+      "total": 23,
+      "tiedRank": 7,
+      "exampleRegions": "Mobile / Bucks / Birmingham / Tuscaloosa"
+    },
+    {
+      "code": "AR",
+      "name": "Arkansas",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 3,
+        "transport": 3,
+        "economics": 3,
+        "cluster": 5
+      },
+      "total": 21,
+      "tiedRank": 12,
+      "exampleRegions": "El Dorado / South Arkansas / Pine Bluff / Mississippi Embayment"
+    },
+    {
+      "code": "AZ",
+      "name": "Arizona",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 5,
+        "storage": 3,
+        "water": 1,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 1
+      },
+      "total": 14,
+      "tiedRank": 35,
+      "exampleRegions": "Holbrook / Cholla / West Phoenix / Harquahala"
+    },
+    {
+      "code": "CA",
+      "name": "California",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 3,
+        "storage": 5,
+        "water": 2,
+        "transport": 4,
+        "economics": 4,
+        "cluster": 6
+      },
+      "total": 24,
+      "tiedRank": 5,
+      "exampleRegions": "Kern / San Joaquin Valley / Contra Costa / Bay Area"
+    },
+    {
+      "code": "CO",
+      "name": "Colorado",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 5,
+        "storage": 4,
+        "water": 1,
+        "transport": 3,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 20,
+      "tiedRank": 16,
+      "exampleRegions": "Front Range / Weld / Pueblo / Arkansas River"
+    },
+    {
+      "code": "CT",
+      "name": "Connecticut",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 3
+      },
+      "total": 11,
+      "tiedRank": 44,
+      "exampleRegions": "Hartford / Connecticut River / New Haven / Coastal area"
+    },
+    {
+      "code": "DE",
+      "name": "Delaware",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 4
+      },
+      "total": 14,
+      "tiedRank": 35,
+      "exampleRegions": "Wilmington / Delaware City / Dover / Kent County"
+    },
+    {
+      "code": "FL",
+      "name": "Florida",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 3,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 4
+      },
+      "total": 15,
+      "tiedRank": 30,
+      "exampleRegions": "Pensacola / Panhandle / Tampa / Central Gulf Coast"
+    },
+    {
+      "code": "GA",
+      "name": "Georgia",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 3,
+        "water": 3,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 5
+      },
+      "total": 17,
+      "tiedRank": 22,
+      "exampleRegions": "Savannah / Coastal Plain / Macon / Central Georgia"
+    },
+    {
+      "code": "HI",
+      "name": "Hawaii",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 1
+      },
+      "total": 9,
+      "tiedRank": 47,
+      "exampleRegions": "Oʻahu / Kapolei / Hawaiʻi Island / Hilo"
+    },
+    {
+      "code": "IA",
+      "name": "Iowa",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 3,
+        "transport": 3,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 17,
+      "tiedRank": 22,
+      "exampleRegions": "Southwest Iowa / Council Bluffs / Central Iowa / Ames"
+    },
+    {
+      "code": "ID",
+      "name": "Idaho",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 1,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 4
+      },
+      "total": 13,
+      "tiedRank": 40,
+      "exampleRegions": "Twin Falls / Snake River Plain / Pocatello / Southeast Idaho"
+    },
+    {
+      "code": "IL",
+      "name": "Illinois",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 3,
+        "storage": 5,
+        "water": 4,
+        "transport": 4,
+        "economics": 4,
+        "cluster": 4
+      },
+      "total": 24,
+      "tiedRank": 5,
+      "exampleRegions": "Decatur / Central Illinois / Metro East / Granite City"
+    },
+    {
+      "code": "IN",
+      "name": "Indiana",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 4,
+        "water": 3,
+        "transport": 3,
+        "economics": 4,
+        "cluster": 5
+      },
+      "total": 23,
+      "tiedRank": 7,
+      "exampleRegions": "Terre Haute / Wabash Valley / Gary / Northwest Indiana"
+    },
+    {
+      "code": "KS",
+      "name": "Kansas",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 3,
+        "transport": 3,
+        "economics": 4,
+        "cluster": 4
+      },
+      "total": 21,
+      "tiedRank": 12,
+      "exampleRegions": "Pratt / Southwest Kansas / Wichita / South Central Kansas"
+    },
+    {
+      "code": "KY",
+      "name": "Kentucky",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 2,
+        "water": 4,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 5
+      },
+      "total": 20,
+      "tiedRank": 16,
+      "exampleRegions": "Ohio River / Louisville / Western Kentucky / Henderson"
+    },
+    {
+      "code": "LA",
+      "name": "Louisiana",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 3,
+        "storage": 5,
+        "water": 4,
+        "transport": 5,
+        "economics": 5,
+        "cluster": 6
+      },
+      "total": 28,
+      "tiedRank": 2,
+      "exampleRegions": "Donaldsonville / Baton Rouge / Lake Charles / Cameron"
+    },
+    {
+      "code": "MA",
+      "name": "Massachusetts",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 3
+      },
+      "total": 11,
+      "tiedRank": 44,
+      "exampleRegions": "Boston / Greater Boston / Springfield / Pioneer Valley"
+    },
+    {
+      "code": "MD",
+      "name": "Maryland",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 3,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 2
+      },
+      "total": 13,
+      "tiedRank": 40,
+      "exampleRegions": "Baltimore / Chesapeake / Western Maryland / Cumberland"
+    },
+    {
+      "code": "ME",
+      "name": "Maine",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 1
+      },
+      "total": 9,
+      "tiedRank": 47,
+      "exampleRegions": "Penobscot / Bangor / Portland / Casco Bay"
+    },
+    {
+      "code": "MI",
+      "name": "Michigan",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 3,
+        "storage": 3,
+        "water": 3,
+        "transport": 3,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 19,
+      "tiedRank": 20,
+      "exampleRegions": "Central Michigan / Mount Pleasant / Detroit / River Rouge"
+    },
+    {
+      "code": "MN",
+      "name": "Minnesota",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 15,
+      "tiedRank": 30,
+      "exampleRegions": "Southwest / Marshall / Twin Cities / Mississippi River"
+    },
+    {
+      "code": "MO",
+      "name": "Missouri",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 3,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 16,
+      "tiedRank": 25,
+      "exampleRegions": "St. Louis / Mississippi River / Bootheel / southeast Missouri"
+    },
+    {
+      "code": "MS",
+      "name": "Mississippi",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 3,
+        "transport": 3,
+        "economics": 4,
+        "cluster": 4
+      },
+      "total": 21,
+      "tiedRank": 12,
+      "exampleRegions": "Jackson / Yazoo City / Pascagoula / Gulf Coast"
+    },
+    {
+      "code": "MT",
+      "name": "Montana",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 2
+      },
+      "total": 15,
+      "tiedRank": 30,
+      "exampleRegions": "Billings / Yellowstone / Sidney / Williston Basin"
+    },
+    {
+      "code": "NC",
+      "name": "North Carolina",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 4
+      },
+      "total": 14,
+      "tiedRank": 35,
+      "exampleRegions": "Wilmington / Coastal Plain / Piedmont / Greensboro"
+    },
+    {
+      "code": "ND",
+      "name": "North Dakota",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 6,
+        "water": 3,
+        "transport": 6,
+        "economics": 5,
+        "cluster": 2
+      },
+      "total": 26,
+      "tiedRank": 3,
+      "exampleRegions": "Richardton / Broom Creek / Beulah / Underwood"
+    },
+    {
+      "code": "NE",
+      "name": "Nebraska",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 1,
+        "transport": 5,
+        "economics": 4,
+        "cluster": 3
+      },
+      "total": 20,
+      "tiedRank": 16,
+      "exampleRegions": "Bridgeport / Western Nebraska / Grand Island / Central Platte"
+    },
+    {
+      "code": "NH",
+      "name": "New Hampshire",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 2
+      },
+      "total": 10,
+      "tiedRank": 46,
+      "exampleRegions": "Manchester / Merrimack / Portsmouth / Seacoast"
+    },
+    {
+      "code": "NJ",
+      "name": "New Jersey",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 5
+      },
+      "total": 16,
+      "tiedRank": 25,
+      "exampleRegions": "Newark / Port Newark / Paulsboro / Lower Delaware"
+    },
+    {
+      "code": "NM",
+      "name": "New Mexico",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 4,
+        "water": 1,
+        "transport": 3,
+        "economics": 4,
+        "cluster": 4
+      },
+      "total": 20,
+      "tiedRank": 16,
+      "exampleRegions": "Carlsbad / Permian Basin / Farmington / San Juan Basin"
+    },
+    {
+      "code": "NV",
+      "name": "Nevada",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 1,
+        "economics": 2,
+        "cluster": 3
+      },
+      "total": 12,
+      "tiedRank": 43,
+      "exampleRegions": "Las Vegas / Southern Nevada / Reno / Truckee Meadows"
+    },
+    {
+      "code": "NY",
+      "name": "New York",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 3,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 3
+      },
+      "total": 14,
+      "tiedRank": 35,
+      "exampleRegions": "Buffalo / Western New York / New York Harbor / NY side"
+    },
+    {
+      "code": "OH",
+      "name": "Ohio",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 4,
+        "water": 4,
+        "transport": 3,
+        "economics": 3,
+        "cluster": 5
+      },
+      "total": 23,
+      "tiedRank": 7,
+      "exampleRegions": "Toledo / Lima Industrial Corridor / Ohio Valley / Steubenville"
+    },
+    {
+      "code": "OK",
+      "name": "Oklahoma",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 3,
+        "transport": 3,
+        "economics": 4,
+        "cluster": 5
+      },
+      "total": 22,
+      "tiedRank": 10,
+      "exampleRegions": "Enid / Northwest Oklahoma / Tulsa / Cushing"
+    },
+    {
+      "code": "OR",
+      "name": "Oregon",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 3
+      },
+      "total": 13,
+      "tiedRank": 40,
+      "exampleRegions": "Portland / Lower Columbia / Umatilla / Eastern Columbia"
+    },
+    {
+      "code": "PA",
+      "name": "Pennsylvania",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 3,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 6
+      },
+      "total": 21,
+      "tiedRank": 12,
+      "exampleRegions": "Pittsburgh / Mon Valley / Delaware Valley / Philadelphia"
+    },
+    {
+      "code": "RI",
+      "name": "Rhode Island",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 1
+      },
+      "total": 9,
+      "tiedRank": 47,
+      "exampleRegions": "Providence / Narragansett Bay / Quonset / North Kingstown"
+    },
+    {
+      "code": "SC",
+      "name": "South Carolina",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 5
+      },
+      "total": 16,
+      "tiedRank": 25,
+      "exampleRegions": "Charleston / Coastal Plain / Greenville / Upstate"
+    },
+    {
+      "code": "SD",
+      "name": "South Dakota",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 3
+      },
+      "total": 14,
+      "tiedRank": 35,
+      "exampleRegions": "Eastern ethanol corridor / Sioux Falls / Western South Dakota / Belle Fourche"
+    },
+    {
+      "code": "TN",
+      "name": "Tennessee",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 2,
+        "water": 4,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 5
+      },
+      "total": 17,
+      "tiedRank": 22,
+      "exampleRegions": "Memphis / Mississippi Embayment / Chattanooga / Tennessee River"
+    },
+    {
+      "code": "TX",
+      "name": "Texas",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 5,
+        "storage": 5,
+        "water": 3,
+        "transport": 5,
+        "economics": 5,
+        "cluster": 6
+      },
+      "total": 29,
+      "tiedRank": 1,
+      "exampleRegions": "Houston / Beaumont industrial corridor / Midland–Odessa / Permian Basin"
+    },
+    {
+      "code": "UT",
+      "name": "Utah",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 4,
+        "storage": 3,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 18,
+      "tiedRank": 21,
+      "exampleRegions": "Uinta Basin / Vernal / Wasatch Front / Salt Lake City"
+    },
+    {
+      "code": "VA",
+      "name": "Virginia",
+      "screeningCategory": "B",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 3,
+        "water": 3,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 3
+      },
+      "total": 15,
+      "tiedRank": 30,
+      "exampleRegions": "Hampton Roads / Tidewater / Southwest / Buchanan County"
+    },
+    {
+      "code": "VT",
+      "name": "Vermont",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 3,
+        "transport": 1,
+        "economics": 1,
+        "cluster": 1
+      },
+      "total": 9,
+      "tiedRank": 47,
+      "exampleRegions": "Burlington / Lake Champlain / Rutland / Western Vermont"
+    },
+    {
+      "code": "WA",
+      "name": "Washington",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 3,
+        "storage": 2,
+        "water": 2,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 4
+      },
+      "total": 16,
+      "tiedRank": 25,
+      "exampleRegions": "Wallula / Tri-Cities / Puget Sound / Anacortes"
+    },
+    {
+      "code": "WI",
+      "name": "Wisconsin",
+      "screeningCategory": "C",
+      "samples": 2,
+      "scores": {
+        "permits": 2,
+        "storage": 1,
+        "water": 4,
+        "transport": 2,
+        "economics": 2,
+        "cluster": 4
+      },
+      "total": 15,
+      "tiedRank": 30,
+      "exampleRegions": "Milwaukee / Southeast Wisconsin / Green Bay / Fox River"
+    },
+    {
+      "code": "WV",
+      "name": "West Virginia",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 5,
+        "storage": 3,
+        "water": 4,
+        "transport": 2,
+        "economics": 3,
+        "cluster": 5
+      },
+      "total": 22,
+      "tiedRank": 10,
+      "exampleRegions": "Ohio River / Moundsville / Kanawha Valley / Charleston"
+    },
+    {
+      "code": "WY",
+      "name": "Wyoming",
+      "screeningCategory": "A",
+      "samples": 2,
+      "scores": {
+        "permits": 5,
+        "storage": 6,
+        "water": 2,
+        "transport": 5,
+        "economics": 5,
+        "cluster": 2
+      },
+      "total": 25,
+      "tiedRank": 4,
+      "exampleRegions": "Powder River / Gillette / Eastern Wyoming / Laramie County"
+    }
+  ],
+  "transcriptionVerification": {
+    "date": "2026-11-17",
+    "sourceSha256": "250e584cfd4ae5c6eba65baae1cac99ac58077eaf5a607e3ba396f66a8854754",
+    "stateRecords": 50,
+    "dimensionScores": 300,
+    "discrepancies": 0,
+    "scope": "Transcription, totals and tied rankings; evidence not independently audited"
+  }
+}

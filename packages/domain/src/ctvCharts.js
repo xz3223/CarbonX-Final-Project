@@ -1,0 +1,16 @@
+(function(g){'use strict';
+const E=g.CTVEngine||(typeof require==='function'?require('./ctvEngine.js'):null),R=g.CTVReference;
+function views(raw,band=20){const p=E.validate(raw),r=E.calc(p),end=r.years.at(-1),step=band/100;
+const definitions=[['Service fee','fee'],['Development CAPEX','capexIntensity'],['Storage cost','storageCost'],['MRV cost','mrvCost'],['Steady utilization','uSteady'],['Discount rate','discount']];
+const sensitivity=definitions.map(([label,key])=>{const outcomes=[-1,1].map(sign=>{const q={...p,[key]:Math.max(E.bounds[key][0],Math.min(E.bounds[key][1],p[key]*(1+sign*step)))};q.u1=Math.min(q.u1,q.uSteady);q.u2=Math.min(q.u2,q.uSteady);return E.calc(q).npv-r.npv});return {label,key,low:outcomes[0],high:outcomes[1]}});
+const investment=[{label:'Development investment',value:r.capex},{label:'Separate cash collateral',value:r.reserve}];
+const capexByBox=[{label:'Capture',value:null},{label:'Transport',value:null},{label:'Storage',value:r.capex},{label:'Utilization',value:null},{label:'Energy upgrades',value:null}];
+const opexByBox=[{label:'Capture',value:null},{label:'Transport',value:null},{label:'Storage',value:end.variable+end.fixed},{label:'Utilization',value:null},{label:'Energy upgrades',value:null}];
+const opexBreakdown=[{label:'Variable storage',value:end.q*p.storageCost},{label:'Monitoring / MRV',value:end.q*p.mrvCost},{label:'Fixed overhead',value:end.fixed}];
+const costs=[{label:'Variable storage',value:end.q*p.storageCost},{label:'Monitoring / MRV',value:end.q*p.mrvCost},{label:'Fixed overhead',value:end.fixed},{label:'Sustaining CAPEX',value:end.maintenance},{label:'Development CAPEX',value:end.development},{label:'Cash collateral',value:end.reserveOut},{label:'Working capital increase',value:Math.max(0,end.deltaWC)},{label:'Net cash surplus',value:Math.max(0,end.cf)}].filter(row=>row.value>1e-10);
+const cashSources=[{label:'Service receipts',value:end.revenue},{label:'Working capital release',value:Math.max(0,-end.deltaWC)},{label:'Unfunded cash shortfall',value:Math.max(0,-end.cf)}].filter(row=>row.value>1e-10);
+const bridge=[{label:'Service receipts',value:end.revenue},{label:'Variable OPEX + MRV',value:-end.variable},{label:'Fixed OPEX',value:-end.fixed},{label:'Sustaining CAPEX',value:-end.maintenance},{label:'Working capital change',value:-end.deltaWC},{label:'Development CAPEX',value:-end.development},{label:'Cash collateral',value:-end.reserveOut}];
+return {investment,capexByBox,opexByBox,opexBreakdown,cashSources,cashUses:costs,selectedYear:end.year,injectedMt:end.q,serviceReceipts:end.revenue,sensitivity,injection:r.years.map(y=>({label:String(y.year),value:y.q})),pathways:R.pathways.map(row=>({label:row.id,value:row.irr===null?null:row.irr*100})),bridge,finalCash:end.cf,baseNPV:r.npv,band};}
+function histogram(results,bins=20){const values=results.map(r=>r.npv),low=Math.min(...values),high=Math.max(...values),width=(high-low||1)/bins;const items=Array.from({length:bins},(_,i)=>({from:low+i*width,to:low+(i+1)*width,count:0}));for(const v of values)items[Math.min(bins-1,Math.floor((v-low)/width))].count++;return items;}
+g.CTVCharts={views,histogram};if(typeof module!=='undefined')module.exports=g.CTVCharts;
+})(globalThis);

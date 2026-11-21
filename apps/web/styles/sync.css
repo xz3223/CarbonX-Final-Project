@@ -1,0 +1,24 @@
+/* Backend authority indicator; the 3D remains locally rendered every frame. */
+.sync-indicator{font:600 11px/1.4 system-ui,sans-serif;border:1px solid #38546d;border-radius:7px;padding:5px 9px;background:#152b3c;color:#badbe7}
+.sync-indicator.online{border-color:#1c916e;color:#8af0c6;background:#0a2a26}
+.sync-indicator.warning{border-color:#a46a41;color:#ffd0a1;background:#362719}
+#apiValidation{border-left:2px solid #2ac4bb;font-size:11px;color:#91b5c0;padding:5px 8px;margin:6px 0}
+.page{max-width:1180px;margin:0 auto;padding:20px}
+.page a{color:#66dfd8}.page h1{font-size:25px}.page h2{font-size:18px}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.demo-card{background:#101d2d;border:1px solid #27465c;border-radius:12px;padding:20px}
+.demo-card h2{margin:0 0 8px}.demo-card p{color:#a8bed1}
+.demo-card a{display:inline-block;padding:7px 12px;border-radius:6px;border:1px solid #3aa9ad;text-decoration:none;margin-top:9px}
+.control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0}
+.control{padding:12px;background:#102234;border:1px solid #294659;border-radius:8px}
+.control label{display:flex;margin:0 0 7px;align-items:center}.control input[type=range]{width:100%}
+.chart-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin:14px 0}
+.grid-card{background:#0f1f30;border:1px solid #29465a;border-radius:10px;padding:15px;min-width:0}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.stat{background:#13283a;border:1px solid #2d4b5e;border-radius:9px;padding:12px}
+.stat span{color:#9fb6c6;display:block;font-size:11px}.stat b{font-size:19px}
+.btn{background:#123d48;color:#a1f5ef;border:1px solid #2d9ca1;border-radius:7px;padding:7px 12px;cursor:pointer;font:inherit}
+.btn:hover{background:#1b5a65}
+.readiness-table{border-collapse:collapse;width:100%}.readiness-table td,.readiness-table th{padding:9px;border-bottom:1px solid #29455b;text-align:left}
+.readiness-table tr:hover{background:#172e41}.readiness-table th{position:sticky;top:0;background:#15293b}
+input[type=search]{background:#152f42;border:1px solid #426276;color:#eafaff;padding:9px 12px;border-radius:7px}

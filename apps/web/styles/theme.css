@@ -1,0 +1,101 @@
+:root{color-scheme:dark;--bg:#070d17;--pn:#0e1726;--ln:#1f2d44;--tx:#e6eefb;--mu:#8196b3;--cy:#2fd4d8;--or:#ff7a45;--gr:#2fd28a;--rd:#ff5a5a}
+html,body{background:radial-gradient(1200px 600px at 20% -10%,#12233d,#070d17) fixed}
+header{background:#0a1220ee;border-color:var(--ln);position:sticky;top:0;z-index:20;backdrop-filter:blur(8px)}header h1{font-size:16px}
+.tag{background:#3a2412;color:#ffb27a;border-color:#6b4222}
+.srch{position:relative;flex:1;min-width:180px;max-width:360px}.srch input{width:100%;background:#0e1a2e;color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:6px 10px;font:inherit}
+#sres{position:absolute;left:0;right:0;top:100%;background:#0e1a2e;border:1px solid var(--ln);border-radius:8px;z-index:30;overflow:hidden}#sres button{display:flex;justify-content:space-between;width:100%;background:none;border:0;color:var(--tx);padding:6px 10px;cursor:pointer;text-align:left}#sres button:hover{background:#16263d}#sres small{color:var(--mu)}
+#steps button,.pb,#tabs button{background:#101d33;color:var(--mu);border-color:var(--ln)}.pb{color:var(--cy)}
+#steps button.on,#tabs button.on{background:var(--cy);color:#04141a;border-color:var(--cy)}
+#guide{background:#0b2531;border-color:#14485a}#nx,.ai{background:var(--cy);color:#04141a}
+aside,#stage,.cd{background:linear-gradient(#101b2e,#0c1524);border-color:var(--ln);box-shadow:0 8px 24px #0006}
+#cvw{background:radial-gradient(#17283f,#0a1220);border-color:var(--ln);height:min(72vh,690px);min-height:460px}
+.k,.note,#aiout,#aq{background:#0f1b2f;border-color:var(--ln);color:var(--tx)}.note{border-left-color:var(--cy)}
+.bw{background:#16233a}.q{background:#3a2412;color:#ffb27a}.ck{background:#0c2a22;border-color:#17503f;color:#5fe0ab}
+#modes{left:auto;right:8px}#modes button{background:#0e1a2ecc;color:var(--mu);border-color:var(--ln)}#modes button.on{color:var(--cy);border-color:var(--cy)}
+.lb{background:#0e1a2ecc;color:var(--tx);border-color:#2a3d5c}.lb.on{background:var(--cy);color:#04141a}
+#leg{left:230px;right:200px;bottom:4px;font-size:10px}
+#crumb{position:absolute;top:8px;left:8px;background:#0e1a2ee6;border:1px solid var(--ln);border-radius:8px;padding:5px 10px;font-size:12px}#crumb i{color:var(--mu);margin:0 4px;font-style:normal}#crumb b{color:var(--cy)}
+#zoom{position:absolute;left:8px;top:48px;display:flex;flex-direction:column;gap:4px}#zoom button{width:30px;height:30px;background:#0e1a2ee6;color:var(--tx);border:1px solid var(--ln);border-radius:8px;cursor:pointer;font-size:16px}
+.ov{position:absolute;bottom:8px;background:#0b1424ee;border:1px solid var(--ln);border-radius:10px;padding:8px 10px;backdrop-filter:blur(6px)}
+#route{left:8px;width:215px}#route h4{margin:0 0 6px;color:var(--or);font-size:12px}
+.rt{display:flex;flex-wrap:wrap;gap:3px 2px;align-items:center;font-size:11px}.rt i{color:var(--or);font-style:normal}.rt button{background:#16233a;color:var(--tx);border:1px solid var(--ln);border-radius:5px;padding:1px 5px;cursor:pointer;font-size:10.5px}.rt button.on{background:var(--or);color:#1a0a02;border-color:var(--or)}
+.rs{display:flex;flex-wrap:wrap;gap:2px 8px;font-size:11px;color:var(--mu);margin:6px 0 2px}.rs b{color:var(--tx)}
+#mm{right:8px;width:186px}#mm circle{cursor:pointer}
+@media(max-width:700px){#route,#mm{display:none}#leg{left:8px;right:8px}}
+.ah{display:flex;align-items:center;gap:8px;font-size:15px;letter-spacing:0;text-transform:none;color:var(--tx)}
+.st{font-size:10.5px;padding:1px 8px;border-radius:10px;background:#0c2a22;color:#5fe0ab;border:1px solid #17503f;font-weight:600}.st.off{background:#2a2f3a;color:var(--mu);border-color:#3a4252}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}.tiles div{background:#0f1b2f;border:1px solid var(--ln);border-radius:8px;padding:6px 9px}.tiles small{display:block;color:var(--mu);font-size:10.5px}.tiles b{font-size:20px}.tiles b i{font-size:11px;color:var(--mu);font-style:normal;margin-left:3px}.tiles b.sm{font-size:13px}
+svg line[stroke="#e3eaf0"]{stroke:#1f2d44}#sk text{fill:#dbe6f5;stroke:#0b1424}
+
+#detailToggle{background:#153b43!important;color:#8ce8eb!important;border-color:#2b8791!important;white-space:nowrap}
+#detailToggle:not(.on){background:#19283a!important;color:#a5b7c9!important;border-color:#435568!important}
+
+/* Ecological surroundings are scenery only and excluded from emissions accounting. */
+#environmentToggle.on{background:#123c30!important;color:#7ef3c1!important;border-color:#26835a!important}
+#environmentToggle:not(.on){background:#19283a!important;color:#9fadc3!important;border-color:#435568!important}
+#wideView{background:#142a3d!important;color:#bddbe8!important;border-color:#35556e!important}
+#wideView.on{color:#80f0cc!important;border-color:#2a9374!important}
+#environmentTag{position:absolute;bottom:43px;right:9px;z-index:3;background:#091b2bce;border:1px solid #23635e;border-radius:8px;padding:4px 9px;color:#b6e6da;font-size:10px;pointer-events:none;max-width:50%;text-align:right}
+#modes{flex-wrap:wrap;justify-content:flex-end;max-width:min(92%,470px)}
+#modes button{font-size:11px!important}
+@media(max-width:660px){#environmentTag{display:none}#modes{max-width:90%}#modes button{font-size:10px!important;padding:3px 5px!important}}
+/* Clear parameter-to-output accountability, without confusing modeled and empirical quantities. */
+#navModePan.on,#navModeOrbit.on,#navModeFocus.on{background:#2fd4d8!important;color:#04141a!important;border-color:#2fd4d8!important}
+#cv{cursor:grab}#cv:active{cursor:grabbing}
+#impactBox,#simImpactBox,#yearPanel{margin-top:11px;border:1px solid #28445a;border-radius:9px;padding:10px;background:#101f2e;color:#d8e9f7;font-size:11px}
+#impactBox strong,#simImpactBox strong{color:#79e4e6}#impactBox .impactrow,#simImpactBox .impactrow{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:7px 0}
+#impactBox .impactrow span,#simImpactBox .impactrow span{padding:6px 7px;background:#0c1725;border:1px solid #243e51;border-radius:5px}
+#impactBox .subtle,#simImpactBox .subtle,#yearPanel .subtle{color:#9db2c5;font-size:10px}
+#impactBox .impactrow{grid-template-columns:1fr}#simImpactBox .impactrow{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:700px){#simImpactBox .impactrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#yearPanel label{margin-top:2px;font-weight:650}
+#yearPanel output{color:#7be6e8;font-weight:700}
+#sl [data-k]:disabled,#ctl input:disabled{opacity:.35;cursor:not-allowed}
+#scenarioCaveat{font-size:11px;border-left:3px solid #dfaa54;background:#2b241d;color:#d8cbb5;padding:8px 10px;margin-top:8px;border-radius:5px}
+#modelBadge{font-size:11px;color:#aed0e1;margin:7px 0}
+
+/* ----- Techno-economic scenario studio ----- */
+#sim{max-width:1540px;margin:auto;padding:13px}
+#sim h3{letter-spacing:.08em}
+.tea-hero{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.tea-hero .tea-intro{color:#b9cedb;font-size:12px;max-width:810px}
+.tea-kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:9px 0 12px}
+.tea-kpi{border:1px solid #284459;border-radius:10px;background:linear-gradient(145deg,#13283b,#0d1b2c);padding:12px}
+.tea-kpi small{color:#91a9bd;display:block;font-size:10px;min-height:29px;line-height:1.3}
+.tea-kpi strong{display:block;font-size:18px;color:#ecf7ff;white-space:nowrap;margin-top:5px}
+.tea-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.tea-grid .cd{min-width:0}.tea-span{grid-column:1/-1}
+.tea-subtle{font-size:10.5px;color:#9cb1c3;margin:7px 0;line-height:1.5}
+.tea-legend{display:flex;gap:12px;flex-wrap:wrap;color:#b8d0db;font-size:11px;margin:4px 0 8px}
+.tea-legend i{display:inline-block;width:10px;height:10px;margin-right:5px;border-radius:2px}
+.tea-bar{display:grid;grid-template-columns:116px 1fr 81px;align-items:center;gap:8px;font-size:11px;margin:6px 0}
+.tea-track{height:9px;background:#172638;border-radius:4px;overflow:hidden}.tea-track div{height:100%;border-radius:4px}.tea-bar b{text-align:right;font-size:11px;color:#c9e8e5}
+.tea-sens{display:grid;grid-template-columns:110px 1fr 60px;gap:7px;align-items:center;margin:8px 0;font-size:11px}
+.tea-sens-track{height:13px;position:relative;border:1px solid #284257;border-radius:4px;background:#132333}
+.tea-sens-zero{position:absolute;left:50%;height:100%;width:1px;background:#a5b9c7}.tea-sens-band{position:absolute;top:2px;bottom:2px;background:linear-gradient(90deg,#f1a46d,#53d6c6);border-radius:2px}
+.tea-flow-steps{display:flex;gap:6px;align-items:stretch;justify-content:space-between;flex-wrap:wrap;padding:6px 0}
+.tea-flow-steps div{flex:1 1 135px;min-width:116px;border:1px solid #2b4a5e;background:#102738;padding:11px;border-radius:8px}
+.tea-flow-steps b{display:block;color:#b4f0ed;font-size:12px}.tea-flow-steps small{display:block;font-size:10px;color:#a2b6c6;margin-top:4px}
+.tea-flow-steps i,.tea-flow-branch{align-self:center;color:#4bd5d7;font-style:normal;font-size:20px}
+.tea-config{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:10px 0}
+.tea-config label{font-size:11px;gap:8px}.tea-config output{white-space:nowrap;color:#80e5df}
+.tea-config input{accent-color:#37d5cc}.tea-mc-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:9px 0}
+.tea-mc-actions select{background:#13283b;border:1px solid #345266;color:#c9e3ef;padding:5px 8px;border-radius:5px}
+.tea-mc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:9px 0}.tea-mc-stats span{background:#102236;border:1px solid #28415b;border-radius:6px;padding:7px}
+.tea-mc-stats small{display:block;color:#819db1;font-size:10px}.tea-mc-stats b{font-size:13px;color:#e3f6fa}
+.tea-warning{border-left:3px solid #d49b52;background:#28231d;color:#d9c1a0;padding:11px;border-radius:5px;font-size:11px;margin:10px 0}
+.tea-compact{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* Sea-to-land geological cross-section / marine view controls */
+#marineViews{display:flex;flex-wrap:wrap;gap:4px;margin-top:7px;justify-content:center}
+#marineViews button{flex:1;min-width:45px}
+#coastHint{position:absolute;left:9px;bottom:57px;max-width:210px;padding:7px 9px;font-size:10px;color:#aeece9;background:#08192bdc;border:1px solid #2b6871;border-radius:7px;z-index:4;pointer-events:none}
+@media(max-width:700px){#coastHint{display:none}#cvw{min-height:390px}}
+/* vertical geologic section camera slider */
+#depthConsole{position:absolute;right:9px;top:104px;width:127px;min-height:232px;padding:10px 8px 8px;background:#091627e8;border:1px solid #2b6171;border-radius:10px;box-shadow:0 8px 24px #0007;z-index:9;color:#c9ebeb;text-align:center;backdrop-filter:blur(5px)}
+#depthConsole b{font-size:11px;display:block;color:#a5e9e2}#depthConsole .depth-number{font-size:18px;color:#47dccf;font-weight:750}
+#geoDepth{writing-mode:vertical-lr;direction:rtl;appearance:slider-vertical;-webkit-appearance:slider-vertical;width:23px;height:126px;display:block;margin:8px auto;accent-color:#45d9cc;cursor:pointer}
+#depthConsole .depth-label{font-size:9px;color:#96bac8;line-height:1.4}
+#depthConsole button{font-size:9px;background:#16384a;border:1px solid #347283;border-radius:4px;color:#e0f5f7;padding:3px 6px;cursor:pointer;margin-top:5px}
+#geoKeys{position:absolute;right:142px;top:107px;z-index:8;color:#c6dee8;font-size:10px;line-height:1.5;background:#0b1726d4;border:1px solid #263f51;border-radius:7px;padding:7px 9px;pointer-events:none}
+#geoKeys div{white-space:nowrap}#geoKeys i{display:inline-block;width:10px;height:8px;margin-right:5px;border-radius:1px}
+@media(max-width:1190px){.tea-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.tea-config{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:750px){.tea-grid,.tea-compact{grid-template-columns:1fr}.tea-config{grid-template-columns:1fr}.tea-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}#geoKeys{display:none}#depthConsole{top:144px;min-height:175px;width:88px;padding:6px}#geoDepth{height:83px;margin:3px auto}#depthConsole .depth-number{font-size:12px}}

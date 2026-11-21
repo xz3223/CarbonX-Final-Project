@@ -1,0 +1,16 @@
+{
+  "surveyId": "fafab667-80e8-4f1d-8a48-5715a1103485",
+  "conversationId": "01a1fad4-66e3-77e1-a7f6-e56827069cc7",
+  "surveyTitle": "Industrial Decarbonization Investment Decision Study",
+  "surveyStatus": "draft",
+  "researchStatus": "pending",
+  "respondents": 0,
+  "scenarioId": "48d24c8d3aaac2cd4846ff6e",
+  "returnedAt": "2026-11-20T21:20:42.624Z",
+  "receipt": {
+    "success": true,
+    "network": "eip155:8453",
+    "transaction": "0xb86e267611876d598f4c6a19b550a6be7eef03bc1c219df5d80d56071d9ade15"
+  },
+  "settlementVerified": true
+}
