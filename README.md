@@ -1,3 +1,5 @@
+Final preview:
+
 # Industrial Carbon Twin + Flashpoint
 
 An interactive industrial decarbonization application with a geographic screening map, a 3D steel plant, scenario and financial calculations, and Flashpoint stakeholder-research integration. Engineering calculations use the existing deterministic models; synthetic research does not replace those calculations.
